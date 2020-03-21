@@ -38,10 +38,46 @@ class SokobanState:
             val = problem.valid_move(self,act)
             self.adj[act] = val
             return val
+        
     def deadp(self, problem):
+        
+        #This is a working implementation of step 1.) to check if a box is on a corner. If its on corner its a dead end
+        
+        #define a list of all combinations of sides for a box
+        adjacentSides = ['ul', 'ld', 'dr', 'ru']
+        #get the boxes for the current state
+        boxes = self.boxes()
+        #for each box in the current state check if its in the corner and not on target
+        for box in boxes:
+            #To keep a track if the sides of the boc tought the walls or not as a boolean 
+            wallInfo = {}
+            #check if there are walls up, left, down , right to the current box
+            for move in 'uldr':
+                #obtain the coordinates of the current move
+                moveCord = parse_move(move)
+                #add the coordinates of the move to the box
+                x = moveCord[0] + box[0]
+                y = moveCord[1] + box[1]
+                #find out if a wall exists for that move and add to wallInfo
+                wallInfo[move] = problem.map[x][y].wall
+            #check if any pair of adjacent side both touch the wall 
+            for adjMoves in adjacentSides:
+                #if a pair of adjacent sides touches the wall then it is possible if its a deadend
+                if(wallInfo[adjMoves[0]] and wallInfo[adjMoves[1]]):
+                    #make sure that the corner is not a target
+                    if not (problem.map[box[0]][box[1]].target):
+                        #if its corner box not on a target then its a dead end
+                        return True
+                #not a dead end so return false
+                else:
+                    self.dead = False
+                    
         if self.dead is None:
             raise NotImplementedError('Override me')
+        
+        #return the boolean determing if its a dead end or not
         return self.dead
+    
     def all_adj(self, problem):
         if self.all_adj_cache is None:
             succ = []
@@ -181,9 +217,13 @@ class SokobanProblem(util.SearchProblem):
     def goalp(self, s):
         return s.is_goal(self)
 
-    def expand(self, s):
+    def expand(self, s):        
         if self.dead_end(s):
+            #print('Dead')
+            print(self.print_state(s))
             return []
+        #print('Not Dead')
+        #print(self.print_state(s))
         return s.all_adj(self)
 
 class SokobanProblemFaster(SokobanProblem):
@@ -232,6 +272,7 @@ def solve_sokoban(map, algorithm='ucs', dead_detection=False):
     if 'f' in algorithm:
         problem = SokobanProblemFaster(map, dead_detection)
     else:
+        #print(dead_detection)
         problem = SokobanProblem(map, dead_detection)
 
     # search algorithm
@@ -243,6 +284,7 @@ def solve_sokoban(map, algorithm='ucs', dead_detection=False):
 
     # solve problem
     search.solve(problem)
+    #print(search.actions)
     if search.actions is not None:
         print('length {} soln is {}'.format(len(search.actions), search.actions))
     if 'f' in algorithm:
