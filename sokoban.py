@@ -48,7 +48,7 @@ class SokobanState:
                 return True
             else:
                 self.dead = False
-        
+                
         #if box not found in the simple dead end list then check for frozen states
     
         oppositeSides = ['ud', 'lr']
@@ -105,7 +105,7 @@ class SokobanState:
             
         for box in boxes:
             self.marked = set()
-            if (checkFrozen(box)):                     
+            if not problem.map[box[0]][box[1]].target and checkFrozen(box):                     
                     return True
         
         return self.dead
