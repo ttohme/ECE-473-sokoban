@@ -39,44 +39,77 @@ class SokobanState:
             self.adj[act] = val
             return val
         
-    def deadp(self, problem):
+    def deadp(self, problem):        
         
-        #This is a working implementation of step 1.) to check if a box is on a corner. If its on corner its a dead end
-        
-        #define a list of all combinations of sides for a box
-        adjacentSides = ['ul', 'ld', 'dr', 'ru']
-        #get the boxes for the current state
+        #check if box is in the visited set in the simple dead end detection
         boxes = self.boxes()
-        #for each box in the current state check if its in the corner and not on target
         for box in boxes:
-            #To keep a track if the sides of the boc tought the walls or not as a boolean 
-            wallInfo = {}
-            #check if there are walls up, left, down , right to the current box
-            for move in 'uldr':
-                #obtain the coordinates of the current move
-                moveCord = parse_move(move)
-                #add the coordinates of the move to the box
-                x = moveCord[0] + box[0]
-                y = moveCord[1] + box[1]
-                #find out if a wall exists for that move and add to wallInfo
-                wallInfo[move] = problem.map[x][y].wall
-            #check if any pair of adjacent side both touch the wall 
-            for adjMoves in adjacentSides:
-                #if a pair of adjacent sides touches the wall then it is possible if its a deadend
-                if(wallInfo[adjMoves[0]] and wallInfo[adjMoves[1]]):
-                    #make sure that the corner is not a target
-                    if not (problem.map[box[0]][box[1]].target):
-                        #if its corner box not on a target then its a dead end
-                        return True
-                #not a dead end so return false
-                else:
-                    self.dead = False
-                    
-        if self.dead is None:
-            raise NotImplementedError('Override me')
+            if box in problem.visited:
+                return True
+            else:
+                self.dead = False
         
-        #return the boolean determing if its a dead end or not
+        #if box not found in the simple dead end list then check for frozen states
+    
+        oppositeSides = ['ud', 'lr']
+        
+        def checkFrozen(box):
+            
+            lockInfo = {}
+            for move in 'uldr':
+                
+                mapping = {}                
+                cord = parse_move(move)
+                x = cord[0] + box[0]
+                y = cord[1] + box[1]
+                if (problem.map[x][y].wall):
+                    mapping['wall'] = True
+                elif((y, x) in problem.visited):
+                    mapping['lock'] = True
+                if((x, y) in boxes and (x, y) != (box[0], box[1])):
+                    if (x, y) in self.marked:
+                        mapping['wall'] = True
+                    else:
+                        mapping['box'] = (x, y)
+                
+                lockInfo[move] = mapping
+                
+            check = {}
+            for opposite in oppositeSides:
+                 a = lockInfo[opposite[0]]
+                 b = lockInfo[opposite[1]]
+                 if 'wall' in a.keys() or 'wall' in b.keys():
+                     check[opposite] = True
+                 elif 'lock' in a.keys() and 'lock' in b.keys():
+                     check[opposite] = True
+                 elif 'box' in a.keys() or 'box' in b.keys():
+                     if 'box' in a.keys() and 'box' not in b.keys():
+                         self.marked.add(a['box'])
+                         check[opposite] = checkFrozen(a['box'])
+                     elif 'box' in b.keys() and 'box' not in a.keys():
+                         self.marked.add(b['box'])
+                         check[opposite] = checkFrozen(b['box'])
+                     else:
+                         self.marked.add(a['box'])                         
+                         check[opposite] = checkFrozen(a['box'])
+                         self.marked.add(b['box'])
+                         check[opposite] = checkFrozen(b['box'])
+                 else:
+                     check[opposite] = False
+                
+            if (check['ud'] and check['lr']):
+                if not (problem.map[box[0]][box[1]].target):
+                    return True
+            else:
+                return False
+            
+        for box in boxes:
+            self.marked = set()
+            if (checkFrozen(box)):                     
+                    return True
+        
         return self.dead
+
     
     def all_adj(self, problem):
         if self.all_adj_cache is None:
@@ -123,7 +156,8 @@ class SokobanProblem(util.SearchProblem):
         self.numboxes = 0
         self.targets = []
         self.parse_map(map)
-
+        self.visited = set()
+        self.getLocks()
     # parse the input string into game map
     # Wall              #
     # Player            @
@@ -196,6 +230,118 @@ class SokobanProblem(util.SearchProblem):
                 return False, False, None
         else:
             return True, False, SokobanState((x1,y1), s.boxes())
+        
+    #Added for dead end detection precomputing the simple deadlocks
+    def isCorner(self, box, breath, height):
+
+       adjacentSides = ['ul', 'ld', 'dr', 'ru']
+       
+       wallInfo = {}
+       
+       wallInfo['u'] = False 
+       wallInfo['l'] = False
+       wallInfo['d'] = False
+       wallInfo['r'] = False
+       
+       for move in 'uldr':                
+           moveCord = parse_move(move)
+           x = moveCord[0] + box[0]
+           y = moveCord[1] + box[1]
+           
+           if (x >= 0 and x < breath) and (y >= 0 and y < height):
+               wallInfo[move] = (self.map[x][y].wall)
+               
+       for adjMoves in adjacentSides:            
+           if(wallInfo[adjMoves[0]] and wallInfo[adjMoves[1]]):
+               return True
+           else:
+               self.dead = False
+       
+       return False
+   
+    def isLock(self, box, breath, height):
+        
+        oppositeSides = ['ud', 'lr']
+        lockInfo = {}
+        
+        for move in 'uldr':
+            lookup = {}
+            moveCord = parse_move(move)
+            x = moveCord[0] + box[0]
+            y = moveCord[1] + box[1]
+            
+            if (x >= 0 and x < breath) and (y >= 0 and y < height):
+                if(self.map[x][y].wall):
+                    lookup['wall'] = True
+                elif(self.map[x][y].target):
+                    lookup['target'] = True
+                elif((x, y) in self.visited):
+                    lookup['lock'] = True
+                elif(self.map[x][y].floor):
+                    lookup['floor'] = True
+            else:
+                lookup['wall'] = True
+                    
+            lockInfo[move] = lookup
+        
+        check = {}
+        for opposite in oppositeSides:
+            a = lockInfo[opposite[0]]
+            b = lockInfo[opposite[1]]
+            if 'wall' in a.keys() and  'wall' in b.keys():
+                check[opposite] = True
+            elif 'wall' in a.keys() and 'target' in b.keys():
+                check[opposite] = True
+            elif 'wall' in a.keys() and 'floor' in b.keys():
+                check[opposite] = True
+            elif 'wall' in a.keys() and 'lock' in b.keys():
+                check[opposite] = True
+            elif 'target' in a.keys() and 'target' in b.keys():
+                check[opposite] = False
+            elif 'target' in a.keys() and 'floor' in b.keys():
+                check[opposite] = False    
+            elif 'target' in a.keys() and 'lock' in b.keys():    
+                check[opposite] = False    
+            elif 'floor' in a.keys() and 'floor' in b.keys():    
+                check[opposite] = False    
+            elif 'floor' in a.keys() and 'lock' in b.keys():    
+                check[opposite] = False    
+            elif 'lock' in a.keys() and 'lock' in b.keys():    
+                check[opposite] = True                
+            elif 'target' in a.keys() and 'wall' in b.keys():
+                 check[opposite] = True
+            elif 'floor' in a.keys() and 'wall' in b.keys(): 
+                check[opposite] = True 
+            elif 'floor' in a.keys() and 'target' in b.keys(): 
+                check[opposite] = False 
+            elif 'lock' in a.keys() and 'wall' in b.keys(): 
+                check[opposite] = True 
+            elif 'lock' in a.keys() and 'target' in b.keys(): 
+                check[opposite] = False 
+            elif 'lock' in a.keys() and 'floor' in b.keys(): 
+                check[opposite] = False
+            else:
+                check[opposite] = False
+                
+        return (check['ud'] and check['lr'])
+    
+    def getLocks(self):
+        
+        while(True):                
+            tempSet = self.visited.copy()
+            for row in range(len(self.map)):
+                for col in range(len(self.map[row])):
+                    
+                    box = (row, col)
+                    if not self.map[row][col].wall and not self.map[row][col].target:
+                        dead = self.isCorner(box, len(self.map), len(self.map[row]))
+                        lock = self.isLock(box, len(self.map), len(self.map[row]))
+                        if dead or lock:
+                            self.visited.add(box)
+                            
+            if(self.visited == tempSet):
+                break 
+    
 
     ##############################################################################
     # Problem 1: Dead end detection                                              #
@@ -219,11 +365,7 @@ class SokobanProblem(util.SearchProblem):
 
     def expand(self, s):        
         if self.dead_end(s):
-            #print('Dead')
-            print(self.print_state(s))
             return []
-        #print('Not Dead')
-        #print(self.print_state(s))
         return s.all_adj(self)
 
 class SokobanProblemFaster(SokobanProblem):
