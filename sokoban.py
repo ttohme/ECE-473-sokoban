@@ -238,6 +238,7 @@ class SokobanProblemFaster(SokobanProblem):
     ##############################################################################
     def expand(self, s):
         raise NotImplementedError('Override me')
+	
 
 class Heuristic:
     def __init__(self, problem):
@@ -253,6 +254,24 @@ class Heuristic:
     ##############################################################################
     def heuristic(self, s):
         raise NotImplementedError('Override me')
+        dist = 0
+        for box in self.boxes.items(): # a loop the goes over all the box
+            mindist= 2**31 # setting a large value as a limit
+            #for loor to goes oer att target points
+            for goal in s.target.items():
+
+                new_dist= (abs(box[0]-goal[0]))+(abs(box[1]-goal[1]))
+
+            if new_dist < mindist:
+                dist= dist + mindist
+
+        return dist
+
+
+
+
+
+	
 
     ##############################################################################
     # Problem 4: Better heuristic.                                               #
