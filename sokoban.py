@@ -49,7 +49,6 @@ class SokobanState:
             else:
                 self.dead = False
         #if box not found in the simple dead end list then check for frozen states
-
         oppositeSides = ['ud', 'lr']
         
         def checkFrozen(box):
@@ -63,7 +62,7 @@ class SokobanState:
                 y = cord[1] + box[1]
                 if (problem.map[x][y].wall):
                     mapping['wall'] = True
-                elif((x, y) in problem.deadEnds):
+                elif((x, y) not in problem.final):
                     mapping['lock'] = True
                 if((x, y) in boxes and (x, y) != (box[0], box[1])):
                     if (x, y) in self.marked:
@@ -318,7 +317,7 @@ class SokobanProblem(util.SearchProblem):
             
             if boolean:
                 self.final.add(box)
-
+     #print(sorted(self.final))
 
     ##############################################################################
     # Problem 1: Dead end detection                                              #
@@ -499,7 +498,7 @@ def main():
     parser.add_argument("-d", "--dead", help="Turn on dead state detection (default off)", action="store_true")
     parser.add_argument("-s", "--simulate", help="Simulate the solution (default off)", action="store_true")
     parser.add_argument("-f", "--file", help="File name storing the levels (levels.txt default)", default='levels.txt')
-    parser.add_argument("-t", "--timeout", help="Seconds to allow (default 300)", type=int, default=300)
+    parser.add_argument("-t", "--timeout", help="Seconds to allow (default 300)", type=int, default=1000)
 
     args = parser.parse_args()
     level = args.level
