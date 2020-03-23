@@ -1,4 +1,5 @@
 
+import time
 
 # Wall              #
 # Player            @
@@ -54,5 +55,34 @@ def find_all_pos(mp):
     return reachable_space
 
 
+# This function takes the map (current state) and the set of all reachable
+# positions and returns the available box moves as a list of tuples with
+# (box vertical position, box horizontal position, direction), direction = 'u','d','l','r'
+def expand(mp, reachable_space):
+    box_moves = []
+    moves = [(1, 0, 'd'), (-1, 0, 'u'), (0, 1, 'r'), (0,-1, 'l')]
+    for pos in reachable_space:
+        for move in moves:
+            if mp[pos[0]+move[0]][pos[1]+move[1]] in '$*' and mp[pos[0]+2*move[0]][pos[1]+2*move[1]] not in '#$*':
+                box_moves.append((pos[0]+move[0], pos[1]+move[1], move[2]))
+    return box_moves
+                
 
-print(find_all_pos(mp))
+
+s = time.time()
+
+rs = find_all_pos(mp)
+box_moves = expand(mp, rs)
+
+e = time.time()
+
+print('Time used: {}s'.format(e-s))
+
+
+
+
+
+
+
+
+
