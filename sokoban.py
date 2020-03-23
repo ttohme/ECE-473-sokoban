@@ -44,13 +44,12 @@ class SokobanState:
         #check if box is in the deadEnds set in the simple dead end detection
         boxes = self.boxes()
         for box in boxes:
-            if box not in problem.final: #or box in problem.deadEnds:
+            if box not in problem.final or box in problem.deadEnds:
                 return True
             else:
                 self.dead = False
-        
         #if box not found in the simple dead end list then check for frozen states
-        #return False
+
         oppositeSides = ['ud', 'lr']
         
         def checkFrozen(box):
