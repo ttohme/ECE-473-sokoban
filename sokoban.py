@@ -41,16 +41,16 @@ class SokobanState:
         
     def deadp(self, problem):        
         
-        #check if box is in the visited set in the simple dead end detection
+        #check if box is in the deadEnds set in the simple dead end detection
         boxes = self.boxes()
         for box in boxes:
-            if box in problem.visited:
+            if box not in problem.final: #or box in problem.deadEnds:
                 return True
             else:
                 self.dead = False
-                
+        
         #if box not found in the simple dead end list then check for frozen states
-    
+        #return False
         oppositeSides = ['ud', 'lr']
         
         def checkFrozen(box):
@@ -64,7 +64,7 @@ class SokobanState:
                 y = cord[1] + box[1]
                 if (problem.map[x][y].wall):
                     mapping['wall'] = True
-                elif((y, x) in problem.visited):
+                elif((x, y) in problem.deadEnds):
                     mapping['lock'] = True
                 if((x, y) in boxes and (x, y) != (box[0], box[1])):
                     if (x, y) in self.marked:
@@ -106,8 +106,7 @@ class SokobanState:
         for box in boxes:
             self.marked = set()
             if not problem.map[box[0]][box[1]].target and checkFrozen(box):                     
-                    return True
-        
+                    return True        
         return self.dead
 
     
@@ -156,8 +155,11 @@ class SokobanProblem(util.SearchProblem):
         self.numboxes = 0
         self.targets = []
         self.parse_map(map)
-        self.visited = set()
+        
+        self.deadEnds = set()
+        self.reached = set()
         self.getLocks()
+        
     # parse the input string into game map
     # Wall              #
     # Player            @
@@ -230,118 +232,94 @@ class SokobanProblem(util.SearchProblem):
                 return False, False, None
         else:
             return True, False, SokobanState((x1,y1), s.boxes())
+    
+    
+    
+    def recurse(self, goal, box):
         
-    #Added for dead end detection precomputing the simple deadlocks
-    def isCorner(self, box, breath, height):
-
-       adjacentSides = ['ul', 'ld', 'dr', 'ru']
+       if goal == box:
+           if goal not in self.deadEnds and not self.map[goal[0]][goal[1]].wall:
+                self.pull[box] = True
+           return       
+       if self.map[goal[0]][goal[1]].wall:
+           return
+       if goal in self.deadEnds:
+           return
+       if goal in self.reached:
+           return
+    
+       oppositeSides = ['ud', 'lr']
        
-       wallInfo = {}
-       
-       wallInfo['u'] = False 
-       wallInfo['l'] = False
-       wallInfo['d'] = False
-       wallInfo['r'] = False
-       
-       for move in 'uldr':                
-           moveCord = parse_move(move)
-           x = moveCord[0] + box[0]
-           y = moveCord[1] + box[1]
+       lockInfo = {}
+       for move in 'uldr':
            
-           if (x >= 0 and x < breath) and (y >= 0 and y < height):
-               wallInfo[move] = (self.map[x][y].wall)
-               
-       for adjMoves in adjacentSides:            
-           if(wallInfo[adjMoves[0]] and wallInfo[adjMoves[1]]):
-               return True
-           else:
-               self.dead = False
-       
-       return False
-   
-    def isLock(self, box, breath, height):
+           mapping = {}                
+           cord = parse_move(move)
+           x = cord[0] + goal[0]
+           y = cord[1] + goal[1]
+           if (self.map[x][y].wall):
+               mapping['wall'] = True
+           elif((x, y) in self.deadEnds):
+               mapping['lock'] = True
         
-        oppositeSides = ['ud', 'lr']
-        lockInfo = {}
-        
-        for move in 'uldr':
-            lookup = {}
-            moveCord = parse_move(move)
-            x = moveCord[0] + box[0]
-            y = moveCord[1] + box[1]
-            
-            if (x >= 0 and x < breath) and (y >= 0 and y < height):
-                if(self.map[x][y].wall):
-                    lookup['wall'] = True
-                elif(self.map[x][y].target):
-                    lookup['target'] = True
-                elif((x, y) in self.visited):
-                    lookup['lock'] = True
-                elif(self.map[x][y].floor):
-                    lookup['floor'] = True
-            else:
-                lookup['wall'] = True
-                    
-            lockInfo[move] = lookup
-        
-        check = {}
-        for opposite in oppositeSides:
+           lockInfo[move] = mapping
+           
+       check = {}
+       for opposite in oppositeSides:
             a = lockInfo[opposite[0]]
             b = lockInfo[opposite[1]]
-            if 'wall' in a.keys() and  'wall' in b.keys():
+            if 'wall' in a.keys() or 'wall' in b.keys():
                 check[opposite] = True
-            elif 'wall' in a.keys() and 'target' in b.keys():
+            elif 'lock' in a.keys() and 'lock' in b.keys():
                 check[opposite] = True
-            elif 'wall' in a.keys() and 'floor' in b.keys():
-                check[opposite] = True
-            elif 'wall' in a.keys() and 'lock' in b.keys():
-                check[opposite] = True
-            elif 'target' in a.keys() and 'target' in b.keys():
-                check[opposite] = False
-            elif 'target' in a.keys() and 'floor' in b.keys():
-                check[opposite] = False    
-            elif 'target' in a.keys() and 'lock' in b.keys():    
-                check[opposite] = False    
-            elif 'floor' in a.keys() and 'floor' in b.keys():    
-                check[opposite] = False    
-            elif 'floor' in a.keys() and 'lock' in b.keys():    
-                check[opposite] = False    
-            elif 'lock' in a.keys() and 'lock' in b.keys():    
-                check[opposite] = True                
-            elif 'target' in a.keys() and 'wall' in b.keys():
-                 check[opposite] = True
-            elif 'floor' in a.keys() and 'wall' in b.keys(): 
-                check[opposite] = True 
-            elif 'floor' in a.keys() and 'target' in b.keys(): 
-                check[opposite] = False 
-            elif 'lock' in a.keys() and 'wall' in b.keys(): 
-                check[opposite] = True 
-            elif 'lock' in a.keys() and 'target' in b.keys(): 
-                check[opposite] = False 
-            elif 'lock' in a.keys() and 'floor' in b.keys(): 
-                check[opposite] = False
             else:
-                check[opposite] = False
-                
-        return (check['ud'] and check['lr'])
-    
+                check[opposite] = False        
+           
+       if (check['ud'] and check['lr']):           
+           if not self.map[goal[0]][goal[1]].target:
+               self.deadEnds.add(goal)
+               return           
+       if goal not in self.deadEnds:
+           self.reached.add(goal)       
+       for move in 'uldr':
+           cord = parse_move(move)
+           x = cord[0] + goal[0]
+           y = cord[1] + goal[1]
+           self.recurse((x, y), box)            
+       return
+        
     def getLocks(self):
         
-        while(True):                
-            tempSet = self.visited.copy()
-            for row in range(len(self.map)):
-                for col in range(len(self.map[row])):
-                    
-                    box = (row, col)
-                    if not self.map[row][col].wall and not self.map[row][col].target:
-                        dead = self.isCorner(box, len(self.map), len(self.map[row]))
-                        lock = self.isLock(box, len(self.map), len(self.map[row]))
-                        if dead or lock:
-                            self.visited.add(box)
-                            
-            if(self.visited == tempSet):
-                break 
-    
+     self.isPulled = {}
+     while(True):
+         
+      temp = self.isPulled.copy()      
+      for target in self.targets:          
+        self.pull = {}
+        for row in range(len(self.map)):
+            for col in range(len(self.map[row])):
+                self.reached.clear()
+                box = (row, col)
+                self.pull[box] = False
+                self.recurse(target, box)
+        self.isPulled[target] = self.pull
+      
+      if temp == self.isPulled:
+         break
+     
+     self.final = set()     
+      
+     for row in range(len(self.map)):
+        for col in range(len(self.map[row])):
+            
+            box = (row, col)
+            boolean = False
+            for targets in self.isPulled:
+                boolean = boolean or self.isPulled[targets][box]
+            
+            if boolean:
+                self.final.add(box)
+
 
     ##############################################################################
     # Problem 1: Dead end detection                                              #
