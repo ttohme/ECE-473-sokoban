@@ -14,6 +14,10 @@ class SokobanState:
         self.adj = {}
         self.dead = None
         self.solved = None
+        self.reachable_space = set()
+        self.moves = ((1, 0, 'd'), (-1, 0, 'u'), (0, 1, 'r'), (0,-1, 'l'))
+        self.box_moves = []
+        
     def __str__(self):
         return 'player: ' + str(self.player()) + ' boxes: ' + str(self.boxes())
     def __eq__(self, other):
@@ -117,6 +121,76 @@ class SokobanState:
                     succ.append((move, nextS, 1))
             self.all_adj_cache = succ
         return self.all_adj_cache
+    
+    
+            
+    # This function locates the player on the map and returns a set of all the
+    # positions that are reachable for the player in the current state.
+    # (No boxes can be moved.)       
+    def find_all_pos(self, problem):
+        
+        # find player
+        player_pos = self.player()
+        
+        # initialize frontier with player position
+        frontier = {player_pos}
+        
+        # search whole space for reachable positions
+        while True:
+            f = set()
+            for pos in frontier:
+                for move in self.moves:
+                    # if not wall and not box and not in reachable_space already
+                    if (not problem.map[pos[0]+move[0]][pos[1]+move[1]].wall) and \
+                     (((pos[0]+move[0], pos[1]+move[1])) not in self.boxes()) and \
+                     ((pos[0]+move[0], pos[1]+move[1]) not in self.reachable_space):
+                         f.add((pos[0]+move[0], pos[1]+move[1]))
+            # update frontier for next iteration
+            frontier = f
+            # add new frontier positions to reachable_space
+            self.reachable_space = frontier | self.reachable_space
+            # break as soon as frontier is empty (no new position are found)
+            if len(frontier) == 0:
+                break
+    
+    
+    # This function takes the map (current state) and the set of all reachable
+    # positions and returns the available box moves as a list of tuples with
+    # (box vertical position, box horizontal position, direction), direction = 'u','d','l','r'
+    def find_box_moves(self, problem):
+        for pos in self.reachable_space:
+            for move in self.moves:
+                # 1. line of if-statement: checks if a box borders on a reachable field
+                # 2. and 3. line of if-statement: checks if the box can be moved (if there
+                #                                 is a wall or box behind the box)
+                if (pos[0]+move[0], pos[1]+move[1]) in self.boxes() and \
+                 (not problem.map[pos[0]+2*move[0]][pos[1]+2*move[1]].wall) and \
+                 (((pos[0]+2*move[0], pos[1]+2*move[1])) not in self.boxes()):
+                     # stores box location and available move for the box
+                     self.box_moves.append((pos[0]+move[0], pos[1]+move[1], move[2]))
+    
+    
+    def all_adj_compressed(self, problem):
+        self.find_all_pos(problem)
+        self.find_box_moves(problem)
+        
+        moves_dict = {'d':(1, 0), 'u':(-1, 0), 'r':(0, 1), 'l':(0,-1)}
+        
+        if self.all_adj_cache is None:
+            succ = []
+            # expand all the states for all the moves in box_moves
+            for move in self.box_moves:
+                boxes = list(self.boxes())
+                # find the current box in the list of boxes
+                idx = boxes.index((move[0], move[1]))
+                # update the position of the moved box
+                boxes[idx] = (move[0]+moves_dict[move[2]][0], move[1]+moves_dict[move[2]][1])
+                # next state
+                nextState = SokobanState((move[0], move[1]), tuple(boxes))
+                succ.append((move, nextState, 1))
+            self.all_adj_cache = succ
+        return self.all_adj_cache
+    
 
 class MapTile:
     def __init__(self, wall=False, floor=False, target=False):
@@ -354,8 +428,11 @@ class SokobanProblemFaster(SokobanProblem):
     # Our solution to this problem affects or adds approximately 80 lines of     #
     # code in the file in total. Your can vary substantially from this.          #
     ##############################################################################
+    
     def expand(self, s):
-        raise NotImplementedError('Override me')
+        if self.dead_end(s):
+            return []
+        return s.all_adj_compressed(self)
 	
 
 class Heuristic:
@@ -425,7 +502,8 @@ def solve_sokoban(map, algorithm='ucs', dead_detection=False):
     if search.actions is not None:
         print('length {} soln is {}'.format(len(search.actions), search.actions))
     if 'f' in algorithm:
-        raise NotImplementedError('Override me')
+#        raise NotImplementedError('Override me')
+        return search.totalCost, search.actions, search.numStatesExplored
     else:
         return search.totalCost, search.actions, search.numStatesExplored
 
@@ -485,9 +563,14 @@ def solve_map(file, level, algorithm, dead, simulate):
     toc = datetime.datetime.now()
     print('Time consumed: {:.3f} seconds using {} and exploring {} states'.format(
         (toc - tic).seconds + (toc - tic).microseconds/1e6, algorithm, nstates))
-    seq = ''.join(sol)
-    print(len(seq), 'moves')
-    print(' '.join(seq[i:i+5] for i in range(0, len(seq), 5)))
+    
+    if type(sol[0]) != tuple:
+        seq = ''.join(sol)
+        print(len(seq), 'moves')
+        print(' '.join(seq[i:i+5] for i in range(0, len(seq), 5)))
+    else:
+        seq = 'test'
+        
     if simulate:
         animate_sokoban_solution(map, seq)
 
