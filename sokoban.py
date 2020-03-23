@@ -44,7 +44,7 @@ class SokobanState:
         #check if box is in the deadEnds set in the simple dead end detection
         boxes = self.boxes()
         for box in boxes:
-            if box not in problem.final or box in problem.deadEnds:
+            if box not in problem.visited or box in problem.deadEnds:
                 return True
             else:
                 self.dead = False
@@ -62,7 +62,7 @@ class SokobanState:
                 y = cord[1] + box[1]
                 if (problem.map[x][y].wall):
                     mapping['wall'] = True
-                elif((x, y) not in problem.final):
+                elif((x, y) not in problem.visited):
                     mapping['lock'] = True
                 if((x, y) in boxes and (x, y) != (box[0], box[1])):
                     if (x, y) in self.marked:
@@ -305,7 +305,7 @@ class SokobanProblem(util.SearchProblem):
       if temp == self.isPulled:
          break
      
-     self.final = set()     
+     self.visited = set()     
       
      for row in range(len(self.map)):
         for col in range(len(self.map[row])):
@@ -316,8 +316,8 @@ class SokobanProblem(util.SearchProblem):
                 boolean = boolean or self.isPulled[targets][box]
             
             if boolean:
-                self.final.add(box)
-     #print(sorted(self.final))
+                self.visited.add(box)
+     #print(sorted(self.visited))
 
     ##############################################################################
     # Problem 1: Dead end detection                                              #
