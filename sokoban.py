@@ -507,6 +507,7 @@ class SokobanProblemFaster(SokobanProblem):
 class Heuristic:
     def __init__(self, problem):
         self.problem = problem
+        self.targets = problem.targets
 
     ##############################################################################
     # Problem 3: Simple admissible heuristic                                     #
@@ -517,24 +518,17 @@ class Heuristic:
     # code in the file in total. Your can vary substantially from this.          #
     ##############################################################################
     def heuristic(self, s):
-        #raise NotImplementedError('Override me')
-        dist = 0
-        for box in s.boxes(): # a loop the goes over all the box
-            mindist= 2**31 # setting a large value as a limit
-            #for loor to goes oer att target points
-            for goal in self.targets:
-
-                new_dist= (abs(box[0]-goal[0]))+(abs(box[1]-goal[1]))
-
-            if new_dist < mindist:
-                dist= dist + mindist
-
-        return dist
-
-
-
-
-
+        
+       dist = 0
+       for box in s.boxes():
+           mindist= 2**31
+           for goal in self.targets:
+               new_dist = (abs(box[0] - goal[0]))+(abs(box[1]-goal[1]))
+               if new_dist < mindist:
+                   mindist = new_dist
+           dist += mindist 
+                   
+       return dist
 	
 
     ##############################################################################
@@ -547,21 +541,17 @@ class Heuristic:
     # code in the file in total. Your can vary substantially from this.          #
     ##############################################################################
     def heuristic2(self, s):
-        raise NotImplementedError('Override me')
-	dist = 0
-        for box in s.boxes(): # a loop the goes over all the box
-            mindist= 2**31 # setting a large value as a limit
-            #for loor to goes oer att target points
+        dist = 0
+        for box in s.boxes():
+            mindist= 2**31
             for goal in self.targets:
-
                 new_dist= math.sqrt((box[0]-goal[0])**2)+((box[1]-goal[1])**2)
-
-            if new_dist < mindist:
-                dist= dist + mindist
-
+                if new_dist < mindist:
+                    mindist = new_dist
+            dist += mindist
         return dist
 
-# solve sokoban map using specified algorithm
+## solve sokoban map using specified algorithm
 def solve_sokoban(map, algorithm='ucs', dead_detection=False):
     # problem algorithm
     if 'f' in algorithm:
