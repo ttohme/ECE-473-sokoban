@@ -265,6 +265,11 @@ class SokobanProblem(util.SearchProblem):
         self.deadEnds = set()
         self.reached = set()
         self.getLocks()
+        self.pythoGrean = {}
+        self.Manhattan = {}
+        self.preHeuristics()
+        #print(self.Manhattan)
+        #print(self.pythoGrean)
         
     # parse the input string into game map
     # Wall              #
@@ -459,8 +464,26 @@ class SokobanProblem(util.SearchProblem):
         for points in isPushable:
             
             if isPushable[points]:
-                self.visitable.add(points)
+                self.visitable.add(points)  
+    
+    def preHeuristics(self):
+        
+        for row in range(len(self.map)):
+            for col in range(len(self.map[row])):
                 
+                minDist = 2**31
+                minDist2 = 2**31
+                for target in self.targets:
+                    newDist = (abs(row - target[0])) + (abs(col - target[1]))
+                    newDist2 = math.sqrt((row - target[0])**2)+((col - target[1])**2)
+                    if newDist < minDist:
+                        minDist = newDist
+                    if newDist2 < minDist2:
+                        minDist2 = newDist2
+                
+                self.Manhattan[(row, col)] = minDist
+                self.pythoGrean[(row, col)] = minDist2   
+    
 
     ##############################################################################
     # Problem 1: Dead end detection                                              #
@@ -508,6 +531,8 @@ class Heuristic:
     def __init__(self, problem):
         self.problem = problem
         self.targets = problem.targets
+        self.Manhattan = problem.Manhattan
+        self.pythoGrean = problem.pythoGrean
 
     ##############################################################################
     # Problem 3: Simple admissible heuristic                                     #
@@ -517,16 +542,11 @@ class Heuristic:
     # Our solution to this problem affects or adds approximately 10 lines of     #
     # code in the file in total. Your can vary substantially from this.          #
     ##############################################################################
-    def heuristic(self, s):
+    def heuristic(self, s):       
         
        dist = 0
        for box in s.boxes():
-           mindist= 2**31
-           for goal in self.targets:
-               new_dist = (abs(box[0] - goal[0]))+(abs(box[1]-goal[1]))
-               if new_dist < mindist:
-                   mindist = new_dist
-           dist += mindist 
+           dist += self.Manhattan[box]
                    
        return dist
 	
@@ -541,14 +561,11 @@ class Heuristic:
     # code in the file in total. Your can vary substantially from this.          #
     ##############################################################################
     def heuristic2(self, s):
+        
         dist = 0
         for box in s.boxes():
-            mindist= 2**31
-            for goal in self.targets:
-                new_dist= math.sqrt((box[0]-goal[0])**2)+((box[1]-goal[1])**2)
-                if new_dist < mindist:
-                    mindist = new_dist
-            dist += mindist
+            dist += self.pythoGrean[box]
+            
         return dist
 
 ## solve sokoban map using specified algorithm
