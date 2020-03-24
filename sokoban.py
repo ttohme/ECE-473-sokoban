@@ -2,6 +2,7 @@ import util
 import os, sys
 import datetime, time
 import argparse
+import math
 
 class SokobanState:
     # player: 2-tuple representing player location (coordinates)
@@ -547,6 +548,18 @@ class Heuristic:
     ##############################################################################
     def heuristic2(self, s):
         raise NotImplementedError('Override me')
+	dist = 0
+        for box in s.boxes(): # a loop the goes over all the box
+            mindist= 2**31 # setting a large value as a limit
+            #for loor to goes oer att target points
+            for goal in self.targets:
+
+                new_dist= math.sqrt((box[0]-goal[0])**2)+((box[1]-goal[1])**2)
+
+            if new_dist < mindist:
+                dist= dist + mindist
+
+        return dist
 
 # solve sokoban map using specified algorithm
 def solve_sokoban(map, algorithm='ucs', dead_detection=False):
