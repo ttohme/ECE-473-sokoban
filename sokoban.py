@@ -45,46 +45,71 @@ class SokobanState:
         
     def deadp(self, problem):        
         
-        #check if box is in the deadEnds set in the simple dead end detection
+        #check if box is in the deadEnds set in the simple square dead end detection
         boxes = self.boxes()
         for box in boxes:
-            if box not in problem.visited or box in problem.deadEnds:
+            if box not in problem.visitable:
                 return True
             else:
                 self.dead = False
-        #if box not found in the simple dead end list then check for frozen states
+                
+                
+        #if box is not found in the simple dead end list then we need to check for frozen states
+        #where boxes cannot be moved bue to their orientation
+        
+        #making an array for the 2 vertical axes or opposite sides
         oppositeSides = ['ud', 'lr']
         
+        #this is a recursive function to check is there are frozen boxes in every state during game play
         def checkFrozen(box):
             
+            #this is a dictionary to what lies ahead in all the four directions relative to the current position
             lockInfo = {}
+            #checking for each of the reachable directions
             for move in 'uldr':
-                
-                mapping = {}                
+                #mapping stores the object that lies ahead
+                mapping = {}
+                #get the coordinat of the move
                 cord = parse_move(move)
+                #get the next coordinates
                 x = cord[0] + box[0]
                 y = cord[1] + box[1]
+                
+                #check if the next point is a wall/ dead lock / or box
                 if (problem.map[x][y].wall):
                     mapping['wall'] = True
-                elif((x, y) not in problem.visited):
-                    mapping['lock'] = True
-                if((x, y) in boxes and (x, y) != (box[0], box[1])):
+                elif((x, y) not in problem.visitable):
+                    mapping['lock'] = True              
+                elif((x, y) in boxes and (x, y) != (box[0], box[1])):
+                    # I am keeping a set of boxes that I have visited while the recursive call is 
+                    # going on, so that I am not stuck in a infinite cycle for checking boxes
+                    #treat it as a wall if such a case arises
                     if (x, y) in self.marked:
+                        #if such a case arises then treat is as a wall
                         mapping['wall'] = True
                     else:
                         mapping['box'] = (x, y)
-                
+                #store this information for that particular move
                 lockInfo[move] = mapping
-                
+            
+            #this dictionary is for keeping check if a box can be moved in vertical/horizontal axis or not
             check = {}
+            #check for the opposite sides of the box
             for opposite in oppositeSides:
+                
+                 #get the moves in teh sides
                  a = lockInfo[opposite[0]]
                  b = lockInfo[opposite[1]]
+                 
+                 #check if the vertical/hgorizontal axis is blocked based on the following conditions
                  if 'wall' in a.keys() or 'wall' in b.keys():
                      check[opposite] = True
                  elif 'lock' in a.keys() and 'lock' in b.keys():
                      check[opposite] = True
                  elif 'box' in a.keys() or 'box' in b.keys():
+                     
+                     #if there is a box we need to recursively check if the box adjacent is frozed or not
+                     #this makes sure that we are only considering completely frozen boxes
                      if 'box' in a.keys() and 'box' not in b.keys():
                          self.marked.add(a['box'])
                          check[opposite] = checkFrozen(a['box'])
@@ -98,17 +123,26 @@ class SokobanState:
                          check[opposite] = checkFrozen(b['box'])
                  else:
                      check[opposite] = False
-                
+            
+            #if the current block is blocked in both the vertical and the horizontal axis
+            #recursively proven, hence this is a frozen state and we must return to the previous stack
             if (check['ud'] and check['lr']):
+                #make sure its not a target
                 if not (problem.map[box[0]][box[1]].target):
                     return True
             else:
                 return False
-            
+        
+        
+        #check for each box if its in a frozen situation
         for box in boxes:
+            #this is a set to keep track of the visited boxes in each state
             self.marked = set()
+            #if the box is a target we must not check for the frozed condition
             if not problem.map[box[0]][box[1]].target and checkFrozen(box):                     
-                    return True        
+                    return True
+        
+        
         return self.dead
 
     
@@ -226,8 +260,7 @@ class SokobanProblem(util.SearchProblem):
         self.init_boxes = []
         self.numboxes = 0
         self.targets = []
-        self.parse_map(map)
-        
+        self.parse_map(map)        
         self.deadEnds = set()
         self.reached = set()
         self.getLocks()
@@ -306,92 +339,127 @@ class SokobanProblem(util.SearchProblem):
             return True, False, SokobanState((x1,y1), s.boxes())
     
     
-    
-    def recurse(self, goal, box):
+    #this is a recursive function that tries to push a box to the goal 
+    def travel(self, square, visited, checking, breath, height):
         
-       if goal == box:
-           if goal not in self.deadEnds and not self.map[goal[0]][goal[1]].wall:
-                self.pull[box] = True
-           return       
-       if self.map[goal[0]][goal[1]].wall:
-           return
-       if goal in self.deadEnds:
-           return
-       if goal in self.reached:
-           return
-    
-       oppositeSides = ['ud', 'lr']
-       
-       lockInfo = {}
-       for move in 'uldr':
-           
-           mapping = {}                
-           cord = parse_move(move)
-           x = cord[0] + goal[0]
-           y = cord[1] + goal[1]
-           if (self.map[x][y].wall):
-               mapping['wall'] = True
-           elif((x, y) in self.deadEnds):
-               mapping['lock'] = True
+        #if the box is visited in the recursive call then it is reachable from the original box 
+        checking.add(square)
+        #if the square is already visited we must return to the previous stack
+        if square in visited:
+            return
+        #if the coordinates are out of bound we must return
+        if (square[0] < 0 or square[0] >= breath) or (square[1] < 0 or square[1] >= height):
+            return
         
-           lockInfo[move] = mapping
-           
-       check = {}
-       for opposite in oppositeSides:
-            a = lockInfo[opposite[0]]
-            b = lockInfo[opposite[1]]
-            if 'wall' in a.keys() or 'wall' in b.keys():
-                check[opposite] = True
-            elif 'lock' in a.keys() and 'lock' in b.keys():
-                check[opposite] = True
+        #tells if we can have visited this point or not
+        visit = False
+        
+        #vertical/horizontal axes of the box
+        axes = ['ud', 'lr']
+        #these are the valid moves
+        validMoves = {}
+        #for all the directions the block can reach
+        for move in 'uldr':
+            
+            coordinate = parse_move(move)
+            x = square[0] + coordinate[0]
+            y = square[1] + coordinate[1]
+            newDirection = (x, y)
+            
+            #if the direction is visited we will mark it visited
+            if (x, y) in visited:
+                validMoves[move] = ('visited', True, (x, y))
+                visit = True
+            #check if the box is a wall and within bounds
+            elif (x >= 0 and x < breath) and (y >= 0 and y < height) and self.map[x][y].wall:
+                validMoves[move] = ('wall', True, (x, y))
+            #check if it is in the deadends
+            elif (x, y) in self.deadEnds:
+                validMoves[move] = ('lock', True, (x, y))
             else:
-                check[opposite] = False        
-           
-       if (check['ud'] and check['lr']):           
-           if not self.map[goal[0]][goal[1]].target:
-               self.deadEnds.add(goal)
-               return           
-       if goal not in self.deadEnds:
-           self.reached.add(goal)       
-       for move in 'uldr':
-           cord = parse_move(move)
-           x = cord[0] + goal[0]
-           y = cord[1] + goal[1]
-           self.recurse((x, y), box)            
-       return
+                validMoves[move] = ('floor', True, (x, y))
+                
+        #This dictionary will store more info about movement of the box
+        isLock = {}
+        isNotMovable = {}
         
+        #we check if the axis is movable or not
+        for axis in axes:
+            
+            #these conditions check if the box can be moved vertically/horizontally
+            if validMoves[axis[0]][0] == 'wall' or validMoves[axis[1]][0] == 'wall':
+                truthValue = validMoves[axis[0]][1] or validMoves[axis[1]][1]
+            elif validMoves[axis[0]][0] == 'lock' and validMoves[axis[1]][0] == 'lock':
+                truthValue = validMoves[axis[0]][1] and validMoves[axis[1]][1]
+            else:
+                truthValue = False
+            
+            isNotMovable[axis[0]] = truthValue
+            isNotMovable[axis[1]] = truthValue
+            isLock[axis] = truthValue
+        #if the block is not movable then we just add it to the dead ends
+        if isLock['ud'] and isLock['lr']:
+            if not self.map[square[0]][square[1]].target and not visit:
+                self.deadEnds.add(square)
+                return
+            
+        #mark it visited from this point     
+        if square not in self.deadEnds:
+            visited.add(square)
+            
+        #for moves in all other directions    
+        for move in 'uldr':
+            
+            #we will only be able to go to squares that can be reached from the current square
+            #so we will only recurse to those blocks
+            info = validMoves[move]
+            sqType = info[0]
+            boolean = info[1]
+            
+            #check if the block is movable to in the direction given
+            if not isNotMovable[move]:
+                self.travel(info[2], visited, checking, breath, height)
+        
+        return  
+    
+    #this function will actually check if i can reach from the box to the goal
     def getLocks(self):
         
-     self.isPulled = {}
-     while(True):
-         
-      temp = self.isPulled.copy()      
-      for target in self.targets:          
-        self.pull = {}
-        for row in range(len(self.map)):
-            for col in range(len(self.map[row])):
-                self.reached.clear()
-                box = (row, col)
-                self.pull[box] = False
-                self.recurse(target, box)
-        self.isPulled[target] = self.pull
-      
-      if temp == self.isPulled:
-         break
-     
-     self.visited = set()     
-      
-     for row in range(len(self.map)):
-        for col in range(len(self.map[row])):
+        #tells if the box is pushable to the goal 
+        isPushable = {}
+        
+        #Until the status of isPushable does not change
+        while(True):
+            temp = isPushable.copy()
+            visited = set()
+            checking = set()
+            #check for each point in the sokoban map
+            for row in range(len(self.map)):
+                for col in range(len(self.map[row])):
+                    box = (row, col)
+                    #if the point is not a wall test if its reachable
+                    if not self.map[row][col].wall:
+                        #call the travel function to travel to the goal
+                        self.travel(box, visited, checking, len(self.map), len(self.map[row]))
+                        truthVal = False
+                        #check if any goal is in the set
+                        for target in self.targets:
+                            if target in checking:
+                                truthVal = True
+                        #mark the value of the box
+                        isPushable[box] = truthVal
+                    checking.clear()
+                    visited.clear()
+            #if it does not change
+            if isPushable == temp:
+                break           
+        #put all the pushable boxes as reachable boxes and add to the visitable set
+        self.visitable = set()
+        for points in isPushable:
             
-            box = (row, col)
-            boolean = False
-            for targets in self.isPulled:
-                boolean = boolean or self.isPulled[targets][box]
-            
-            if boolean:
-                self.visited.add(box)
-     #print(sorted(self.visited))
+            if isPushable[points]:
+                self.visitable.add(points)
+                
 
     ##############################################################################
     # Problem 1: Dead end detection                                              #
