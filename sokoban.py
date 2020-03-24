@@ -516,12 +516,12 @@ class Heuristic:
     # code in the file in total. Your can vary substantially from this.          #
     ##############################################################################
     def heuristic(self, s):
-        raise NotImplementedError('Override me')
+        #raise NotImplementedError('Override me')
         dist = 0
-        for box in self.boxes.items(): # a loop the goes over all the box
+        for box in s.boxes(): # a loop the goes over all the box
             mindist= 2**31 # setting a large value as a limit
             #for loor to goes oer att target points
-            for goal in s.target.items():
+            for goal in self.targets:
 
                 new_dist= (abs(box[0]-goal[0]))+(abs(box[1]-goal[1]))
 
