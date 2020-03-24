@@ -52,95 +52,17 @@ class SokobanState:
             if box not in problem.visitable:
                 return True
             else:
-                self.dead = False
-                
+                self.dead = False                
                 
         #if box is not found in the simple dead end list then we need to check for frozen states
-        #where boxes cannot be moved bue to their orientation
-        
-        #making an array for the 2 vertical axes or opposite sides
-        oppositeSides = ['ud', 'lr']
-        
-        #this is a recursive function to check is there are frozen boxes in every state during game play
-        def checkFrozen(box):
-            
-            #this is a dictionary to what lies ahead in all the four directions relative to the current position
-            lockInfo = {}
-            #checking for each of the reachable directions
-            for move in 'uldr':
-                #mapping stores the object that lies ahead
-                mapping = {}
-                #get the coordinat of the move
-                cord = parse_move(move)
-                #get the next coordinates
-                x = cord[0] + box[0]
-                y = cord[1] + box[1]
-                
-                #check if the next point is a wall/ dead lock / or box
-                if (problem.map[x][y].wall):
-                    mapping['wall'] = True
-                elif((x, y) not in problem.visitable):
-                    mapping['lock'] = True              
-                elif((x, y) in boxes and (x, y) != (box[0], box[1])):
-                    # I am keeping a set of boxes that I have visited while the recursive call is 
-                    # going on, so that I am not stuck in a infinite cycle for checking boxes
-                    #treat it as a wall if such a case arises
-                    if (x, y) in self.marked:
-                        #if such a case arises then treat is as a wall
-                        mapping['wall'] = True
-                    else:
-                        mapping['box'] = (x, y)
-                #store this information for that particular move
-                lockInfo[move] = mapping
-            
-            #this dictionary is for keeping check if a box can be moved in vertical/horizontal axis or not
-            check = {}
-            #check for the opposite sides of the box
-            for opposite in oppositeSides:
-                
-                 #get the moves in teh sides
-                 a = lockInfo[opposite[0]]
-                 b = lockInfo[opposite[1]]
-                 
-                 #check if the vertical/hgorizontal axis is blocked based on the following conditions
-                 if 'wall' in a.keys() or 'wall' in b.keys():
-                     check[opposite] = True
-                 elif 'lock' in a.keys() and 'lock' in b.keys():
-                     check[opposite] = True
-                 elif 'box' in a.keys() or 'box' in b.keys():
-                     
-                     #if there is a box we need to recursively check if the box adjacent is frozed or not
-                     #this makes sure that we are only considering completely frozen boxes
-                     if 'box' in a.keys() and 'box' not in b.keys():
-                         self.marked.add(a['box'])
-                         check[opposite] = checkFrozen(a['box'])
-                     elif 'box' in b.keys() and 'box' not in a.keys():
-                         self.marked.add(b['box'])
-                         check[opposite] = checkFrozen(b['box'])
-                     else:
-                         self.marked.add(a['box'])                         
-                         check[opposite] = checkFrozen(a['box'])
-                         self.marked.add(b['box'])
-                         check[opposite] = checkFrozen(b['box'])
-                 else:
-                     check[opposite] = False
-            
-            #if the current block is blocked in both the vertical and the horizontal axis
-            #recursively proven, hence this is a frozen state and we must return to the previous stack
-            if (check['ud'] and check['lr']):
-                #make sure its not a target
-                if not (problem.map[box[0]][box[1]].target):
-                    return True
-            else:
-                return False
-        
-        
+        #where boxes cannot be moved bue to their orientation        
         #check for each box if its in a frozen situation
+        
         for box in boxes:
             #this is a set to keep track of the visited boxes in each state
-            self.marked = set()
+            marked = set()
             #if the box is a target we must not check for the frozed condition
-            if not problem.map[box[0]][box[1]].target and checkFrozen(box):                     
+            if not problem.map[box[0]][box[1]].target and problem.checkFrozen(box, marked, boxes):                     
                     return True
         
         
@@ -343,7 +265,7 @@ class SokobanProblem(util.SearchProblem):
                 return False, False, None
         else:
             return True, False, SokobanState((x1,y1), s.boxes())
-    
+        
     
     #this is a recursive function that tries to push a box to the goal 
     def travel(self, square, visited, checking, breath, height):
@@ -465,6 +387,84 @@ class SokobanProblem(util.SearchProblem):
             
             if isPushable[points]:
                 self.visitable.add(points)  
+    
+    
+    #this is a recursive function to check is there are frozen boxes in every state during game play 
+    def checkFrozen(self, box, marked, boxes):
+        
+        
+        #making an array for the 2 vertical axes or opposite sides
+        oppositeSides = ['ud', 'lr']       
+        
+        #this is a dictionary to what lies ahead in all the four directions relative to the current position
+        lockInfo = {}
+        #checking for each of the reachable directions
+        for move in 'uldr':
+            #mapping stores the object that lies ahead
+            mapping = {}
+            #get the coordinat of the move
+            cord = parse_move(move)
+            #get the next coordinates
+            x = cord[0] + box[0]
+            y = cord[1] + box[1]
+            
+            #check if the next point is a wall/ dead lock / or box
+            if (self.map[x][y].wall):
+                mapping['wall'] = True
+            elif((x, y) not in self.visitable):
+                mapping['lock'] = True              
+            elif((x, y) in boxes and (x, y) != (box[0], box[1])):
+                # I am keeping a set of boxes that I have visited while the recursive call is 
+                # going on, so that I am not stuck in a infinite cycle for checking boxes
+                #treat it as a wall if such a case arises
+                if (x, y) in marked:
+                    #if such a case arises then treat is as a wall
+                    mapping['wall'] = True
+                else:
+                    mapping['box'] = (x, y)
+            #store this information for that particular move
+            lockInfo[move] = mapping
+        
+        #this dictionary is for keeping check if a box can be moved in vertical/horizontal axis or not
+        check = {}
+        #check for the opposite sides of the box
+        for opposite in oppositeSides:
+            
+             #get the moves in teh sides
+             a = lockInfo[opposite[0]]
+             b = lockInfo[opposite[1]]
+             
+             #check if the vertical/hgorizontal axis is blocked based on the following conditions
+             if 'wall' in a.keys() or 'wall' in b.keys():
+                 check[opposite] = True
+             elif 'lock' in a.keys() and 'lock' in b.keys():
+                 check[opposite] = True
+             elif 'box' in a.keys() or 'box' in b.keys():
+                 
+                 #if there is a box we need to recursively check if the box adjacent is frozed or not
+                 #this makes sure that we are only considering completely frozen boxes
+                 if 'box' in a.keys() and 'box' not in b.keys():
+                     marked.add(a['box'])
+                     check[opposite] = self.checkFrozen(a['box'], marked, boxes)
+                 elif 'box' in b.keys() and 'box' not in a.keys():
+                     marked.add(b['box'])
+                     check[opposite] = self.checkFrozen(b['box'], marked, boxes)
+                 else:
+                     marked.add(a['box'])                         
+                     check[opposite] = self.checkFrozen(a['box'], marked, boxes)
+                     marked.add(b['box'])
+                     check[opposite] = self.checkFrozen(b['box'], marked, boxes)
+             else:
+                 check[opposite] = False
+        
+        #if the current block is blocked in both the vertical and the horizontal axis
+        #recursively proven, hence this is a frozen state and we must return to the previous stack
+        if (check['ud'] and check['lr']):
+            #make sure its not a target
+            if not (self.map[box[0]][box[1]].target):
+                return True
+        else:
+            return False    
     
     def preHeuristics(self):
         
@@ -590,7 +590,7 @@ def solve_sokoban(map, algorithm='ucs', dead_detection=False):
     if search.actions is not None:
         print('length {} soln is {}'.format(len(search.actions), search.actions))
     if 'f' in algorithm:
-#        raise NotImplementedError('Override me')
+         #raise NotImplementedError('Override me')
         return search.totalCost, search.actions, search.numStatesExplored
     else:
         return search.totalCost, search.actions, search.numStatesExplored
