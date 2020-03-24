@@ -475,7 +475,7 @@ class SokobanProblem(util.SearchProblem):
                 minDist2 = 2**31
                 for target in self.targets:
                     newDist = (abs(row - target[0])) + (abs(col - target[1]))
-                    newDist2 = math.sqrt((row - target[0])**2)+((col - target[1])**2)
+                    newDist2 = math.sqrt((row - target[0])**2 + (col - target[1])**2)
                     if newDist < minDist:
                         minDist = newDist
                     if newDist2 < minDist2:
