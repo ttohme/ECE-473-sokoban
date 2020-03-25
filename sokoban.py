@@ -562,9 +562,10 @@ class Heuristic:
     ##############################################################################
     def heuristic2(self, s):
         
+        player = s.player()
         dist = 0
         for box in s.boxes():
-            dist += self.pythoGrean[box]
+            dist += (self.pythoGrean[box] + self.Manhattan[box])
             
         return dist
 
