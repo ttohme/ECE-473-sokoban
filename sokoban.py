@@ -482,7 +482,7 @@ class SokobanProblem(util.SearchProblem):
                         minDist2 = newDist2
                 
                 self.Manhattan[(row, col)] = minDist
-                self.pythoGrean[(row, col)] = minDist2   
+                self.pythoGrean[(row, col)] = minDist2
     
 
     ##############################################################################
@@ -565,7 +565,7 @@ class Heuristic:
         player = s.player()
         dist = 0
         for box in s.boxes():
-            dist += (self.pythoGrean[box] + self.Manhattan[box])
+            dist += self.pythoGrean[box]
             
         return dist
 
