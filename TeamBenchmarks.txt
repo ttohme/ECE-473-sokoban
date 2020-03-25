@@ -1,0 +1,1066 @@
+############################################################################################################################################################
+############################################################################################################################################################
+
+Our benchmarks:
+
+#############################################################################################################################################################
+#############################################################################################################################################################
+
+Level 1
+    #####
+  ###@  #
+  #. $ .#
+  #  $ ##
+ ### ###
+## $  #
+#     #
+#.  ###
+#####
+length 105 soln is ['r', 'd', 'd', 'l', 'r', 'u', 'u', 'l', 'd', 'l', 'd', 'd', 'd', 'r', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'u', 'r', 'l', 'd', 'd', 'r', 'u', 'r', 'u', 'u', 'u', 'l', 'u', 'r', 'r', 'r', 'd', 'l', 'u', 'l', 'd', 'd', 'd', 'r', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'u', 'r', 'l', 'd', 'd', 'r', 'u', 'r', 'u', 'u', 'u', 'l', 'u', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'u', 'r', 'r', 'u', 'u', 'l', 'd', 'r', 'd', 'l', 'u', 'l', 'd', 'd', 'd', 'r', 'd', 'l', 'l', 'u', 'l', 'd', 'r', 'd', 'l']
+Time consumed: 0.108 seconds using ucs and exploring 1774 states
+105 moves
+rddlr uuldl dddrd lldll ururl ddrur uuulu rrrdl ulddd rdlld lluru rlddr uruuu lurdd ddllu rdruu urruu ldrdl ulddd rdllu ldrdl
+    #####
+  ###@  #
+  #. $ .#
+  #  $ ##
+ ### ###
+## $  #
+#     #
+#.  ###
+#####
+length 105 soln is ['r', 'd', 'd', 'l', 'r', 'u', 'u', 'l', 'd', 'l', 'd', 'd', 'd', 'r', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'u', 'r', 'l', 'd', 'd', 'r', 'u', 'r', 'u', 'u', 'u', 'l', 'u', 'r', 'r', 'r', 'd', 'l', 'u', 'l', 'd', 'd', 'd', 'r', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'u', 'r', 'l', 'd', 'd', 'r', 'u', 'r', 'u', 'u', 'u', 'l', 'u', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'u', 'r', 'r', 'u', 'u', 'l', 'd', 'r', 'd', 'l', 'u', 'l', 'd', 'd', 'd', 'r', 'd', 'l', 'l', 'u', 'l', 'd', 'r', 'd', 'l']
+Time consumed: 0.107 seconds using a and exploring 1757 states
+105 moves
+rddlr uuldl dddrd lldll ururl ddrur uuulu rrrdl ulddd rdlld lluru rlddr uruuu lurdd ddllu rdruu urruu ldrdl ulddd rdllu ldrdl
+    #####
+  ###@  #
+  #. $ .#
+  #  $ ##
+ ### ###
+## $  #
+#     #
+#.  ###
+#####
+length 105 soln is ['r', 'd', 'd', 'l', 'r', 'u', 'u', 'l', 'd', 'l', 'd', 'd', 'd', 'r', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'u', 'r', 'l', 'd', 'd', 'r', 'u', 'r', 'u', 'u', 'u', 'l', 'u', 'r', 'r', 'r', 'd', 'l', 'u', 'l', 'd', 'd', 'd', 'r', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'u', 'r', 'l', 'd', 'd', 'r', 'u', 'r', 'u', 'u', 'u', 'l', 'u', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'u', 'r', 'r', 'u', 'u', 'l', 'd', 'r', 'd', 'l', 'u', 'l', 'd', 'd', 'd', 'r', 'd', 'l', 'l', 'u', 'l', 'd', 'r', 'd', 'l']
+Time consumed: 0.109 seconds using a2 and exploring 1757 states
+105 moves
+rddlr uuldl dddrd lldll ururl ddrur uuulu rrrdl ulddd rdlld lluru rlddr uruuu lurdd ddllu rdruu urruu ldrdl ulddd rdllu ldrdl
+    #####
+  ###@  #
+  #. $ .#
+  #  $ ##
+ ### ###
+## $  #
+#     #
+#.  ###
+#####
+length 43 soln is [(3, 5, 'l'), (2, 5, 'd'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'r'), (3, 5, 'l'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 4, 'r'), (5, 3, 'r'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 5, 'd'), (3, 5, 'l'), (2, 4, 'l'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'd'), (7, 2, 'l')]
+Time consumed: 0.030 seconds using f and exploring 271 states
+    #####
+  ###@  #
+  #. $ .#
+  #  $ ##
+ ### ###
+## $  #
+#     #
+#.  ###
+#####
+length 43 soln is [(3, 5, 'l'), (2, 5, 'd'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'r'), (3, 5, 'l'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 4, 'r'), (5, 3, 'r'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 5, 'd'), (2, 4, 'l'), (3, 5, 'l'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'd'), (7, 2, 'l')]
+Time consumed: 0.030 seconds using fa and exploring 266 states
+    #####
+  ###@  #
+  #. $ .#
+  #  $ ##
+ ### ###
+## $  #
+#     #
+#.  ###
+#####
+length 43 soln is [(3, 5, 'l'), (2, 5, 'd'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'r'), (3, 5, 'l'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 4, 'r'), (5, 3, 'r'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 5, 'd'), (2, 4, 'l'), (3, 5, 'l'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'd'), (7, 2, 'l')]
+Time consumed: 0.029 seconds using fa2 and exploring 266 states
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 2
+
+  ########
+ ##.... @#
+ #  # .  #
+## #  # ##
+#  #$ # #
+# $   # ##
+###$ ##  #
+  #   $$ #
+  #   #  #
+  ########
+length 255 soln is ['l', 'd', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'd', 'd', 'd', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'l', 'l', 'u', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'd', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'l', 'd', 'l', 'd', 'd', 'l', 'd', 'r', 'r', 'd', 'r', 'u', 'r', 'u', 'u', 'u', 'u', 'r', 'r', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'l', 'l', 'd', 'l', 'l', 'u', 'u', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'l', 'u', 'l', 'd', 'd', 'l', 'd', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'l', 'l', 'l', 'u', 'u', 'r', 'd', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'l', 'd', 'l', 'd', 'd', 'l', 'd', 'r', 'r', 'l', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'r', 'd', 'r', 'r', 'u', 'l', 'l', 'l', 'l', 'r', 'r', 'r', 'd', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'd', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'l', 'l', 'l', 'u', 'u', 'r', 'd', 'u', 'r', 'u', 'u', 'u', 'r', 'r', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'd', 'd', 'd', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'l', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'l']
+Time consumed: 124.877 seconds using ucs and exploring 1222100 states
+255 moves
+ldddd drddl uuuuu ddddl ldllu rrrll uuruu ldddu uuruu lldld dldrr druru uuurr rdldd ddrdd lulld lluud drrur ruuuu ululd dlddl ddrrr llluu rduuu ruull dlddl drrlu uurur rrdrr ullll rrrdd dddrd dluuu uuuru llldd lddld drrrl lluur duruu urrdd ddrdd luuuu udddd lldll urrrl luuuu rurur rdldd ddrdd luuuu uurul
+  ########
+ ##.... @#
+ #  # .  #
+## #  # ##
+#  #$ # #
+# $   # ##
+###$ ##  #
+  #   $$ #
+  #   #  #
+  ########
+length 255 soln is ['l', 'd', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'd', 'd', 'd', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'l', 'l', 'u', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'd', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'l', 'd', 'l', 'd', 'd', 'l', 'd', 'r', 'r', 'd', 'r', 'u', 'r', 'u', 'u', 'u', 'u', 'r', 'r', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'l', 'l', 'd', 'l', 'l', 'u', 'u', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'l', 'u', 'l', 'd', 'd', 'l', 'd', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'l', 'l', 'l', 'u', 'u', 'r', 'd', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'l', 'd', 'l', 'd', 'd', 'l', 'd', 'r', 'r', 'l', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'r', 'd', 'r', 'r', 'u', 'l', 'l', 'l', 'l', 'r', 'r', 'r', 'd', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'd', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'l', 'l', 'l', 'u', 'u', 'r', 'd', 'u', 'r', 'u', 'u', 'u', 'r', 'r', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'd', 'd', 'd', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'l', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'l']
+Time consumed: 128.352 seconds using a and exploring 1203451 states
+255 moves
+ldddd drddl uuuuu ddddl ldllu rrrll uuruu ldddu uuruu lldld dldrr druru uuurr rdldd ddrdd lulld lluud drrur ruuuu ululd dlddl ddrrr llluu rduuu ruull dlddl drrlu uurur rrdrr ullll rrrdd dddrd dluuu uuuru llldd lddld drrrl lluur duruu urrdd ddrdd luuuu udddd lldll urrrl luuuu rurur rdldd ddrdd luuuu uurul
+  ########
+ ##.... @#
+ #  # .  #
+## #  # ##
+#  #$ # #
+# $   # ##
+###$ ##  #
+  #   $$ #
+  #   #  #
+  ########
+length 255 soln is ['l', 'd', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'd', 'd', 'd', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'l', 'l', 'u', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'd', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'l', 'd', 'l', 'd', 'd', 'l', 'd', 'r', 'r', 'd', 'r', 'u', 'r', 'u', 'u', 'u', 'u', 'r', 'r', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'l', 'l', 'd', 'l', 'l', 'u', 'u', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'l', 'u', 'l', 'd', 'd', 'l', 'd', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'l', 'l', 'l', 'u', 'u', 'r', 'd', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'l', 'd', 'l', 'd', 'd', 'l', 'd', 'r', 'r', 'l', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'r', 'd', 'r', 'r', 'u', 'l', 'l', 'l', 'l', 'r', 'r', 'r', 'd', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'd', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'l', 'l', 'l', 'u', 'u', 'r', 'd', 'u', 'r', 'u', 'u', 'u', 'r', 'r', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'd', 'd', 'd', 'd', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'l', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'l']
+Time consumed: 117.150 seconds using a2 and exploring 1208767 states
+255 moves
+ldddd drddl uuuuu ddddl ldllu rrrll uuruu ldddu uuruu lldld dldrr druru uuurr rdldd ddrdd lulld lluud drrur ruuuu ululd dlddl ddrrr llluu rduuu ruull dlddl drrlu uurur rrdrr ullll rrrdd dddrd dluuu uuuru llldd lddld drrrl lluur duruu urrdd ddrdd luuuu udddd lldll urrrl luuuu rurur rdldd ddrdd luuuu uurul
+  ########
+ ##.... @#
+ #  # .  #
+## #  # ##
+#  #$ # #
+# $   # ##
+###$ ##  #
+  #   $$ #
+  #   #  #
+  ########
+length 65 soln is [(7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (7, 6, 'r'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'd'), (5, 2, 'r'), (5, 3, 'r'), (7, 7, 'u'), (7, 4, 'r'), (7, 5, 'r'), (5, 4, 'u'), (6, 7, 'd'), (6, 3, 'u'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'd'), (5, 3, 'r'), (5, 4, 'd'), (1, 7, 'l'), (1, 6, 'l'), (7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (7, 6, 'r'), (7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (1, 5, 'l'), (1, 7, 'l'), (1, 4, 'l'), (1, 6, 'l'), (3, 7, 'u'), (7, 4, 'r'), (7, 5, 'r'), (7, 6, 'r'), (2, 7, 'l'), (2, 6, 'l'), (1, 5, 'l'), (7, 7, 'u'), (6, 7, 'u'), (6, 4, 'd'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (7, 4, 'r'), (7, 5, 'r'), (7, 6, 'r'), (2, 5, 'u'), (2, 7, 'l'), (7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (1, 7, 'l')]
+Time consumed: 57.206 seconds using f and exploring 250078 states
+  ########
+ ##.... @#
+ #  # .  #
+## #  # ##
+#  #$ # #
+# $   # ##
+###$ ##  #
+  #   $$ #
+  #   #  #
+  ########
+length 65 soln is [(7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (1, 7, 'l'), (7, 6, 'r'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'd'), (5, 2, 'r'), (5, 3, 'r'), (7, 7, 'u'), (6, 3, 'u'), (5, 4, 'u'), (7, 4, 'r'), (7, 5, 'r'), (6, 7, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'd'), (5, 3, 'r'), (5, 4, 'd'), (1, 6, 'l'), (7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (7, 6, 'r'), (7, 4, 'r'), (7, 5, 'r'), (1, 5, 'l'), (1, 7, 'l'), (1, 4, 'l'), (1, 6, 'l'), (7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (7, 6, 'r'), (7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (6, 4, 'd'), (1, 5, 'l'), (1, 7, 'l'), (1, 6, 'l'), (3, 7, 'u'), (7, 4, 'r'), (7, 5, 'r'), (7, 6, 'r'), (2, 7, 'l'), (7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (1, 7, 'l')]
+Time consumed: 60.122 seconds using fa and exploring 241490 states
+  ########
+ ##.... @#
+ #  # .  #
+## #  # ##
+#  #$ # #
+# $   # ##
+###$ ##  #
+  #   $$ #
+  #   #  #
+  ########
+length 65 soln is [(7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (1, 7, 'l'), (7, 6, 'r'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'd'), (5, 2, 'r'), (5, 3, 'r'), (7, 7, 'u'), (6, 3, 'u'), (7, 4, 'r'), (7, 5, 'r'), (5, 4, 'u'), (6, 7, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'd'), (5, 3, 'r'), (5, 4, 'd'), (1, 6, 'l'), (7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (7, 6, 'r'), (7, 4, 'r'), (7, 5, 'r'), (1, 5, 'l'), (1, 7, 'l'), (1, 4, 'l'), (1, 6, 'l'), (7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (7, 6, 'r'), (7, 7, 'u'), (6, 7, 'u'), (6, 4, 'd'), (5, 7, 'u'), (4, 7, 'u'), (1, 5, 'l'), (1, 7, 'l'), (1, 6, 'l'), (3, 7, 'u'), (7, 4, 'r'), (7, 5, 'r'), (7, 6, 'r'), (2, 7, 'l'), (7, 7, 'u'), (6, 7, 'u'), (5, 7, 'u'), (4, 7, 'u'), (3, 7, 'u'), (2, 7, 'u'), (1, 7, 'l')]
+Time consumed: 61.956 seconds using fa2 and exploring 246012 states
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 3
+
+ #########
+##       ##
+# .#####  #
+# .     # #
+# * $$  # #
+# *## ##  #
+# *   #  ##
+# *## # ##
+# +   # #
+# $###  #
+##     ##
+ #######
+length 116 soln is ['r', 'r', 'r', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'd', 'r', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'u', 'r', 'r', 'u', 'r', 'r', 'r', 'r', 'd', 'l', 'u', 'l', 'l', 'l', 'd', 'l', 'l', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'l', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'r', 'r', 'r', 'r', 'd', 'r', 'd', 'd', 'd', 'l', 'd', 'l', 'd', 'd', 'd', 'l', 'd', 'l', 'l', 'l', 'l', 'u', 'l', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'd', 'l', 'r', 'r', 'r', 'u', 'l', 'l', 'l']
+Time consumed: 574.830 seconds using ucs and exploring 4428545 states
+116 moves
+rrruu uurul lldrr ddddl llluu uurru rrrrd lulll dlldd ddrrr ruuuu lrddd dllll uuuuu ururr rrrrd rdddl dlddd ldlll luluu uuuru rrdlr rrull l
+ #########
+##       ##
+# .#####  #
+# .     # #
+# * $$  # #
+# *## ##  #
+# *   #  ##
+# *## # ##
+# +   # #
+# $###  #
+##     ##
+ #######
+length 116 soln is ['r', 'r', 'r', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'd', 'r', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'u', 'r', 'r', 'u', 'r', 'r', 'r', 'r', 'd', 'l', 'u', 'l', 'l', 'l', 'd', 'l', 'l', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'l', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'r', 'r', 'r', 'r', 'd', 'r', 'd', 'd', 'd', 'l', 'd', 'l', 'd', 'd', 'd', 'l', 'd', 'l', 'l', 'l', 'l', 'u', 'l', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'd', 'l', 'r', 'r', 'r', 'u', 'l', 'l', 'l']
+Time consumed: 500.045 seconds using a and exploring 3848489 states
+116 moves
+rrruu uurul lldrr ddddl llluu uurru rrrrd lulll dlldd ddrrr ruuuu lrddd dllll uuuuu ururr rrrrd rdddl dlddd ldlll luluu uuuru rrdlr rrull l
+ #########
+##       ##
+# .#####  #
+# .     # #
+# * $$  # #
+# *## ##  #
+# *   #  ##
+# *## # ##
+# +   # #
+# $###  #
+##     ##
+ #######
+length 116 soln is ['r', 'r', 'r', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'd', 'r', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'u', 'r', 'r', 'u', 'r', 'r', 'r', 'r', 'd', 'l', 'u', 'l', 'l', 'l', 'd', 'l', 'l', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'l', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'r', 'r', 'r', 'r', 'd', 'r', 'd', 'd', 'd', 'l', 'd', 'l', 'd', 'd', 'd', 'l', 'd', 'l', 'l', 'l', 'l', 'u', 'l', 'u', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'd', 'l', 'r', 'r', 'r', 'u', 'l', 'l', 'l']
+Time consumed: 509.661 seconds using a2 and exploring 3848489 states
+116 moves
+rrruu uurul lldrr ddddl llluu uurru rrrrd lulll dlldd ddrrr ruuuu lrddd dllll uuuuu ururr rrrrd rdddl dlddd ldlll luluu uuuru rrdlr rrull l
+ #########
+##       ##
+# .#####  #
+# .     # #
+# * $$  # #
+# *## ##  #
+# *   #  ##
+# *## # ##
+# +   # #
+# $###  #
+##     ##
+ #######
+length 17 soln is [(4, 5, 'u'), (3, 5, 'l'), (4, 4, 'r'), (4, 5, 'r'), (4, 2, 'r'), (4, 3, 'r'), (4, 6, 'l'), (3, 4, 'l'), (3, 3, 'l'), (4, 5, 'u'), (4, 4, 'l'), (9, 2, 'u'), (3, 2, 'u'), (4, 3, 'l'), (3, 5, 'l'), (3, 4, 'l'), (3, 3, 'l')]
+Time consumed: 159.876 seconds using f and exploring 419040 states
+ #########
+##       ##
+# .#####  #
+# .     # #
+# * $$  # #
+# *## ##  #
+# *   #  ##
+# *## # ##
+# +   # #
+# $###  #
+##     ##
+ #######
+length 17 soln is [(4, 5, 'u'), (3, 5, 'l'), (3, 4, 'l'), (3, 3, 'l'), (4, 4, 'r'), (4, 5, 'r'), (4, 2, 'r'), (4, 3, 'r'), (4, 6, 'l'), (4, 5, 'u'), (4, 4, 'l'), (9, 2, 'u'), (3, 2, 'u'), (3, 5, 'l'), (3, 4, 'l'), (3, 3, 'l'), (4, 3, 'l')]
+Time consumed: 3.643 seconds using fa and exploring 9867 states
+ #########
+##       ##
+# .#####  #
+# .     # #
+# * $$  # #
+# *## ##  #
+# *   #  ##
+# *## # ##
+# +   # #
+# $###  #
+##     ##
+ #######
+length 17 soln is [(4, 5, 'u'), (3, 5, 'l'), (3, 4, 'l'), (3, 3, 'l'), (4, 4, 'r'), (4, 5, 'r'), (4, 2, 'r'), (4, 3, 'r'), (4, 6, 'l'), (4, 5, 'u'), (4, 4, 'l'), (9, 2, 'u'), (3, 2, 'u'), (3, 5, 'l'), (3, 4, 'l'), (3, 3, 'l'), (4, 3, 'l')]
+Time consumed: 3.655 seconds using fa2 and exploring 9867 states
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 4
+
+  ######
+  #  . ##
+  # #*  #
+  # $.$ #
+  ## *. #
+ ## $.@ #
+## # .$ #
+#  $$.# #
+#      ##
+########
+length 102 soln is ['l', 'd', 'l', 'u', 'r', 'd', 'd', 'd', 'l', 'u', 'l', 'r', 'r', 'u', 'u', 'l', 'd', 'u', 'r', 'r', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'd', 'l', 'd', 'd', 'r', 'u', 'u', 'd', 'd', 'd', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'u', 'u', 'l', 'd', 'd', 'r', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'l', 'd', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'u', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'l', 'u', 'r', 'u', 'l', 'r', 'u', 'u', 'l', 'd']
+Time consumed: 428.644 seconds using ucs and exploring 2678667 states
+102 moves
+ldlur dddlu lrruu ldurr uruul dduuu llldd rrudl ddruu ddddd llurd ruuuu lddrd dllur druul dldll urrru uurrr ddlur ulruu ld
+  ######
+  #  . ##
+  # #*  #
+  # $.$ #
+  ## *. #
+ ## $.@ #
+## # .$ #
+#  $$.# #
+#      ##
+########
+length 102 soln is ['l', 'd', 'l', 'u', 'r', 'd', 'd', 'd', 'l', 'u', 'l', 'r', 'r', 'u', 'u', 'l', 'd', 'u', 'r', 'r', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'd', 'l', 'd', 'd', 'r', 'u', 'u', 'd', 'd', 'd', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'u', 'u', 'l', 'd', 'd', 'r', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'l', 'd', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'u', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'l', 'u', 'r', 'u', 'l', 'r', 'u', 'u', 'l', 'd']
+Time consumed: 406.182 seconds using a and exploring 2583002 states
+102 moves
+ldlur dddlu lrruu ldurr uruul dduuu llldd rrudl ddruu ddddd llurd ruuuu lddrd dllur druul dldll urrru uurrr ddlur ulruu ld
+  ######
+  #  . ##
+  # #*  #
+  # $.$ #
+  ## *. #
+ ## $.@ #
+## # .$ #
+#  $$.# #
+#      ##
+########
+length 102 soln is ['l', 'd', 'l', 'u', 'r', 'd', 'd', 'd', 'l', 'u', 'l', 'r', 'r', 'u', 'u', 'l', 'd', 'u', 'r', 'r', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'd', 'l', 'd', 'd', 'r', 'u', 'u', 'd', 'd', 'd', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'u', 'u', 'l', 'd', 'd', 'r', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'l', 'd', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'u', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'l', 'u', 'r', 'u', 'l', 'r', 'u', 'u', 'l', 'd']
+Time consumed: 415.235 seconds using a2 and exploring 2583428 states
+102 moves
+ldlur dddlu lrruu ldurr uruul dduuu llldd rrudl ddruu ddddd llurd ruuuu lddrd dllur druul dldll urrru uurrr ddlur ulruu ld
+  ######
+  #  . ##
+  # #*  #
+  # $.$ #
+  ## *. #
+ ## $.@ #
+## # .$ #
+#  $$.# #
+#      ##
+########
+length 27 soln is [(5, 4, 'u'), (7, 4, 'u'), (7, 3, 'l'), (6, 6, 'l'), (6, 4, 'd'), (6, 5, 'l'), (3, 6, 'd'), (4, 6, 'd'), (3, 4, 'r'), (3, 5, 'r'), (4, 4, 'u'), (7, 4, 'r'), (7, 5, 'u'), (6, 5, 'u'), (3, 4, 'r'), (6, 4, 'd'), (7, 4, 'r'), (3, 6, 'u'), (5, 6, 'u'), (3, 5, 'r'), (2, 5, 'u'), (3, 6, 'l'), (2, 6, 'l'), (7, 5, 'u'), (7, 2, 'r'), (7, 3, 'r'), (7, 4, 'r')]
+Time consumed: 249.420 seconds using f and exploring 821420 states
+  ######
+  #  . ##
+  # #*  #
+  # $.$ #
+  ## *. #
+ ## $.@ #
+## # .$ #
+#  $$.# #
+#      ##
+########
+length 27 soln is [(5, 4, 'u'), (7, 4, 'u'), (7, 3, 'l'), (6, 6, 'l'), (6, 4, 'd'), (6, 5, 'l'), (3, 6, 'd'), (4, 6, 'd'), (3, 4, 'r'), (3, 5, 'r'), (4, 4, 'u'), (7, 4, 'r'), (7, 5, 'u'), (6, 5, 'u'), (3, 4, 'r'), (6, 4, 'd'), (7, 4, 'r'), (3, 6, 'u'), (5, 6, 'u'), (3, 5, 'r'), (2, 5, 'u'), (2, 6, 'l'), (3, 6, 'l'), (7, 5, 'u'), (7, 2, 'r'), (7, 3, 'r'), (7, 4, 'r')]
+Time consumed: 207.215 seconds using fa and exploring 662495 states
+  ######
+  #  . ##
+  # #*  #
+  # $.$ #
+  ## *. #
+ ## $.@ #
+## # .$ #
+#  $$.# #
+#      ##
+########
+length 27 soln is [(5, 4, 'u'), (7, 4, 'u'), (7, 3, 'l'), (6, 6, 'l'), (6, 4, 'd'), (6, 5, 'l'), (3, 6, 'd'), (4, 6, 'd'), (3, 4, 'r'), (3, 5, 'r'), (4, 4, 'u'), (7, 4, 'r'), (7, 5, 'u'), (6, 5, 'u'), (3, 4, 'r'), (6, 4, 'd'), (7, 4, 'r'), (3, 6, 'u'), (5, 6, 'u'), (3, 5, 'r'), (2, 5, 'u'), (2, 6, 'l'), (3, 6, 'l'), (7, 5, 'u'), (7, 2, 'r'), (7, 3, 'r'), (7, 4, 'r')]
+Time consumed: 205.641 seconds using fa2 and exploring 662495 states
+
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 5
+
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+length 164 soln is ['l', 'l', 'u', 'u', 'd', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'l', 'l', 'l', 'r', 'r', 'r', 'd', 'd', 'd', 'l', 'u', 'u', 'r', 'u', 'l', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'r', 'd', 'd', 'd', 'd', 'd', 'd', 'l', 'l', 'u', 'l', 'l', 'l', 'd', 'd', 'r', 'u', 'l', 'u', 'r', 'r', 'l', 'd', 'd', 'd', 'r', 'd', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'l', 'u', 'u', 'u', 'r', 'd', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'd', 'r', 'u', 'd', 'd', 'r', 'd', 'r', 'd', 'r', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'r', 'r', 'd', 'd', 'd', 'l', 'l', 'u', 'l', 'u', 'l', 'u', 'u', 'r', 'd', 'r', 'r', 'r', 'd', 'd', 'd', 'r', 'r', 'u', 'l', 'd', 'l', 'u', 'u', 'r', 'u', 'l', 'l', 'u', 'l', 'r', 'd', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'l', 'l', 'l', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'd', 'd']
+Time consumed: 395.662 seconds using ucs and exploring 3436910 states
+164 moves
+lluud drrul uulll rrrdd dluur ulluu uuuur rdddd ddllu llldd rulur rlddd rdrru rrdll uuurd ulllu llddr uddrd rdruu urull lrrdd dllul uluur drrrd ddrru ldluu rullu lrdrr uuuuu rrrru rdlll ullll dddd
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+length 164 soln is ['l', 'l', 'u', 'u', 'd', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'l', 'l', 'l', 'r', 'r', 'r', 'd', 'd', 'd', 'l', 'u', 'u', 'r', 'u', 'l', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'r', 'd', 'd', 'd', 'd', 'd', 'd', 'l', 'l', 'u', 'l', 'l', 'l', 'd', 'd', 'r', 'u', 'l', 'u', 'r', 'r', 'l', 'd', 'd', 'd', 'r', 'd', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'l', 'u', 'u', 'u', 'r', 'd', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'd', 'r', 'u', 'd', 'd', 'r', 'd', 'r', 'd', 'r', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'r', 'r', 'd', 'd', 'd', 'l', 'l', 'u', 'l', 'u', 'l', 'u', 'u', 'r', 'd', 'r', 'r', 'r', 'd', 'd', 'd', 'r', 'r', 'u', 'l', 'd', 'l', 'u', 'u', 'r', 'u', 'l', 'l', 'u', 'l', 'r', 'd', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'l', 'l', 'l', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'd', 'd']
+Time consumed: 390.593 seconds using a and exploring 3367854 states
+164 moves
+lluud drrul uulll rrrdd dluur ulluu uuuur rdddd ddllu llldd rulur rlddd rdrru rrdll uuurd ulllu llddr uddrd rdruu urull lrrdd dllul uluur drrrd ddrru ldluu rullu lrdrr uuuuu rrrru rdlll ullll dddd
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+length 164 soln is ['l', 'l', 'u', 'u', 'd', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'l', 'l', 'l', 'r', 'r', 'r', 'd', 'd', 'd', 'l', 'u', 'u', 'r', 'u', 'l', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'r', 'd', 'd', 'd', 'd', 'd', 'd', 'l', 'l', 'u', 'l', 'l', 'l', 'd', 'd', 'r', 'u', 'l', 'u', 'r', 'r', 'l', 'd', 'd', 'd', 'r', 'd', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'l', 'u', 'u', 'u', 'r', 'd', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'd', 'r', 'u', 'd', 'd', 'r', 'd', 'r', 'd', 'r', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'r', 'r', 'd', 'd', 'd', 'l', 'l', 'u', 'l', 'u', 'l', 'u', 'u', 'r', 'd', 'r', 'r', 'r', 'd', 'd', 'd', 'r', 'r', 'u', 'l', 'd', 'l', 'u', 'u', 'r', 'u', 'l', 'l', 'u', 'l', 'r', 'd', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'l', 'l', 'l', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'd', 'd']
+Time consumed: 362.199 seconds using a2 and exploring 3385566 states
+164 moves
+lluud drrul uulll rrrdd dluur ulluu uuuur rdddd ddllu llldd rulur rlddd rdrru rrdll uuurd ulllu llddr uddrd rdruu urull lrrdd dllul uluur drrrd ddrru ldluu rullu lrdrr uuuuu rrrru rdlll ullll dddd
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+length 44 soln is [(10, 6, 'l'), (10, 5, 'l'), (9, 5, 'u'), (8, 5, 'u'), (9, 6, 'l'), (9, 5, 'u'), (8, 6, 'u'), (7, 6, 'u'), (7, 5, 'l'), (7, 4, 'l'), (10, 4, 'r'), (7, 3, 'l'), (8, 5, 'u'), (7, 5, 'l'), (7, 4, 'l'), (10, 5, 'u'), (9, 5, 'u'), (6, 6, 'd'), (7, 6, 'd'), (8, 6, 'd'), (8, 5, 'u'), (9, 6, 'l'), (9, 5, 'u'), (7, 2, 'u'), (7, 3, 'l'), (7, 5, 'l'), (7, 4, 'l'), (6, 2, 'r'), (6, 3, 'r'), (7, 2, 'u'), (7, 3, 'l'), (6, 2, 'r'), (7, 2, 'd'), (8, 5, 'u'), (7, 5, 'l'), (7, 4, 'l'), (6, 4, 'u'), (6, 3, 'l'), (5, 4, 'd'), (2, 7, 'r'), (2, 8, 'r'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'd')]
+Time consumed: 166.286 seconds using f and exploring 599744 states
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+length 44 soln is [(10, 6, 'l'), (10, 5, 'l'), (9, 5, 'u'), (8, 5, 'u'), (9, 6, 'l'), (8, 6, 'u'), (7, 6, 'u'), (7, 5, 'l'), (7, 4, 'l'), (9, 5, 'u'), (10, 4, 'r'), (7, 3, 'l'), (8, 5, 'u'), (7, 5, 'l'), (7, 4, 'l'), (10, 5, 'u'), (9, 5, 'u'), (8, 5, 'u'), (6, 6, 'd'), (7, 6, 'd'), (8, 6, 'd'), (7, 2, 'u'), (9, 6, 'l'), (9, 5, 'u'), (7, 3, 'l'), (7, 5, 'l'), (7, 4, 'l'), (6, 2, 'r'), (6, 3, 'r'), (7, 2, 'u'), (7, 3, 'l'), (6, 2, 'r'), (7, 2, 'd'), (8, 5, 'u'), (7, 5, 'l'), (7, 4, 'l'), (6, 4, 'u'), (6, 3, 'l'), (5, 4, 'd'), (2, 7, 'r'), (2, 8, 'r'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'd')]
+Time consumed: 94.152 seconds using fa and exploring 284503 states
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+length 44 soln is [(10, 6, 'l'), (10, 5, 'l'), (9, 5, 'u'), (8, 5, 'u'), (9, 6, 'l'), (9, 5, 'u'), (8, 6, 'u'), (7, 6, 'u'), (7, 5, 'l'), (7, 4, 'l'), (10, 4, 'r'), (7, 3, 'l'), (8, 5, 'u'), (7, 5, 'l'), (7, 4, 'l'), (10, 5, 'u'), (9, 5, 'u'), (6, 6, 'd'), (7, 6, 'd'), (8, 6, 'd'), (7, 2, 'u'), (8, 5, 'u'), (9, 6, 'l'), (7, 3, 'l'), (7, 5, 'l'), (7, 4, 'l'), (6, 2, 'r'), (6, 3, 'r'), (7, 2, 'u'), (7, 3, 'l'), (6, 2, 'r'), (7, 2, 'd'), (9, 5, 'u'), (8, 5, 'u'), (7, 5, 'l'), (7, 4, 'l'), (6, 4, 'u'), (6, 3, 'l'), (5, 4, 'd'), (2, 7, 'r'), (2, 8, 'r'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'd')]
+Time consumed: 124.379 seconds using fa2 and exploring 398360 states
+
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 6
+
+#######################
+#      #   #   #      #
+# $@$$ # $     # .. ..#
+## ## ### ### ### ## ##
+ # #       #       # #
+ # #   #   #   #   # #
+ # ################# #
+ #                   #
+ #####################
+length 581 soln is ['u', 'r', 'r', 'd', 'd', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'l', 'l', 'l', 'd', 'r', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'r', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'r', 'd', 'l', 'u', 'r', 'r', 'r', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'u', 'u', 'l', 'l', 'l', 'l', 'd', 'r', 'r', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'l', 'd', 'r', 'r', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'l', 'l', 'l', 'd', 'r', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u']
+Time consumed: 329.639 seconds using ucs and exploring 3273469 states
+581 moves
+urrdd uulld rulll drddd ddrrr rrrrr rrrrr rrrrr uuuuu llldd llllu ulllu lldrd dllld llurr rrdrr uluur rrurr dlddr rrruu rrrdd dddll lllll lllll lllll luuuu uurrd lurrr dlddr rrdrr uluur rrurd dulll lddll ldllu rrrrd ruudl llluu ulldr urddu ullll drrld ddddr rrrrr rrrrr rrrrr rruuu uulll ddlll dllur rrrdr uudll lluul llull drrrr urddu lllld dllld llurr rrdru udlll luuul ldrur ddull ldddd drrrr rrrrr rrrrr rrrru uuuuu lllld rrrrl llddl lldll urrrr druud llllu ulllu lldrr rrurd dulll lddll ldllu rrrrd ruudl llluu llldd dddrr rrrrr rrrrr rrrrr ruuuu uulll ldrrl ddlll dllur rrrdr uudll lluul llull drrrr urddu lllld dllll uulll ddddd rrrrr rrrrr rrrrr rrruu uuuul ldrul lldrd dllld llurr rrdru u
+#######################
+#      #   #   #      #
+# $@$$ # $     # .. ..#
+## ## ### ### ### ## ##
+ # #       #       # #
+ # #   #   #   #   # #
+ # ################# #
+ #                   #
+ #####################
+length 581 soln is ['u', 'r', 'r', 'd', 'd', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'l', 'l', 'l', 'd', 'r', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'r', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'r', 'd', 'l', 'u', 'r', 'r', 'r', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'u', 'u', 'l', 'l', 'l', 'l', 'd', 'r', 'r', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'l', 'd', 'r', 'r', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'l', 'l', 'l', 'd', 'r', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u']
+Time consumed: 331.402 seconds using a and exploring 3245048 states
+581 moves
+urrdd uulld rulll drddd ddrrr rrrrr rrrrr rrrrr uuuuu llldd llllu ulllu lldrd dllld llurr rrdrr uluur rrurr dlddr rrruu rrrdd dddll lllll lllll lllll luuuu uurrd lurrr dlddr rrdrr uluur rrurd dulll lddll ldllu rrrrd ruudl llluu ulldr urddu ullll drrld ddddr rrrrr rrrrr rrrrr rruuu uulll ddlll dllur rrrdr uudll lluul llull drrrr urddu lllld dllld llurr rrdru udlll luuul ldrur ddull ldddd drrrr rrrrr rrrrr rrrru uuuuu lllld rrrrl llddl lldll urrrr druud llllu ulllu lldrr rrurd dulll lddll ldllu rrrrd ruudl llluu llldd dddrr rrrrr rrrrr rrrrr ruuuu uulll ldrrl ddlll dllur rrrdr uudll lluul llull drrrr urddu lllld dllll uulll ddddd rrrrr rrrrr rrrrr rrruu uuuul ldrul lldrd dllld llurr rrdru u
+#######################
+#      #   #   #      #
+# $@$$ # $     # .. ..#
+## ## ### ### ### ## ##
+ # #       #       # #
+ # #   #   #   #   # #
+ # ################# #
+ #                   #
+ #####################
+length 581 soln is ['u', 'r', 'r', 'd', 'd', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'l', 'l', 'l', 'd', 'r', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'r', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'u', 'u', 'u', 'r', 'r', 'd', 'l', 'u', 'r', 'r', 'r', 'd', 'l', 'd', 'd', 'r', 'r', 'r', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'u', 'u', 'l', 'l', 'l', 'l', 'd', 'r', 'r', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'l', 'd', 'r', 'r', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'u', 'l', 'l', 'l', 'l', 'd', 'd', 'l', 'l', 'l', 'l', 'u', 'u', 'l', 'l', 'l', 'd', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'u', 'u', 'l', 'l', 'd', 'r', 'u', 'l', 'l', 'l', 'd', 'r', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'd', 'r', 'u', 'u']
+Time consumed: 307.188 seconds using a2 and exploring 3246929 states
+581 moves
+urrdd uulld rulll drddd ddrrr rrrrr rrrrr rrrrr uuuuu llldd llllu ulllu lldrd dllld llurr rrdrr uluur rrurr dlddr rrruu rrrdd dddll lllll lllll lllll luuuu uurrd lurrr dlddr rrdrr uluur rrurd dulll lddll ldllu rrrrd ruudl llluu ulldr urddu ullll drrld ddddr rrrrr rrrrr rrrrr rruuu uulll ddlll dllur rrrdr uudll lluul llull drrrr urddu lllld dllld llurr rrdru udlll luuul ldrur ddull ldddd drrrr rrrrr rrrrr rrrru uuuuu lllld rrrrl llddl lldll urrrr druud llllu ulllu lldrr rrurd dulll lddll ldllu rrrrd ruudl llluu llldd dddrr rrrrr rrrrr rrrrr ruuuu uulll ldrrl ddlll dllur rrrdr uudll lluul llull drrrr urddu lllld dllll uulll ddddd rrrrr rrrrr rrrrr rrruu uuuul ldrul lldrd dllld llurr rrdru u
+#######################
+#      #   #   #      #
+# $@$$ # $     # .. ..#
+## ## ### ### ### ## ##
+ # #       #       # #
+ # #   #   #   #   # #
+ # ################# #
+ #                   #
+ #####################
+length 100 soln is [(2, 5, 'd'), (3, 5, 'd'), (2, 4, 'r'), (2, 2, 'r'), (2, 9, 'r'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'l'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'l'), (2, 3, 'l'), (2, 5, 'l'), (4, 8, 'r'), (4, 9, 'l'), (4, 8, 'l'), (4, 7, 'l'), (4, 6, 'l'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'u'), (3, 9, 'u'), (2, 4, 'r'), (2, 5, 'd'), (3, 5, 'd'), (2, 2, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'u'), (3, 9, 'u'), (2, 3, 'r'), (2, 4, 'r'), (2, 5, 'd'), (3, 5, 'd'), (2, 17, 'r'), (2, 18, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'u'), (3, 9, 'u'), (2, 19, 'r'), (2, 20, 'r'), (2, 17, 'r'), (2, 18, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (2, 19, 'r'), (2, 17, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u')]
+Time consumed: 75.763 seconds using f and exploring 306305 states
+#######################
+#      #   #   #      #
+# $@$$ # $     # .. ..#
+## ## ### ### ### ## ##
+ # #       #       # #
+ # #   #   #   #   # #
+ # ################# #
+ #                   #
+ #####################
+length 100 soln is [(2, 5, 'd'), (3, 5, 'd'), (2, 4, 'r'), (2, 2, 'r'), (2, 9, 'r'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'l'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'l'), (2, 3, 'l'), (2, 5, 'l'), (4, 8, 'r'), (4, 9, 'l'), (4, 8, 'l'), (4, 7, 'l'), (4, 6, 'l'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'u'), (3, 9, 'u'), (2, 4, 'r'), (2, 5, 'd'), (3, 5, 'd'), (2, 2, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'u'), (3, 9, 'u'), (2, 3, 'r'), (2, 4, 'r'), (2, 5, 'd'), (3, 5, 'd'), (2, 17, 'r'), (2, 18, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'u'), (3, 9, 'u'), (2, 19, 'r'), (2, 20, 'r'), (2, 17, 'r'), (2, 18, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (2, 19, 'r'), (2, 17, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u')]
+Time consumed: 55.576 seconds using fa and exploring 209960 states
+#######################
+#      #   #   #      #
+# $@$$ # $     # .. ..#
+## ## ### ### ### ## ##
+ # #       #       # #
+ # #   #   #   #   # #
+ # ################# #
+ #                   #
+ #####################
+length 100 soln is [(2, 5, 'd'), (3, 5, 'd'), (2, 4, 'r'), (2, 2, 'r'), (2, 9, 'r'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'l'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'l'), (2, 3, 'l'), (2, 5, 'l'), (4, 8, 'r'), (4, 9, 'l'), (4, 8, 'l'), (4, 7, 'l'), (4, 6, 'l'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'u'), (3, 9, 'u'), (2, 4, 'r'), (2, 5, 'd'), (3, 5, 'd'), (2, 2, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'u'), (3, 9, 'u'), (2, 3, 'r'), (2, 4, 'r'), (2, 5, 'd'), (3, 5, 'd'), (2, 17, 'r'), (2, 18, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (4, 5, 'r'), (4, 6, 'r'), (4, 7, 'r'), (4, 8, 'r'), (4, 9, 'u'), (3, 9, 'u'), (2, 19, 'r'), (2, 20, 'r'), (2, 17, 'r'), (2, 18, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u'), (2, 9, 'r'), (2, 10, 'r'), (2, 11, 'r'), (2, 12, 'r'), (2, 13, 'd'), (3, 13, 'd'), (2, 19, 'r'), (2, 17, 'r'), (4, 13, 'r'), (4, 14, 'r'), (4, 15, 'r'), (4, 16, 'r'), (4, 17, 'u'), (3, 17, 'u')]
+Time consumed: 65.090 seconds using fa2 and exploring 233640 states
+
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 7
+
+#####
+#  @####
+#  $.  #
+###$.# #
+#  $.# #
+# #$.  #
+#    ###
+######
+length 91 soln is ['l', 'd', 'r', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'u', 'u', 'r', 'r', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'r', 'u', 'u', 'u', 'l', 'l', 'd', 'd', 'l', 'd', 'r', 'u', 'u', 'u', 'l', 'd', 'd', 'r', 'd', 'd', 'l', 'l', 'l', 'u', 'u', 'r', 'r', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'r', 'u', 'l', 'd', 'd', 'l', 'l', 'u', 'u', 'r', 'r', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'd', 'l', 'r', 'u', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r']
+Time consumed: 0.601 seconds using ucs and exploring 8575 states
+91 moves
+ldrrd dddll luurr llddr rurrr uuull ddldr uuuld drddl lluur rlldd rruru lddll uurru urrrd ddlru uulll ulldr r
+#####
+#  @####
+#  $.  #
+###$.# #
+#  $.# #
+# #$.  #
+#    ###
+######
+length 91 soln is ['l', 'd', 'r', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'u', 'u', 'r', 'r', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'r', 'u', 'u', 'u', 'l', 'l', 'd', 'd', 'l', 'd', 'r', 'u', 'u', 'u', 'l', 'd', 'd', 'r', 'd', 'd', 'l', 'l', 'l', 'u', 'u', 'r', 'r', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'r', 'u', 'd', 'l', 'd', 'l', 'l', 'u', 'u', 'r', 'r', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'd', 'l', 'r', 'u', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r']
+Time consumed: 0.617 seconds using a and exploring 8445 states
+91 moves
+ldrrd dddll luurr llddr rurrr uuull ddldr uuuld drddl lluur rlldd rruru dldll uurru urrrd ddlru uulll ulldr r
+#####
+#  @####
+#  $.  #
+###$.# #
+#  $.# #
+# #$.  #
+#    ###
+######
+length 91 soln is ['l', 'd', 'r', 'r', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'u', 'u', 'r', 'r', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'r', 'u', 'u', 'u', 'l', 'l', 'd', 'd', 'l', 'd', 'r', 'u', 'u', 'u', 'l', 'd', 'd', 'r', 'd', 'd', 'l', 'l', 'l', 'u', 'u', 'r', 'r', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'r', 'u', 'd', 'l', 'd', 'l', 'l', 'u', 'u', 'r', 'r', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'd', 'l', 'r', 'u', 'u', 'u', 'l', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r']
+Time consumed: 0.599 seconds using a2 and exploring 8446 states
+91 moves
+ldrrd dddll luurr llddr rurrr uuull ddldr uuuld drddl lluur rlldd rruru dldll uurru urrrd ddlru uulll ulldr r
+#####
+#  @####
+#  $.  #
+###$.# #
+#  $.# #
+# #$.  #
+#    ###
+######
+length 20 soln is [(2, 3, 'r'), (2, 4, 'r'), (4, 3, 'r'), (2, 5, 'l'), (2, 4, 'l'), (4, 4, 'd'), (5, 3, 'u'), (5, 4, 'r'), (4, 3, 'l'), (2, 3, 'l'), (3, 3, 'd'), (4, 3, 'd'), (4, 2, 'r'), (4, 3, 'r'), (4, 4, 'u'), (5, 5, 'l'), (5, 3, 'u'), (4, 3, 'r'), (2, 2, 'r'), (2, 3, 'r')]
+Time consumed: 0.239 seconds using f and exploring 1852 states
+#####
+#  @####
+#  $.  #
+###$.# #
+#  $.# #
+# #$.  #
+#    ###
+######
+length 20 soln is [(2, 3, 'r'), (2, 4, 'r'), (2, 5, 'l'), (4, 3, 'r'), (2, 4, 'l'), (4, 4, 'd'), (5, 3, 'u'), (5, 4, 'r'), (4, 3, 'l'), (2, 3, 'l'), (3, 3, 'd'), (4, 3, 'd'), (4, 2, 'r'), (4, 3, 'r'), (4, 4, 'u'), (5, 5, 'l'), (5, 3, 'u'), (4, 3, 'r'), (2, 2, 'r'), (2, 3, 'r')]
+Time consumed: 0.224 seconds using fa and exploring 1633 states
+#####
+#  @####
+#  $.  #
+###$.# #
+#  $.# #
+# #$.  #
+#    ###
+######
+length 20 soln is [(2, 3, 'r'), (2, 4, 'r'), (2, 5, 'l'), (4, 3, 'r'), (2, 4, 'l'), (4, 4, 'd'), (5, 3, 'u'), (5, 4, 'r'), (4, 3, 'l'), (2, 3, 'l'), (3, 3, 'd'), (4, 3, 'd'), (4, 2, 'r'), (4, 3, 'r'), (4, 4, 'u'), (5, 5, 'l'), (5, 3, 'u'), (4, 3, 'r'), (2, 2, 'r'), (2, 3, 'r')]
+Time consumed: 0.224 seconds using fa2 and exploring 1638 states
+
+
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 8
+
+ #####
+ #   ##
+## * .##
+# $$*  #
+#  * . #
+## @ ###
+ #####
+length 70 soln is ['r', 'u', 'r', 'u', 'u', 'l', 'l', 'r', 'r', 'd', 'd', 'l', 'd', 'l', 'l', 'u', 'r', 'u', 'r', 'l', 'd', 'd', 'r', 'u', 'r', 'u', 'd', 'l', 'l', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'r', 'd', 'r', 'r', 'u', 'l', 'l', 'd', 'd', 'l', 'l', 'u', 'r', 'u', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'r', 'u', 'u', 'u', 'l', 'l', 'd', 'd', 'l', 'd', 'r', 'u', 'r']
+Time consumed: 0.679 seconds using ucs and exploring 7452 states
+70 moves
+ruruu llrrd dldll ururl ddrur udllu ruuld drdrr ulldd lluru dllur drruu ulldd ldrur
+ #####
+ #   ##
+## * .##
+# $$*  #
+#  * . #
+## @ ###
+ #####
+length 70 soln is ['r', 'u', 'r', 'u', 'u', 'l', 'l', 'r', 'r', 'd', 'd', 'l', 'd', 'l', 'l', 'u', 'r', 'u', 'r', 'l', 'd', 'd', 'r', 'u', 'r', 'u', 'd', 'l', 'l', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'r', 'd', 'r', 'r', 'u', 'l', 'l', 'd', 'd', 'l', 'l', 'u', 'r', 'u', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'r', 'u', 'u', 'u', 'l', 'l', 'd', 'd', 'l', 'd', 'r', 'u', 'r']
+Time consumed: 0.676 seconds using a and exploring 7208 states
+70 moves
+ruruu llrrd dldll ururl ddrur udllu ruuld drdrr ulldd lluru dllur drruu ulldd ldrur
+ #####
+ #   ##
+## * .##
+# $$*  #
+#  * . #
+## @ ###
+ #####
+length 70 soln is ['r', 'u', 'r', 'u', 'u', 'l', 'l', 'r', 'r', 'd', 'd', 'l', 'd', 'l', 'l', 'u', 'r', 'u', 'r', 'l', 'd', 'd', 'r', 'u', 'r', 'u', 'd', 'l', 'l', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'r', 'd', 'r', 'r', 'u', 'l', 'l', 'd', 'd', 'l', 'l', 'u', 'r', 'u', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'r', 'u', 'u', 'u', 'l', 'l', 'd', 'd', 'l', 'd', 'r', 'u', 'r']
+Time consumed: 0.682 seconds using a2 and exploring 7224 states
+70 moves
+ruruu llrrd dldll ururl ddrur udllu ruuld drdrr ulldd lluru dllur drruu ulldd ldrur
+ #####
+ #   ##
+## * .##
+# $$*  #
+#  * . #
+## @ ###
+ #####
+length 19 soln is [(2, 3, 'l'), (4, 3, 'r'), (3, 3, 'u'), (3, 4, 'r'), (4, 4, 'u'), (3, 5, 'u'), (3, 4, 'r'), (2, 3, 'd'), (3, 3, 'd'), (3, 5, 'l'), (3, 4, 'l'), (4, 3, 'r'), (4, 4, 'r'), (3, 3, 'u'), (3, 2, 'r'), (2, 2, 'd'), (3, 2, 'd'), (4, 2, 'r'), (3, 3, 'r')]
+Time consumed: 0.370 seconds using f and exploring 2748 states
+ #####
+ #   ##
+## * .##
+# $$*  #
+#  * . #
+## @ ###
+ #####
+length 19 soln is [(2, 3, 'l'), (4, 3, 'r'), (3, 3, 'u'), (3, 4, 'r'), (4, 4, 'u'), (3, 5, 'u'), (3, 4, 'r'), (2, 3, 'd'), (3, 3, 'd'), (3, 5, 'l'), (3, 4, 'l'), (4, 3, 'r'), (3, 3, 'u'), (4, 4, 'r'), (3, 2, 'r'), (2, 2, 'd'), (3, 2, 'd'), (4, 2, 'r'), (3, 3, 'r')]
+Time consumed: 0.341 seconds using fa and exploring 2383 states
+ #####
+ #   ##
+## * .##
+# $$*  #
+#  * . #
+## @ ###
+ #####
+length 19 soln is [(2, 3, 'l'), (4, 3, 'r'), (3, 3, 'u'), (3, 4, 'r'), (4, 4, 'u'), (3, 5, 'u'), (3, 4, 'r'), (2, 3, 'd'), (3, 3, 'd'), (3, 5, 'l'), (3, 4, 'l'), (4, 3, 'r'), (3, 3, 'u'), (4, 4, 'r'), (3, 2, 'r'), (2, 2, 'd'), (3, 2, 'd'), (4, 2, 'r'), (3, 3, 'r')]
+Time consumed: 0.348 seconds using fa2 and exploring 2466 states
+
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 9
+
+  ####
+###  ####
+# $     #
+# . *#  #
+###.@#$##
+# . *#  #
+# $     #
+######  #
+     ####
+length 146 soln is ['d', 'l', 'd', 'r', 'u', 'u', 'l', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'u', 'l', 'd', 'd', 'd', 'r', 'd', 'd', 'r', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'u', 'r', 'u', 'u', 'l', 'd', 'r', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'd', 'r', 'r', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'd', 'd', 'r', 'r', 'l', 'l', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'l', 'l', 'u', 'r', 'r', 'u', 'r', 'd', 'r', 'r', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'l', 'l', 'l', 'u', 'u', 'r', 'u', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'u', 'l', 'd', 'd']
+Time consumed: 34.678 seconds using ucs and exploring 333695 states
+146 moves
+dldru uluur rrddd rddlu uuuru lllul dddrd drllu lldrr uruul drdlu uuurd rrddd rddlu uuuru llldd lddrr lluuu ruuld dllur rurdr rdddr ddlul lluur uluur dlddd drrru uurul lluld d
+  ####
+###  ####
+# $     #
+# . *#  #
+###.@#$##
+# . *#  #
+# $     #
+######  #
+     ####
+length 146 soln is ['d', 'l', 'd', 'r', 'u', 'u', 'l', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'u', 'l', 'd', 'd', 'd', 'r', 'd', 'd', 'r', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'u', 'r', 'u', 'u', 'l', 'd', 'r', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'd', 'r', 'r', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'd', 'd', 'r', 'r', 'l', 'l', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'l', 'l', 'u', 'r', 'r', 'u', 'r', 'd', 'r', 'r', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'l', 'l', 'l', 'u', 'u', 'r', 'u', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'u', 'l', 'd', 'd']
+Time consumed: 33.588 seconds using a and exploring 320229 states
+146 moves
+dldru uluur rrddd rddlu uuuru lllul dddrd drllu lldrr uruul drdlu uuurd rrddd rddlu uuuru llldd lddrr lluuu ruuld dllur rurdr rdddr ddlul lluur uluur dlddd drrru uurul lluld d
+  ####
+###  ####
+# $     #
+# . *#  #
+###.@#$##
+# . *#  #
+# $     #
+######  #
+     ####
+length 146 soln is ['d', 'l', 'd', 'r', 'u', 'u', 'l', 'u', 'u', 'r', 'r', 'r', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'u', 'l', 'd', 'd', 'd', 'r', 'd', 'd', 'r', 'l', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'u', 'r', 'u', 'u', 'l', 'd', 'r', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'd', 'r', 'r', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'd', 'd', 'l', 'd', 'd', 'r', 'r', 'l', 'l', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'd', 'd', 'l', 'l', 'u', 'r', 'r', 'u', 'r', 'd', 'r', 'r', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'l', 'l', 'l', 'u', 'u', 'r', 'u', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'r', 'r', 'u', 'u', 'u', 'r', 'u', 'l', 'l', 'l', 'u', 'l', 'd', 'd']
+Time consumed: 32.603 seconds using a2 and exploring 322775 states
+146 moves
+dldru uluur rrddd rddlu uuuru lllul dddrd drllu lldrr uruul drdlu uuurd rrddd rddlu uuuru llldd lddrr lluuu ruuld dllur rurdr rdddr ddlul lluur uluur dlddd drrru uurul lluld d
+  ####
+###  ####
+# $     #
+# . *#  #
+###.@#$##
+# . *#  #
+# $     #
+######  #
+     ####
+length 51 soln is [(5, 4, 'd'), (6, 4, 'r'), (4, 6, 'd'), (5, 6, 'd'), (6, 6, 'u'), (5, 6, 'u'), (4, 6, 'u'), (3, 6, 'u'), (2, 6, 'l'), (2, 5, 'l'), (2, 4, 'l'), (2, 3, 'd'), (3, 3, 'd'), (4, 3, 'd'), (6, 5, 'r'), (5, 3, 'u'), (6, 2, 'r'), (6, 3, 'r'), (6, 4, 'r'), (3, 4, 'u'), (4, 3, 'd'), (5, 3, 'l'), (2, 4, 'd'), (3, 4, 'd'), (6, 6, 'u'), (5, 6, 'u'), (4, 6, 'u'), (3, 6, 'u'), (2, 6, 'l'), (2, 5, 'l'), (2, 4, 'l'), (6, 5, 'r'), (4, 4, 'd'), (2, 3, 'd'), (3, 3, 'd'), (2, 2, 'r'), (2, 3, 'r'), (2, 4, 'd'), (6, 6, 'u'), (5, 6, 'u'), (4, 6, 'u'), (4, 3, 'u'), (3, 6, 'u'), (3, 4, 'u'), (3, 3, 'l'), (2, 6, 'l'), (2, 4, 'd'), (2, 5, 'l'), (2, 4, 'l'), (2, 3, 'd'), (3, 3, 'd')]
+Time consumed: 18.260 seconds using f and exploring 88908 states
+  ####
+###  ####
+# $     #
+# . *#  #
+###.@#$##
+# . *#  #
+# $     #
+######  #
+     ####
+length 51 soln is [(5, 4, 'd'), (6, 4, 'r'), (4, 6, 'd'), (5, 6, 'd'), (6, 6, 'u'), (5, 6, 'u'), (4, 6, 'u'), (3, 6, 'u'), (2, 6, 'l'), (2, 5, 'l'), (2, 4, 'l'), (2, 3, 'd'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'u'), (6, 5, 'r'), (6, 2, 'r'), (6, 3, 'r'), (6, 4, 'r'), (3, 4, 'u'), (4, 3, 'd'), (5, 3, 'l'), (2, 4, 'd'), (3, 4, 'd'), (6, 6, 'u'), (5, 6, 'u'), (4, 6, 'u'), (3, 6, 'u'), (2, 6, 'l'), (2, 5, 'l'), (2, 4, 'l'), (6, 5, 'r'), (4, 4, 'd'), (2, 3, 'd'), (3, 3, 'd'), (2, 2, 'r'), (2, 3, 'r'), (2, 4, 'd'), (6, 6, 'u'), (5, 6, 'u'), (4, 6, 'u'), (4, 3, 'u'), (3, 6, 'u'), (2, 6, 'l'), (3, 4, 'u'), (3, 3, 'l'), (2, 4, 'd'), (2, 5, 'l'), (2, 4, 'l'), (2, 3, 'd'), (3, 3, 'd')]
+Time consumed: 17.744 seconds using fa and exploring 83215 states
+  ####
+###  ####
+# $     #
+# . *#  #
+###.@#$##
+# . *#  #
+# $     #
+######  #
+     ####
+length 51 soln is [(5, 4, 'd'), (6, 4, 'r'), (4, 6, 'd'), (5, 6, 'd'), (6, 6, 'u'), (5, 6, 'u'), (4, 6, 'u'), (3, 6, 'u'), (2, 6, 'l'), (2, 5, 'l'), (2, 4, 'l'), (2, 3, 'd'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'u'), (6, 5, 'r'), (6, 2, 'r'), (6, 3, 'r'), (6, 4, 'r'), (3, 4, 'u'), (4, 3, 'd'), (5, 3, 'l'), (2, 4, 'd'), (3, 4, 'd'), (6, 6, 'u'), (5, 6, 'u'), (4, 6, 'u'), (3, 6, 'u'), (2, 6, 'l'), (2, 5, 'l'), (2, 4, 'l'), (6, 5, 'r'), (4, 4, 'd'), (2, 3, 'd'), (3, 3, 'd'), (2, 2, 'r'), (2, 3, 'r'), (2, 4, 'd'), (6, 6, 'u'), (5, 6, 'u'), (4, 6, 'u'), (4, 3, 'u'), (3, 6, 'u'), (3, 4, 'u'), (3, 3, 'l'), (2, 6, 'l'), (2, 4, 'd'), (2, 5, 'l'), (2, 4, 'l'), (2, 3, 'd'), (3, 3, 'd')]
+Time consumed: 18.181 seconds using fa2 and exploring 84903 states
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 10
+
+    #####
+ ####   #
+ #  $$# #
+## *..$ #
+#@ .#.  #
+# $..* ##
+# #$$  #
+#   ####
+#####
+length 112 soln is ['r', 'u', 'r', 'l', 'd', 'l', 'd', 'd', 'd', 'r', 'r', 'u', 'u', 'r', 'r', 'd', 'l', 'u', 'l', 'u', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'l', 'd', 'r', 'r', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'u', 'u', 'u', 'l', 'r', 'd', 'r', 'r', 'u', 'l', 'l', 'd', 'd', 'd', 'r', 'u', 'l', 'u', 'u', 'r', 'r', 'u', 'u', 'l', 'l', 'd', 'd', 'd', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'u', 'u', 'r', 'u', 'u', 'r', 'r', 'l', 'l', 'd', 'd', 'l', 'd', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'r', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'l', 'd']
+Time consumed: 207.961 seconds using ucs and exploring 1458341 states
+112 moves
+rurld ldddr ruurr dlulu luurd ldldr rlldd rrurr uuulr drrul ldddr uluur ruull dddur rdldd llldl luuur uurrl lddld ddrru rrruu uruul ld
+    #####
+ ####   #
+ #  $$# #
+## *..$ #
+#@ .#.  #
+# $..* ##
+# #$$  #
+#   ####
+#####
+length 112 soln is ['r', 'u', 'r', 'l', 'd', 'l', 'd', 'd', 'd', 'r', 'r', 'u', 'u', 'r', 'r', 'd', 'l', 'u', 'l', 'u', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'l', 'd', 'r', 'r', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'u', 'u', 'u', 'l', 'r', 'd', 'r', 'r', 'u', 'l', 'l', 'd', 'd', 'd', 'r', 'u', 'l', 'u', 'u', 'r', 'r', 'u', 'u', 'l', 'l', 'd', 'd', 'd', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'u', 'u', 'r', 'u', 'u', 'r', 'r', 'l', 'l', 'd', 'd', 'l', 'd', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'r', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'l', 'd']
+Time consumed: 195.509 seconds using a and exploring 1437542 states
+112 moves
+rurld ldddr ruurr dlulu luurd ldldr rlldd rrurr uuulr drrul ldddr uluur ruull dddur rdldd llldl luuur uurrl lddld ddrru rrruu uruul ld
+    #####
+ ####   #
+ #  $$# #
+## *..$ #
+#@ .#.  #
+# $..* ##
+# #$$  #
+#   ####
+#####
+length 112 soln is ['r', 'u', 'r', 'l', 'd', 'l', 'd', 'd', 'd', 'r', 'r', 'u', 'u', 'r', 'r', 'd', 'l', 'u', 'l', 'u', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'l', 'd', 'r', 'r', 'l', 'l', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'u', 'u', 'u', 'l', 'r', 'd', 'r', 'r', 'u', 'l', 'l', 'd', 'd', 'd', 'r', 'u', 'l', 'u', 'u', 'r', 'r', 'u', 'u', 'l', 'l', 'd', 'd', 'd', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'u', 'u', 'r', 'u', 'u', 'r', 'r', 'l', 'l', 'd', 'd', 'l', 'd', 'd', 'd', 'r', 'r', 'u', 'r', 'r', 'r', 'u', 'u', 'u', 'r', 'u', 'u', 'l', 'l', 'd']
+Time consumed: 203.603 seconds using a2 and exploring 1437674 states
+112 moves
+rurld ldddr ruurr dlulu luurd ldldr rlldd rrurr uuulr drrul ldddr uluur ruull dddur rdldd llldl luuur uurrl lddld ddrru rrruu uruul ld
+    #####
+ ####   #
+ #  $$# #
+## *..$ #
+#@ .#.  #
+# $..* ##
+# #$$  #
+#   ####
+#####
+length 20 soln is [(5, 5, 'r'), (6, 3, 'u'), (5, 3, 'u'), (3, 3, 'r'), (6, 4, 'l'), (4, 3, 'u'), (5, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (3, 3, 'd'), (3, 4, 'l'), (3, 6, 'l'), (3, 5, 'l'), (5, 6, 'u'), (4, 6, 'l'), (4, 5, 'd'), (2, 5, 'd'), (3, 5, 'd'), (2, 4, 'r'), (2, 5, 'd')]
+Time consumed: 82.468 seconds using f and exploring 333450 states
+    #####
+ ####   #
+ #  $$# #
+## *..$ #
+#@ .#.  #
+# $..* ##
+# #$$  #
+#   ####
+#####
+length 20 soln is [(5, 5, 'r'), (6, 3, 'u'), (5, 3, 'u'), (3, 3, 'r'), (6, 4, 'l'), (4, 3, 'u'), (5, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (3, 3, 'd'), (3, 4, 'l'), (3, 6, 'l'), (3, 5, 'l'), (5, 6, 'u'), (4, 6, 'l'), (4, 5, 'd'), (2, 5, 'd'), (3, 5, 'd'), (2, 4, 'r'), (2, 5, 'd')]
+Time consumed: 38.952 seconds using fa and exploring 151589 states
+    #####
+ ####   #
+ #  $$# #
+## *..$ #
+#@ .#.  #
+# $..* ##
+# #$$  #
+#   ####
+#####
+length 20 soln is [(5, 5, 'r'), (6, 3, 'u'), (5, 3, 'u'), (3, 3, 'r'), (6, 4, 'l'), (4, 3, 'u'), (5, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (3, 3, 'd'), (3, 4, 'l'), (3, 6, 'l'), (3, 5, 'l'), (5, 6, 'u'), (4, 6, 'l'), (4, 5, 'd'), (2, 5, 'd'), (3, 5, 'd'), (2, 4, 'r'), (2, 5, 'd')]
+Time consumed: 41.723 seconds using fa2 and exploring 155728 states
+
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 11
+
+  #####
+###   #
+#   # ##
+#  **+ #
+## * $*##
+ # # #  #
+ #      #
+ ###  ###
+   ####
+length 119 soln is ['u', 'u', 'l', 'l', 'd', 'l', 'd', 'd', 'r', 'l', 'u', 'u', 'r', 'd', 'u', 'u', 'r', 'r', 'd', 'd', 'l', 'l', 'r', 'r', 'r', 'd', 'd', 'r', 'd', 'l', 'l', 'l', 'u', 'u', 'd', 'd', 'r', 'r', 'u', 'u', 'l', 'u', 'u', 'u', 'l', 'l', 'd', 'd', 'r', 'l', 'u', 'l', 'l', 'd', 'r', 'd', 'd', 'd', 'r', 'r', 'u', 'u', 'r', 'u', 'r', 'd', 'd', 'd', 'l', 'd', 'l', 'u', 'l', 'l', 'u', 'u', 'r', 'r', 'l', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'l', 'l', 'l', 'u', 'u', 'r', 'r', 'd', 'u', 'l', 'l', 'd', 'l', 'l', 'd', 'r', 'd', 'd', 'd', 'r', 'r', 'u', 'u', 'r']
+Time consumed: 18.389 seconds using ucs and exploring 178757 states
+119 moves
+uulld lddrl uurdu urrdd llrrr ddrdl lluud drruu luuul lddrl ulldr dddrr uurur dddld lullu urrll uurdl dddrr rruuu llluu rrdul ldlld rdddr ruur
+  #####
+###   #
+#   # ##
+#  **+ #
+## * $*##
+ # # #  #
+ #      #
+ ###  ###
+   ####
+length 119 soln is ['u', 'u', 'l', 'l', 'd', 'l', 'd', 'd', 'r', 'l', 'u', 'u', 'r', 'd', 'u', 'u', 'r', 'r', 'd', 'd', 'l', 'l', 'r', 'r', 'r', 'd', 'd', 'r', 'd', 'l', 'l', 'l', 'u', 'u', 'd', 'd', 'r', 'r', 'u', 'u', 'l', 'u', 'u', 'u', 'l', 'l', 'd', 'd', 'r', 'l', 'u', 'l', 'l', 'd', 'r', 'd', 'd', 'd', 'r', 'r', 'u', 'u', 'r', 'u', 'r', 'd', 'd', 'd', 'l', 'd', 'l', 'u', 'l', 'l', 'u', 'u', 'r', 'r', 'l', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'l', 'l', 'l', 'u', 'u', 'r', 'r', 'd', 'u', 'l', 'l', 'd', 'l', 'l', 'd', 'r', 'd', 'd', 'd', 'r', 'r', 'u', 'u', 'r']
+Time consumed: 16.352 seconds using a and exploring 167530 states
+119 moves
+uulld lddrl uurdu urrdd llrrr ddrdl lluud drruu luuul lddrl ulldr dddrr uurur dddld lullu urrll uurdl dddrr rruuu llluu rrdul ldlld rdddr ruur
+  #####
+###   #
+#   # ##
+#  **+ #
+## * $*##
+ # # #  #
+ #      #
+ ###  ###
+   ####
+length 119 soln is ['u', 'u', 'l', 'l', 'd', 'l', 'd', 'd', 'r', 'l', 'u', 'u', 'r', 'd', 'u', 'u', 'r', 'r', 'd', 'd', 'l', 'l', 'r', 'r', 'r', 'd', 'd', 'r', 'd', 'l', 'l', 'l', 'u', 'u', 'd', 'd', 'r', 'r', 'u', 'u', 'l', 'u', 'u', 'u', 'l', 'l', 'd', 'd', 'r', 'l', 'u', 'l', 'l', 'd', 'r', 'd', 'd', 'd', 'r', 'r', 'u', 'u', 'r', 'u', 'r', 'd', 'd', 'd', 'l', 'd', 'l', 'u', 'l', 'l', 'u', 'u', 'r', 'r', 'l', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'l', 'l', 'l', 'u', 'u', 'r', 'r', 'd', 'u', 'l', 'l', 'd', 'l', 'l', 'd', 'r', 'd', 'd', 'd', 'r', 'r', 'u', 'u', 'r']
+Time consumed: 17.062 seconds using a2 and exploring 168698 states
+119 moves
+uulld lddrl uurdu urrdd llrrr ddrdl lluud drruu luuul lddrl ulldr dddrr uurur dddld lullu urrll uurdl dddrr rruuu llluu rrdul ldlld rdddr ruur
+  #####
+###   #
+#   # ##
+#  **+ #
+## * $*##
+ # # #  #
+ #      #
+ ###  ###
+   ####
+length 27 soln is [(4, 6, 'd'), (5, 6, 'd'), (6, 6, 'l'), (6, 5, 'l'), (6, 4, 'l'), (4, 3, 'r'), (3, 3, 'd'), (3, 4, 'l'), (3, 3, 'l'), (4, 4, 'u'), (4, 5, 'l'), (3, 4, 'r'), (3, 2, 'r'), (6, 3, 'r'), (6, 4, 'r'), (4, 4, 'u'), (6, 5, 'l'), (6, 4, 'u'), (4, 3, 'r'), (3, 5, 'u'), (4, 4, 'r'), (5, 4, 'u'), (3, 3, 'd'), (3, 4, 'l'), (4, 4, 'u'), (4, 5, 'r'), (2, 5, 'd')]
+Time consumed: 7.388 seconds using f and exploring 36644 states
+  #####
+###   #
+#   # ##
+#  **+ #
+## * $*##
+ # # #  #
+ #      #
+ ###  ###
+   ####
+length 27 soln is [(4, 6, 'd'), (5, 6, 'd'), (6, 6, 'l'), (6, 5, 'l'), (6, 4, 'l'), (4, 3, 'r'), (3, 3, 'd'), (3, 4, 'l'), (3, 3, 'l'), (4, 4, 'u'), (4, 5, 'l'), (3, 4, 'r'), (3, 2, 'r'), (6, 3, 'r'), (6, 4, 'r'), (4, 4, 'u'), (6, 5, 'l'), (6, 4, 'u'), (4, 3, 'r'), (3, 5, 'u'), (4, 4, 'r'), (5, 4, 'u'), (3, 3, 'd'), (3, 4, 'l'), (4, 4, 'u'), (4, 5, 'r'), (2, 5, 'd')]
+Time consumed: 5.924 seconds using fa and exploring 26842 states
+  #####
+###   #
+#   # ##
+#  **+ #
+## * $*##
+ # # #  #
+ #      #
+ ###  ###
+   ####
+length 27 soln is [(4, 6, 'd'), (5, 6, 'd'), (6, 6, 'l'), (6, 5, 'l'), (6, 4, 'l'), (4, 3, 'r'), (3, 3, 'd'), (3, 4, 'l'), (3, 3, 'l'), (4, 4, 'u'), (4, 5, 'l'), (3, 4, 'r'), (3, 2, 'r'), (6, 3, 'r'), (6, 4, 'r'), (4, 4, 'u'), (6, 5, 'l'), (6, 4, 'u'), (4, 3, 'r'), (3, 5, 'u'), (4, 4, 'r'), (5, 4, 'u'), (3, 3, 'd'), (3, 4, 'l'), (4, 4, 'u'), (4, 5, 'r'), (2, 5, 'd')]
+Time consumed: 6.183 seconds using fa2 and exploring 28152 states
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 12
+
+####
+#  #########
+#    #     #
+# $   $    #
+### ####.  #
+# $ $ ######
+#..@..#
+#  $  #
+###  ##
+  ####
+length 110 soln is ['u', 'u', 'u', 'r', 'r', 'r', 'r', 'l', 'l', 'l', 'u', 'l', 'l', 'l', 'd', 'r', 'r', 'd', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'u', 'r', 'u', 'l', 'd', 'l', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'd', 'l', 'd', 'd', 'r', 'd', 'r', 'u', 'r', 'u', 'u', 'l', 'd', 'l', 'l', 'r', 'u', 'u', 'u', 'r', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'l', 'l', 'l', 'u', 'l', 'd', 'd', 'd', 'l', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'l', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'd', 'r', 'd', 'l', 'd', 'd', 'r', 'u']
+Time consumed: 141.744 seconds using ucs and exploring 1224305 states
+110 moves
+uuurr rrlll ullld rrddd llurd ruuur uldll uurdl drurd ddldd rdrur uuldl lruuu rrrur rdlll luldd dldrr uluul luurd ldrur dddrd lddru
+####
+#  #########
+#    #     #
+# $   $    #
+### ####.  #
+# $ $ ######
+#..@..#
+#  $  #
+###  ##
+  ####
+length 110 soln is ['u', 'u', 'u', 'r', 'r', 'r', 'r', 'l', 'l', 'l', 'u', 'l', 'l', 'l', 'd', 'r', 'r', 'd', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'u', 'r', 'u', 'l', 'd', 'l', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'd', 'l', 'd', 'd', 'r', 'd', 'r', 'u', 'r', 'u', 'u', 'l', 'd', 'l', 'l', 'r', 'u', 'u', 'u', 'r', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'l', 'l', 'l', 'u', 'l', 'd', 'd', 'd', 'l', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'l', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'd', 'r', 'd', 'l', 'd', 'd', 'r', 'u']
+Time consumed: 135.273 seconds using a and exploring 1132643 states
+110 moves
+uuurr rrlll ullld rrddd llurd ruuur uldll uurdl drurd ddldd rdrur uuldl lruuu rrrur rdlll luldd dldrr uluul luurd ldrur dddrd lddru
+####
+#  #########
+#    #     #
+# $   $    #
+### ####.  #
+# $ $ ######
+#..@..#
+#  $  #
+###  ##
+  ####
+length 110 soln is ['u', 'u', 'u', 'r', 'r', 'r', 'r', 'l', 'l', 'l', 'u', 'l', 'l', 'l', 'd', 'r', 'r', 'd', 'd', 'd', 'l', 'l', 'u', 'r', 'd', 'r', 'u', 'u', 'u', 'r', 'u', 'l', 'd', 'l', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'd', 'l', 'd', 'd', 'r', 'd', 'r', 'u', 'r', 'u', 'u', 'l', 'd', 'l', 'l', 'r', 'u', 'u', 'u', 'r', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'l', 'l', 'l', 'u', 'l', 'd', 'd', 'd', 'l', 'd', 'r', 'r', 'u', 'l', 'u', 'u', 'l', 'l', 'u', 'u', 'r', 'd', 'l', 'd', 'r', 'u', 'r', 'd', 'd', 'd', 'r', 'd', 'l', 'd', 'd', 'r', 'u']
+Time consumed: 126.556 seconds using a2 and exploring 1141060 states
+110 moves
+uuurr rrlll ullld rrddd llurd ruuur uldll uurdl drurd ddldd rdrur uuldl lruuu rrrur rdlll luldd dldrr uluul luurd ldrur dddrd lddru
+####
+#  #########
+#    #     #
+# $   $    #
+### ####.  #
+# $ $ ######
+#..@..#
+#  $  #
+###  ##
+  ####
+length 42 soln is [(7, 3, 'l'), (3, 2, 'r'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'd'), (6, 3, 'd'), (5, 2, 'r'), (7, 3, 'u'), (6, 3, 'l'), (5, 3, 'u'), (7, 2, 'r'), (7, 3, 'r'), (5, 4, 'l'), (6, 2, 'r'), (6, 3, 'r'), (6, 4, 'r'), (5, 3, 'l'), (4, 3, 'u'), (3, 3, 'u'), (2, 3, 'l'), (2, 2, 'd'), (3, 2, 'r'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'd'), (6, 3, 'l'), (5, 2, 'r'), (6, 2, 'l'), (5, 3, 'u'), (4, 3, 'u'), (3, 3, 'u'), (2, 3, 'l'), (2, 2, 'd'), (3, 2, 'r'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'd'), (6, 3, 'l'), (7, 4, 'u'), (3, 6, 'r'), (3, 7, 'r'), (3, 8, 'd')]
+Time consumed: 68.607 seconds using f and exploring 296132 states
+####
+#  #########
+#    #     #
+# $   $    #
+### ####.  #
+# $ $ ######
+#..@..#
+#  $  #
+###  ##
+  ####
+length 42 soln is [(7, 3, 'l'), (3, 2, 'r'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'd'), (6, 3, 'd'), (5, 2, 'r'), (7, 3, 'u'), (6, 3, 'l'), (5, 3, 'u'), (7, 2, 'r'), (7, 3, 'r'), (5, 4, 'l'), (5, 3, 'l'), (6, 2, 'r'), (6, 3, 'r'), (6, 4, 'r'), (4, 3, 'u'), (3, 3, 'u'), (2, 3, 'l'), (2, 2, 'd'), (3, 2, 'r'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'd'), (6, 3, 'l'), (5, 2, 'r'), (6, 2, 'l'), (5, 3, 'u'), (4, 3, 'u'), (3, 3, 'u'), (2, 3, 'l'), (2, 2, 'd'), (3, 2, 'r'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'd'), (6, 3, 'l'), (7, 4, 'u'), (3, 6, 'r'), (3, 7, 'r'), (3, 8, 'd')]
+Time consumed: 61.022 seconds using fa and exploring 257340 states
+####
+#  #########
+#    #     #
+# $   $    #
+### ####.  #
+# $ $ ######
+#..@..#
+#  $  #
+###  ##
+  ####
+length 42 soln is [(7, 3, 'l'), (3, 2, 'r'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'd'), (6, 3, 'd'), (5, 2, 'r'), (7, 3, 'u'), (6, 3, 'l'), (5, 3, 'u'), (7, 2, 'r'), (7, 3, 'r'), (5, 4, 'l'), (6, 2, 'r'), (6, 3, 'r'), (6, 4, 'r'), (5, 3, 'l'), (4, 3, 'u'), (3, 3, 'u'), (2, 3, 'l'), (2, 2, 'd'), (3, 2, 'r'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'd'), (6, 3, 'l'), (5, 2, 'r'), (6, 2, 'l'), (5, 3, 'u'), (4, 3, 'u'), (3, 3, 'u'), (2, 3, 'l'), (2, 2, 'd'), (3, 2, 'r'), (3, 3, 'd'), (4, 3, 'd'), (5, 3, 'd'), (6, 3, 'l'), (7, 4, 'u'), (3, 6, 'r'), (3, 7, 'r'), (3, 8, 'd')]
+Time consumed: 61.357 seconds using fa2 and exploring 262519 states
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 13
+
+    #####
+#####   #
+#       #
+#  ..# ##
+##$# *  #
+ # +#*  #
+ #$ $  ##
+ #  ####
+ ####
+length 245 soln is ['l', 'u', 'u', 'l', 'u', 'r', 'r', 'l', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'u', 'l', 'u', 'u', 'r', 'r', 'd', 'r', 'd', 'u', 'l', 'u', 'u', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'l', 'l', 'u', 'u', 'r', 'u', 'r', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'l', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'r', 'd', 'r', 'r', 'r', 'd', 'l', 'd', 'l', 'l', 'r', 'r', 'u', 'u', 'l', 'd', 'u', 'l', 'u', 'l', 'u', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'l', 'l', 'u', 'u', 'r', 'u', 'r', 'd', 'l', 'l', 'l', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'u', 'l', 'u', 'u', 'u', 'l', 'u', 'r', 'r', 'd', 'r', 'd', 'r', 'r', 'r', 'd', 'l', 'd', 'l', 'l', 'l', 'd', 'l', 'u', 'u', 'u', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'l', 'd', 'u', 'l', 'u', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'u', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'r', 'd', 'l', 'd', 'l', 'u', 'r', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'd', 'r', 'd', 'l', 'd', 'l', 'l', 'l', 'd', 'l', 'u', 'u', 'u', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'l', 'l', 'd', 'r']
+Time consumed: 22.086 seconds using ucs and exploring 222786 states
+245 moves
+luulu rrldd drddl uuuur urrur rdldd ddlll uluur rdrdu luuru rrdld dlluu rurdl lldll urrld ddrdd luuuu rrdrr rdldl lrruu ldulu lurru rrdld dlluu rurdl lldld dddru luuul urrdr drrrd ldlll dluuu ddrrr ruuld ululu lldrr urrur rdldd rdldl uruuu llldl lurrr rurdd drdld llldl uuudd rrrru uuull llldr
+    #####
+#####   #
+#       #
+#  ..# ##
+##$# *  #
+ # +#*  #
+ #$ $  ##
+ #  ####
+ ####
+length 245 soln is ['l', 'u', 'u', 'l', 'u', 'r', 'r', 'l', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'u', 'l', 'u', 'u', 'r', 'r', 'd', 'r', 'd', 'u', 'l', 'u', 'u', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'l', 'l', 'u', 'u', 'r', 'u', 'r', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'l', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'r', 'd', 'r', 'r', 'r', 'd', 'l', 'd', 'l', 'l', 'r', 'r', 'u', 'u', 'l', 'd', 'u', 'l', 'u', 'l', 'u', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'l', 'l', 'u', 'u', 'r', 'u', 'r', 'd', 'l', 'l', 'l', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'u', 'l', 'u', 'u', 'u', 'l', 'u', 'r', 'r', 'd', 'r', 'd', 'r', 'r', 'r', 'd', 'l', 'd', 'l', 'l', 'l', 'd', 'l', 'u', 'u', 'u', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'l', 'd', 'u', 'l', 'u', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'u', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'r', 'd', 'l', 'd', 'l', 'u', 'r', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'd', 'r', 'd', 'l', 'd', 'l', 'l', 'l', 'd', 'l', 'u', 'u', 'u', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'l', 'l', 'd', 'r']
+Time consumed: 21.740 seconds using a and exploring 222576 states
+245 moves
+luulu rrldd drddl uuuur urrur rdldd ddlll uluur rdrdu luuru rrdld dlluu rurdl lldll urrld ddrdd luuuu rrdrr rdldl lrruu ldulu lurru rrdld dlluu rurdl lldld dddru luuul urrdr drrrd ldlll dluuu ddrrr ruuld ululu lldrr urrur rdldd rdldl uruuu llldl lurrr rurdd drdld llldl uuudd rrrru uuull llldr
+    #####
+#####   #
+#       #
+#  ..# ##
+##$# *  #
+ # +#*  #
+ #$ $  ##
+ #  ####
+ ####
+length 245 soln is ['l', 'u', 'u', 'l', 'u', 'r', 'r', 'l', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'u', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'd', 'd', 'l', 'l', 'l', 'u', 'l', 'u', 'u', 'r', 'r', 'd', 'r', 'd', 'u', 'l', 'u', 'u', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'l', 'l', 'u', 'u', 'r', 'u', 'r', 'd', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'l', 'd', 'd', 'd', 'r', 'd', 'd', 'l', 'u', 'u', 'u', 'u', 'r', 'r', 'd', 'r', 'r', 'r', 'd', 'l', 'd', 'l', 'l', 'r', 'r', 'u', 'u', 'l', 'd', 'u', 'l', 'u', 'l', 'u', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'l', 'l', 'u', 'u', 'r', 'u', 'r', 'd', 'l', 'l', 'l', 'd', 'l', 'd', 'd', 'd', 'd', 'r', 'u', 'l', 'u', 'u', 'u', 'l', 'u', 'r', 'r', 'd', 'r', 'd', 'r', 'r', 'r', 'd', 'l', 'd', 'l', 'l', 'l', 'd', 'l', 'u', 'u', 'u', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'l', 'd', 'u', 'l', 'u', 'l', 'u', 'l', 'l', 'd', 'r', 'r', 'u', 'r', 'r', 'u', 'r', 'r', 'd', 'l', 'd', 'd', 'r', 'd', 'l', 'd', 'l', 'u', 'r', 'u', 'u', 'u', 'l', 'l', 'l', 'd', 'l', 'l', 'u', 'r', 'r', 'r', 'r', 'u', 'r', 'd', 'd', 'd', 'r', 'd', 'l', 'd', 'l', 'l', 'l', 'd', 'l', 'u', 'u', 'u', 'd', 'd', 'r', 'r', 'r', 'r', 'u', 'u', 'u', 'u', 'l', 'l', 'l', 'l', 'l', 'd', 'r']
+Time consumed: 21.006 seconds using a2 and exploring 222634 states
+245 moves
+luulu rrldd drddl uuuur urrur rdldd ddlll uluur rdrdu luuru rrdld dlluu rurdl lldll urrld ddrdd luuuu rrdrr rdldl lrruu ldulu lurru rrdld dlluu rurdl lldld dddru luuul urrdr drrrd ldlll dluuu ddrrr ruuld ululu lldrr urrur rdldd rdldl uruuu llldl lurrr rurdd drdld llldl uuudd rrrru uuull llldr
+    #####
+#####   #
+#       #
+#  ..# ##
+##$# *  #
+ # +#*  #
+ #$ $  ##
+ #  ####
+ ####
+length 75 soln is [(4, 2, 'u'), (3, 2, 'u'), (2, 2, 'r'), (2, 3, 'r'), (6, 2, 'u'), (5, 2, 'u'), (4, 2, 'u'), (3, 2, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'l'), (6, 4, 'l'), (6, 3, 'l'), (4, 5, 'r'), (5, 5, 'd'), (6, 5, 'l'), (2, 5, 'r'), (2, 6, 'l'), (4, 6, 'd'), (2, 5, 'r'), (2, 6, 'd'), (2, 2, 'r'), (2, 3, 'r'), (6, 2, 'u'), (5, 2, 'u'), (4, 2, 'u'), (3, 2, 'u'), (6, 4, 'l'), (5, 6, 'l'), (5, 5, 'd'), (6, 5, 'l'), (6, 3, 'u'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'l'), (3, 6, 'd'), (4, 6, 'd'), (5, 6, 'l'), (5, 2, 'u'), (2, 5, 'r'), (2, 6, 'd'), (2, 2, 'r'), (2, 3, 'r'), (4, 2, 'u'), (5, 5, 'd'), (6, 5, 'l'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'u'), (3, 2, 'r'), (3, 3, 'r'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'l'), (3, 6, 'd'), (4, 6, 'd'), (5, 6, 'u'), (4, 6, 'l'), (2, 5, 'l'), (2, 4, 'l'), (2, 3, 'l'), (2, 2, 'r'), (2, 3, 'r'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'd'), (3, 6, 'd'), (4, 6, 'd'), (5, 6, 'l'), (5, 2, 'u'), (4, 2, 'u'), (3, 2, 'r')]
+Time consumed: 10.315 seconds using f and exploring 56127 states
+    #####
+#####   #
+#       #
+#  ..# ##
+##$# *  #
+ # +#*  #
+ #$ $  ##
+ #  ####
+ ####
+length 75 soln is [(4, 2, 'u'), (3, 2, 'u'), (2, 2, 'r'), (2, 3, 'r'), (6, 2, 'u'), (5, 2, 'u'), (4, 2, 'u'), (3, 2, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'l'), (6, 4, 'l'), (6, 3, 'l'), (4, 5, 'r'), (5, 5, 'd'), (6, 5, 'l'), (2, 5, 'r'), (2, 6, 'l'), (4, 6, 'd'), (5, 6, 'l'), (2, 5, 'r'), (2, 6, 'd'), (2, 2, 'r'), (2, 3, 'r'), (6, 2, 'u'), (5, 2, 'u'), (4, 2, 'u'), (3, 2, 'u'), (6, 4, 'l'), (6, 3, 'u'), (5, 5, 'd'), (6, 5, 'l'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'l'), (3, 6, 'd'), (4, 6, 'd'), (5, 6, 'l'), (5, 2, 'u'), (2, 5, 'r'), (2, 6, 'd'), (2, 2, 'r'), (2, 3, 'r'), (4, 2, 'u'), (5, 5, 'd'), (6, 5, 'l'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'u'), (3, 2, 'r'), (3, 3, 'r'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'l'), (2, 5, 'l'), (3, 6, 'd'), (4, 6, 'd'), (5, 6, 'l'), (5, 5, 'u'), (2, 4, 'l'), (2, 3, 'l'), (2, 2, 'r'), (2, 3, 'r'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'd'), (3, 6, 'd'), (4, 6, 'd'), (5, 6, 'l'), (5, 2, 'u'), (4, 2, 'u'), (3, 2, 'r')]
+Time consumed: 10.529 seconds using fa and exploring 55957 states
+    #####
+#####   #
+#       #
+#  ..# ##
+##$# *  #
+ # +#*  #
+ #$ $  ##
+ #  ####
+ ####
+length 75 soln is [(4, 2, 'u'), (3, 2, 'u'), (2, 2, 'r'), (2, 3, 'r'), (6, 2, 'u'), (5, 2, 'u'), (4, 2, 'u'), (3, 2, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'l'), (6, 4, 'l'), (6, 3, 'l'), (4, 5, 'r'), (5, 5, 'd'), (6, 5, 'l'), (2, 5, 'r'), (2, 6, 'l'), (4, 6, 'd'), (5, 6, 'l'), (2, 5, 'r'), (2, 6, 'd'), (2, 2, 'r'), (2, 3, 'r'), (6, 2, 'u'), (5, 2, 'u'), (4, 2, 'u'), (3, 2, 'u'), (6, 4, 'l'), (6, 3, 'u'), (5, 5, 'd'), (6, 5, 'l'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'l'), (3, 6, 'd'), (4, 6, 'd'), (5, 6, 'l'), (5, 2, 'u'), (2, 5, 'r'), (2, 6, 'd'), (2, 2, 'r'), (2, 3, 'r'), (4, 2, 'u'), (5, 5, 'd'), (6, 5, 'l'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'u'), (3, 2, 'r'), (3, 3, 'r'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'l'), (3, 6, 'd'), (4, 6, 'd'), (5, 6, 'l'), (5, 5, 'u'), (2, 5, 'l'), (2, 4, 'l'), (2, 3, 'l'), (2, 2, 'r'), (2, 3, 'r'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'd'), (3, 6, 'd'), (4, 6, 'd'), (5, 6, 'l'), (5, 2, 'u'), (4, 2, 'u'), (3, 2, 'r')]
+Time consumed: 10.526 seconds using fa2 and exploring 56023 states
