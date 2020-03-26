@@ -48,34 +48,32 @@ class SokobanState:
     def deadp(self, problem):        
         
         
-        #check if box is in the deadEnds set in the simple square dead end detection
+        #check if box is in the deadEnds set in the simple square dead end detection        
         boxes = self.boxes()
-        #print(boxes)
-        #for box in boxes:
-           #if box not in problem.visitable:
-               #return True
-           #else:
-               #self.dead = False
+        mode = problem.algorithm
         
-        boxes = (tuple(sorted(boxes)))
-        
-        if problem.frozenBoxes[tuple(boxes)]:
-            return True
-        else:
-            self.dead = False
+        if mode == 'nf' and problem.combs:
+            
+            boxes = (tuple(sorted(boxes)))
+            
+            if problem.frozenBoxes[tuple(boxes)]:
+                return True
+            else:
+                self.dead = False
         
         #if box is not found in the simple dead end list then we need to check for frozen states
         #where boxes cannot be moved bue to their orientation        
         #check for each box if its in a frozen situation
-        
-        #for box in boxes:
-            ##this is a set to keep track of the visited boxes in each state
-            #marked = set()
-            ##if the box is a target we must not check for the frozed condition
-            #if not problem.map[box[0]][box[1]].target and problem.checkFrozen(box, marked, boxes):
-                    ##problem.print_state(self)
-                    #return True
-        
+        else:
+            for box in boxes:
+                #this is a set to keep track of the visited boxes in each state
+                marked = set()
+                #if the box is a target we must not check for the frozed condition
+                if not problem.map[box[0]][box[1]].target and problem.checkFrozen(box, marked, boxes):
+                        #problem.print_state(self)
+                        return True 
+                else:
+                    self.dead = False
         
         return self.dead
 
@@ -188,7 +186,7 @@ class SokobanProblem(util.SearchProblem):
     # valid sokoban characters
     valid_chars = '#@+$*. '
 
-    def __init__(self, map, dead_detection=False):
+    def __init__(self, map, dead_detection=False, algorithm='nf'):
         self.map = [[]]
         self.dead_detection = dead_detection
         self.init_player = (0,0)
@@ -198,12 +196,11 @@ class SokobanProblem(util.SearchProblem):
         self.parse_map(map)        
         self.deadEnds = set()
         self.reached = set()
+        self.algorithm = algorithm
         self.getLocks()
         self.pythoGrean = {}
         self.Manhattan = {}
         self.preHeuristics()
-        #print(self.Manhattan)
-        #print(self.pythoGrean)
         
     # parse the input string into game map
     # Wall              #
@@ -396,7 +393,8 @@ class SokobanProblem(util.SearchProblem):
                     visited.clear()
             #if it does not change
             if isPushable == temp:
-                break           
+                break
+        
         #put all the pushable boxes as reachable boxes and add to the visitable set
         self.visitable = set()
         for points in isPushable:
@@ -404,37 +402,22 @@ class SokobanProblem(util.SearchProblem):
             if isPushable[points]:
                 self.visitable.add(points)
         
-        self.frozenBoxes = {}
-        comb = combinations(self.visitable, len(self.init_boxes))
-        for boxes in comb:
-            boxes = (tuple(sorted(boxes)))
-            self.frozenBoxes[boxes] = False
-            for box in boxes:
-                marked = set()
-                if self.checkFrozen(box, marked, boxes):
-                    self.frozenBoxes[boxes] = True
-                    break
-        
-        #print(self.frozenBoxes)
+        self.combs =  ((math.factorial(len(self.visitable)) / (math.factorial(len(self.init_boxes)) * math.factorial(len(self.visitable) - len(self.init_boxes)))) * len(self.init_boxes))  < 100000000
         
         
+        if self.algorithm == 'nf' and self.combs:
+            self.frozenBoxes = {}
+            comb = combinations(self.visitable, len(self.init_boxes))
+            for boxes in comb:
+                boxes = (tuple(sorted(boxes)))
+                self.frozenBoxes[boxes] = False
+                for box in boxes:
+                    marked = set()
+                    if self.checkFrozen(box, marked, boxes):
+                        self.frozenBoxes[boxes] = True
+                        break
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            #print(self.frozenBoxes)       
         #print(sorted(self.visitable))
         #combs = {}
         #for i in range(1, len(self.targets)):
@@ -564,6 +547,7 @@ class SokobanProblem(util.SearchProblem):
     def dead_end(self, s):
         if not self.dead_detection:
             return False
+        self.print_state(s)
         return s.deadp(self)
 
     def start(self):
@@ -574,8 +558,7 @@ class SokobanProblem(util.SearchProblem):
 
     def expand(self, s):        
         if self.dead_end(s):
-            return []
-        #self.print_state(s)
+            return []        
         return s.all_adj(self)
 
 class SokobanProblemFaster(SokobanProblem):
@@ -641,10 +624,10 @@ class Heuristic:
 def solve_sokoban(map, algorithm='ucs', dead_detection=False):
     # problem algorithm
     if 'f' in algorithm:
-        problem = SokobanProblemFaster(map, dead_detection)
+        problem = SokobanProblemFaster(map, dead_detection, algorithm)
     else:
         #print(dead_detection)
-        problem = SokobanProblem(map, dead_detection)
+        problem = SokobanProblem(map, dead_detection, 'nf')
 
     # search algorithm
     h = Heuristic(problem).heuristic2 if ('2' in algorithm) else Heuristic(problem).heuristic
