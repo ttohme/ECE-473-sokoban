@@ -396,6 +396,121 @@ ldlud rddlu lrruu rrdlu lldur rdlur uruul dduuu llldd rrllu urrrd rdddd llulu dr
 #################################################################################################################################################################################################
 #################################################################################################################################################################################################
 
+
+#################################################################################################################################################################################################
+#################################################################################################################################################################################################
+
+Level 5
+
+Starting algorithm ucs
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+Dead end detection on for solution of level 5
+Time consumed: 440.048 seconds using ucs and exploring 4392795 states
+164 moves
+lluud drrul uulll rrrdd dluur ulluu uuuur rdddd ddllu llldd rulur rlddd rdrru rrdll uuurd ulllu llddr uddrd rdruu urull lrrdd dllul uluur drrrd ddrru ldluu rullu lrdrr uuuuu rrrru rdlll ullll dddd
+Starting algorithm a
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+Dead end detection on for solution of level 5
+Time consumed: 425.780 seconds using a and exploring 4251147 states
+164 moves
+lluud drrul uulll rrrdd dluur ulluu uuuur rdddd ddllu llldd rulur rlddd rdrru rrdll uuurd ulllu llddr uddrd rdruu urull lrrdd dllul uluur drrrd ddrru ldluu rullu lrdrr uuuuu rrrru rdlll ullll dddd
+Starting algorithm a2
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+Dead end detection on for solution of level 5
+TIMEOUT!
+Time limit (500 seconds) exceeded.
+Starting algorithm f
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+Dead end detection on for solution of level 5
+Time consumed: 246.154 seconds using f and exploring 573910 states
+254 moves
+lluud drrul dluru ullul ldddr drlul uuurr dlrrr ddlur ullul llddr drdrd ruuru ulluu uuuur rdddd dddul lulll ddrdr drruu ddrru ldlud llulu uddrd rruru uuuuu uulld ddddd luruu uuurr ddddd dllrr dddll lulul uurrl lddru ddrdr ruruu lllrr rdddl llulu luurd rrrrd dluru llulr drruu uuuul ldddd uuuur rdrrr rurd
+Starting algorithm fa
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+Dead end detection on for solution of level 5
+Time consumed: 125.371 seconds using fa and exploring 266494 states
+252 moves
+lluud drrul uullr drddl uruul lulld ddrdr luluu urrdl rrrdd lurul lulll ddrdr drdru uuddl lulul uurrr uuuuu rrddd ddddl ddllu luudd rdrrr ruldl uruuu uuuuu llddd dddlu ruuuu urrdd ddddl lrrdd dlllu luluu rrlld drudd rdrru ruull lrrrd ddlll ululu urdrr rrddl urull ulrdr ruuuu uulld ddduu uurrd rrrru rd
+Starting algorithm fa2
+   ##########
+   #     #  #
+   # # $    #
+   # # ### .#
+   # # ######
+#### # #
+# . .# #
+#  .   #
+# .## $##
+##  #$$ #
+ ##   $@#
+  ##  ###
+   ####
+Dead end detection on for solution of level 5
+Time consumed: 59.774 seconds using fa2 and exploring 113169 states
+178 moves
+lluud drrul uddlu ruull lrrrd dluru llull lddru ddrdr druur uulll rrrdd lurul luuuu uurrd ddddd ldddl lulul uurrl lddru ddrdr ruuul lrrdd dllul uluur drrrr dlddr ruldl uurul lulrd rruuu uuull ddddu uuurr drrrr urd
+
+
 Level 6
 
 Starting algorithm ucs

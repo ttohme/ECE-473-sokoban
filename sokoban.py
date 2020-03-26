@@ -3,6 +3,7 @@ import os, sys
 import datetime, time
 import argparse
 import math
+from itertools import combinations
 
 class SokobanState:
     # player: 2-tuple representing player location (coordinates)
@@ -53,7 +54,7 @@ class SokobanState:
                 return True
             else:
                 self.dead = False                
-                
+        #return False
         #if box is not found in the simple dead end list then we need to check for frozen states
         #where boxes cannot be moved bue to their orientation        
         #check for each box if its in a frozen situation
@@ -62,7 +63,8 @@ class SokobanState:
             #this is a set to keep track of the visited boxes in each state
             marked = set()
             #if the box is a target we must not check for the frozed condition
-            if not problem.map[box[0]][box[1]].target and problem.checkFrozen(box, marked, boxes):                     
+            if not problem.map[box[0]][box[1]].target and problem.checkFrozen(box, marked, boxes):
+                    #problem.print_state(self)
                     return True
         
         
@@ -255,10 +257,10 @@ class SokobanProblem(util.SearchProblem):
         y1 = p[1] + dy
         x2 = x1 + dx
         y2 = y1 + dy
-        if self.map[x1][y1].wall:
+        if self.map[x1][y1].wall: #or (x1, y1) not in self.visitable:
             return False, False, None
         elif (x1,y1) in s.boxes():
-            if self.map[x2][y2].floor and (x2,y2) not in s.boxes():
+            if self.map[x2][y2].floor and (x2,y2) not in s.boxes() and (x2, y2) in self.visitable:
                 return True, True, SokobanState((x1,y1),
                     [b if b != (x1,y1) else (x2,y2) for b in s.boxes()])
             else:
@@ -355,7 +357,7 @@ class SokobanProblem(util.SearchProblem):
         
         #tells if the box is pushable to the goal 
         isPushable = {}
-        
+        targetsReachable = {}
         #Until the status of isPushable does not change
         while(True):
             temp = isPushable.copy()
@@ -371,9 +373,13 @@ class SokobanProblem(util.SearchProblem):
                         self.travel(box, visited, checking, len(self.map), len(self.map[row]))
                         truthVal = False
                         #check if any goal is in the set
+                        myTargets = []
                         for target in self.targets:
                             if target in checking:
+                                myTargets.append(target)
                                 truthVal = True
+                        if len(myTargets) > 0:
+                            targetsReachable[box] = myTargets 
                         #mark the value of the box
                         isPushable[box] = truthVal
                     checking.clear()
@@ -386,7 +392,27 @@ class SokobanProblem(util.SearchProblem):
         for points in isPushable:
             
             if isPushable[points]:
-                self.visitable.add(points)  
+                self.visitable.add(points)
+        
+        #print(sorted(self.visitable))
+        #combs = {}
+        #for i in range(1, len(self.targets)):
+        #    comb = combinations(self.targets, i)
+        #    comb = list(comb)
+        #    print(comb[0][0])
+            #combs[comb] = i
+         
+        #print(combs) 
+        #my_inverted_dict = dict([[v,k] for k,v in targetsReachable.items()])
+
+
+        #print(my_inverted_dict)
+        
+        #for points in targetsReachable:
+        #    print(points)
+        #    print(targetsReachable[points])
+        #    print()
+        #exit()
     
     
     #this is a recursive function to check is there are frozen boxes in every state during game play 
@@ -508,6 +534,7 @@ class SokobanProblem(util.SearchProblem):
     def expand(self, s):        
         if self.dead_end(s):
             return []
+        #self.print_state(s)
         return s.all_adj(self)
 
 class SokobanProblemFaster(SokobanProblem):

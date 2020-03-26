@@ -7,6 +7,8 @@ Our benchmarks:
 #############################################################################################################################################################
 
 Level 1
+
+Starting algorithm ucs
     #####
   ###@  #
   #. $ .#
@@ -20,6 +22,7 @@ length 105 soln is ['r', 'd', 'd', 'l', 'r', 'u', 'u', 'l', 'd', 'l', 'd', 'd', 
 Time consumed: 0.108 seconds using ucs and exploring 1774 states
 105 moves
 rddlr uuldl dddrd lldll ururl ddrur uuulu rrrdl ulddd rdlld lluru rlddr uruuu lurdd ddllu rdruu urruu ldrdl ulddd rdllu ldrdl
+Starting algorithm a
     #####
   ###@  #
   #. $ .#
@@ -33,6 +36,7 @@ length 105 soln is ['r', 'd', 'd', 'l', 'r', 'u', 'u', 'l', 'd', 'l', 'd', 'd', 
 Time consumed: 0.107 seconds using a and exploring 1757 states
 105 moves
 rddlr uuldl dddrd lldll ururl ddrur uuulu rrrdl ulddd rdlld lluru rlddr uruuu lurdd ddllu rdruu urruu ldrdl ulddd rdllu ldrdl
+Starting algorithm a2
     #####
   ###@  #
   #. $ .#
@@ -46,6 +50,7 @@ length 105 soln is ['r', 'd', 'd', 'l', 'r', 'u', 'u', 'l', 'd', 'l', 'd', 'd', 
 Time consumed: 0.109 seconds using a2 and exploring 1757 states
 105 moves
 rddlr uuldl dddrd lldll ururl ddrur uuulu rrrdl ulddd rdlld lluru rlddr uruuu lurdd ddllu rdruu urruu ldrdl ulddd rdllu ldrdl
+Starting algorithm f
     #####
   ###@  #
   #. $ .#
@@ -57,6 +62,7 @@ rddlr uuldl dddrd lldll ururl ddrur uuulu rrrdl ulddd rdlld lluru rlddr uruuu lu
 #####
 length 43 soln is [(3, 5, 'l'), (2, 5, 'd'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'r'), (3, 5, 'l'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 4, 'r'), (5, 3, 'r'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 5, 'd'), (3, 5, 'l'), (2, 4, 'l'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'd'), (7, 2, 'l')]
 Time consumed: 0.030 seconds using f and exploring 271 states
+Starting algorithm fa
     #####
   ###@  #
   #. $ .#
@@ -68,6 +74,7 @@ Time consumed: 0.030 seconds using f and exploring 271 states
 #####
 length 43 soln is [(3, 5, 'l'), (2, 5, 'd'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 4, 'r'), (2, 5, 'r'), (2, 6, 'r'), (3, 5, 'l'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'r'), (5, 3, 'r'), (6, 3, 'u'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 4, 'r'), (5, 3, 'r'), (5, 4, 'u'), (4, 4, 'u'), (3, 4, 'u'), (2, 5, 'd'), (2, 4, 'l'), (3, 5, 'l'), (3, 4, 'd'), (4, 4, 'd'), (5, 4, 'd'), (6, 4, 'l'), (6, 3, 'l'), (6, 2, 'd'), (7, 2, 'l')]
 Time consumed: 0.030 seconds using fa and exploring 266 states
+Starting algorithm fa2
     #####
   ###@  #
   #. $ .#
