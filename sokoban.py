@@ -47,25 +47,34 @@ class SokobanState:
         
     def deadp(self, problem):        
         
+        
         #check if box is in the deadEnds set in the simple square dead end detection
         boxes = self.boxes()
-        for box in boxes:
-            if box not in problem.visitable:
-                return True
-            else:
-                self.dead = False                
-        #return False
+        #print(boxes)
+        #for box in boxes:
+           #if box not in problem.visitable:
+               #return True
+           #else:
+               #self.dead = False
+        
+        boxes = (tuple(sorted(boxes)))
+        
+        if problem.frozenBoxes[tuple(boxes)]:
+            return True
+        else:
+            self.dead = False
+        
         #if box is not found in the simple dead end list then we need to check for frozen states
         #where boxes cannot be moved bue to their orientation        
         #check for each box if its in a frozen situation
         
-        for box in boxes:
-            #this is a set to keep track of the visited boxes in each state
-            marked = set()
-            #if the box is a target we must not check for the frozed condition
-            if not problem.map[box[0]][box[1]].target and problem.checkFrozen(box, marked, boxes):
-                    #problem.print_state(self)
-                    return True
+        #for box in boxes:
+            ##this is a set to keep track of the visited boxes in each state
+            #marked = set()
+            ##if the box is a target we must not check for the frozed condition
+            #if not problem.map[box[0]][box[1]].target and problem.checkFrozen(box, marked, boxes):
+                    ##problem.print_state(self)
+                    #return True
         
         
         return self.dead
@@ -124,7 +133,8 @@ class SokobanState:
                 #                                 is a wall or box behind the box)
                 if (pos[0]+move[0], pos[1]+move[1]) in self.boxes() and \
                  (not problem.map[pos[0]+2*move[0]][pos[1]+2*move[1]].wall) and \
-                 (((pos[0]+2*move[0], pos[1]+2*move[1])) not in self.boxes()):
+                 (((pos[0]+2*move[0], pos[1]+2*move[1])) not in self.boxes() and \
+                     ((pos[0]+2*move[0], pos[1]+2*move[1])) in problem.visitable):
                      # stores box location and available move for the box
                      self.box_moves.append((pos[0]+move[0], pos[1]+move[1], move[2]))
     
@@ -393,6 +403,37 @@ class SokobanProblem(util.SearchProblem):
             
             if isPushable[points]:
                 self.visitable.add(points)
+        
+        self.frozenBoxes = {}
+        comb = combinations(self.visitable, len(self.init_boxes))
+        for boxes in comb:
+            boxes = (tuple(sorted(boxes)))
+            self.frozenBoxes[boxes] = False
+            for box in boxes:
+                marked = set()
+                if self.checkFrozen(box, marked, boxes):
+                    self.frozenBoxes[boxes] = True
+                    break
+        
+        #print(self.frozenBoxes)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         #print(sorted(self.visitable))
         #combs = {}
