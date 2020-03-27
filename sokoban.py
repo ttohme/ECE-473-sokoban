@@ -1,3 +1,4 @@
+
 import util
 import os, sys
 import datetime, time
@@ -176,7 +177,7 @@ class SokobanState:
                 if (pos[0]+move[0], pos[1]+move[1]) in self.boxes() and \
                  (not problem.map[pos[0]+2*move[0]][pos[1]+2*move[1]].wall) and \
                  (((pos[0]+2*move[0], pos[1]+2*move[1])) not in self.boxes() and \
-                     ((pos[0]+2*move[0], pos[1]+2*move[1])) in problem.visitable):
+                 ((pos[0]+2*move[0], pos[1]+2*move[1])) in problem.visitable):
                      # stores box location and available move for the box
                      
                      #if self.tellValid((pos[0]+move[0], pos[1]+move[1]), problem, (pos[0]+2*move[0], pos[1]+2*move[1]), area):
@@ -670,9 +671,76 @@ def solve_sokoban(map, algorithm='ucs', dead_detection=False):
         print('length {} soln is {}'.format(len(search.actions), search.actions))
     if 'f' in algorithm:
          #raise NotImplementedError('Override me')
-        return search.totalCost, search.actions, search.numStatesExplored
+#        return search.totalCost, search.actions, search.numStatesExplored
+        return search.totalCost, convert_actions(search.actions, problem), search.numStatesExplored
     else:
         return search.totalCost, search.actions, search.numStatesExplored
+
+
+def bfs(goal, problem, player_pos, cost, moves, possibleActions, state, visited):   
+  
+    #print(possibleActions)
+    
+    #print(goal)
+    #print(player_pos)
+    
+    if player_pos in visited:
+        #print('visited')
+        return
+      
+#    if cost in possibleActions:
+#        #print('cost in possibleActions')
+#        return  
+      
+    if player_pos == goal:
+        possibleActions[cost] = moves
+        #print('goal reached')
+        return
+    
+    for move in 'rdlu':
+        (valid, box_moved, _) = problem.valid_move(state, move, player_pos)
+        if valid and not box_moved:
+            (dx, dy) = parse_move(move)
+            (x, y) = (player_pos[0] + dx, player_pos[1] + dy)
+            #print('moves: {}'.format(moves))
+            visited.add(player_pos)
+            bfs(goal, problem, (x,y), cost+1, moves+[move], possibleActions, state, visited)
+  
+  
+def convert_actions(box_actions, problem):
+    
+    moves_dict = {'d': (1, 0), 'u': (-1, 0), 'r': (0, 1), 'l': (0, -1)}
+    player_actions = []
+    
+    # start state
+    ss = SokobanState(problem.init_player, problem.init_boxes)
+    
+    for box_action in box_actions:
+        possibleActions = {}
+        moves = []
+        visited = set()
+        #player actions for each action
+        goal = (box_action[0]-moves_dict[box_action[2]][0], box_action[1]-moves_dict[box_action[2]][1]) 
+        bfs(goal, problem, ss.player(), 0, moves, possibleActions, ss, visited)
+        print(possibleActions)
+        
+#        exit()
+        
+        #take path with minimum cost in possibleActions
+        ss = SokobanState((box_action[0], box_action[1]), update_boxes(box_action, ss))
+        pa = possibleActions[min(possibleActions.keys())]
+        player_actions = player_actions + pa + [box_action[2]]
+        
+    return player_actions
+             
+  
+def update_boxes(box_move, s):
+    moves_dict = {'d': (1, 0), 'u': (-1, 0), 'r': (0, 1), 'l': (0, -1)}
+    boxes = list(s.boxes())
+    idx = boxes.index((box_move[0], box_move[1]))
+    boxes[idx] = (box_move[0]+moves_dict[box_move[2]][0], \
+                  box_move[1]+moves_dict[box_move[2]][1])
+    return tuple(boxes)
 
 # animate the sequence of actions in sokoban map
 def animate_sokoban_solution(map, seq, dt=0.2):
