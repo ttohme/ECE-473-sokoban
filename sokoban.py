@@ -48,7 +48,12 @@ class SokobanState:
     def deadp(self, problem):        
         
         
-        #check if box is in the deadEnds set in the simple square dead end detection        
+        #if box is not found in the simple dead end list then we need to check for frozen states
+        #where boxes cannot be moved bue to their orientation        
+        #check for each box if its in a frozen situation      
+        
+        #chooses between precomputed and dynamic computing of frozen state
+        #return False
         boxes = self.boxes()
         mode = problem.algorithm
         
@@ -61,9 +66,7 @@ class SokobanState:
             else:
                 self.dead = False
         
-        #if box is not found in the simple dead end list then we need to check for frozen states
-        #where boxes cannot be moved bue to their orientation        
-        #check for each box if its in a frozen situation
+
         else:
             for box in boxes:
                 #this is a set to keep track of the visited boxes in each state
@@ -78,6 +81,24 @@ class SokobanState:
         return self.dead
 
     
+    #this tells the dynamic area that the boxes occupy
+    def tellArea(self, problem):
+        
+        boxes = self.boxes()
+        stateArea = {}
+        
+        for box in boxes:
+            
+            target_of_box = problem.targetsReachable[box]
+            target_of_box = tuple(target_of_box)
+            if target_of_box not in stateArea:
+                stateArea[target_of_box] = 1
+            else:
+                stateArea[target_of_box] += 1
+        
+        return stateArea
+    
+    
     def all_adj(self, problem):
         if self.all_adj_cache is None:
             succ = []
@@ -86,8 +107,7 @@ class SokobanState:
                 if valid:
                     succ.append((move, nextS, 1))
             self.all_adj_cache = succ
-        return self.all_adj_cache
-    
+        return self.all_adj_cache    
     
             
     # This function locates the player on the map and returns a set of all the
@@ -119,12 +139,36 @@ class SokobanState:
             if len(frontier) == 0:
                 break
     
+    #tells if the new move of the box is valif or not
+    def tellValid(self, oldBox, problem, newBox, area):        
+        
+        target = problem.targetsReachable[oldBox]
+        target = tuple(target)
+        if target in area:
+            area[target] -= 1
+        
+        target = problem.targetsReachable[newBox]
+        target = tuple(target)
+        if target in area:
+            area[target] += 1
+        else:
+            area[target] = 1
+        
+        if area[target] > problem.maxArea[target]:
+            return False
+        else:
+            return True    
+    
     
     # This function takes the map (current state) and the set of all reachable
     # positions and returns the available box moves as a list of tuples with
     # (box vertical position, box horizontal position, direction), direction = 'u','d','l','r'
     def find_box_moves(self, problem):
+        
+        #area = self.tellArea(problem)
+        
         for pos in self.reachable_space:
+            
             for move in self.moves:
                 # 1. line of if-statement: checks if a box borders on a reachable field
                 # 2. and 3. line of if-statement: checks if the box can be moved (if there
@@ -134,6 +178,8 @@ class SokobanState:
                  (((pos[0]+2*move[0], pos[1]+2*move[1])) not in self.boxes() and \
                      ((pos[0]+2*move[0], pos[1]+2*move[1])) in problem.visitable):
                      # stores box location and available move for the box
+                     
+                     #if self.tellValid((pos[0]+move[0], pos[1]+move[1]), problem, (pos[0]+2*move[0], pos[1]+2*move[1]), area):
                      self.box_moves.append((pos[0]+move[0], pos[1]+move[1], move[2]))
     
     
@@ -264,7 +310,7 @@ class SokobanProblem(util.SearchProblem):
         y1 = p[1] + dy
         x2 = x1 + dx
         y2 = y1 + dy
-        if self.map[x1][y1].wall: #or (x1, y1) not in self.visitable:
+        if self.map[x1][y1].wall:
             return False, False, None
         elif (x1,y1) in s.boxes():
             if self.map[x2][y2].floor and (x2,y2) not in s.boxes() and (x2, y2) in self.visitable:
@@ -364,7 +410,8 @@ class SokobanProblem(util.SearchProblem):
         
         #tells if the box is pushable to the goal 
         isPushable = {}
-        targetsReachable = {}
+        self.targetsReachable = {}
+        self.maxArea = {}
         #Until the status of isPushable does not change
         while(True):
             temp = isPushable.copy()
@@ -386,7 +433,8 @@ class SokobanProblem(util.SearchProblem):
                                 myTargets.append(target)
                                 truthVal = True
                         if len(myTargets) > 0:
-                            targetsReachable[box] = myTargets 
+                            self.targetsReachable[box] = myTargets
+                            self.maxArea[tuple(myTargets)] = len(myTargets)
                         #mark the value of the box
                         isPushable[box] = truthVal
                     checking.clear()
@@ -402,7 +450,7 @@ class SokobanProblem(util.SearchProblem):
             if isPushable[points]:
                 self.visitable.add(points)
         
-        self.combs =  ((math.factorial(len(self.visitable)) / (math.factorial(len(self.init_boxes)) * math.factorial(len(self.visitable) - len(self.init_boxes)))) * len(self.init_boxes))  < 100000000
+        self.combs =  ((math.factorial(len(self.visitable)) / (math.factorial(len(self.init_boxes)) * math.factorial(len(self.visitable) - len(self.init_boxes)))) * len(self.init_boxes))  < 20000000
         
         
         if self.algorithm == 'nf' and self.combs:
@@ -416,28 +464,6 @@ class SokobanProblem(util.SearchProblem):
                     if self.checkFrozen(box, marked, boxes):
                         self.frozenBoxes[boxes] = True
                         break
-        
-            #print(self.frozenBoxes)       
-        #print(sorted(self.visitable))
-        #combs = {}
-        #for i in range(1, len(self.targets)):
-        #    comb = combinations(self.targets, i)
-        #    comb = list(comb)
-        #    print(comb[0][0])
-            #combs[comb] = i
-         
-        #print(combs) 
-        #my_inverted_dict = dict([[v,k] for k,v in targetsReachable.items()])
-
-
-        #print(my_inverted_dict)
-        
-        #for points in targetsReachable:
-        #    print(points)
-        #    print(targetsReachable[points])
-        #    print()
-        #exit()
-    
     
     #this is a recursive function to check is there are frozen boxes in every state during game play 
     def checkFrozen(self, box, marked, boxes):
@@ -547,7 +573,6 @@ class SokobanProblem(util.SearchProblem):
     def dead_end(self, s):
         if not self.dead_detection:
             return False
-        self.print_state(s)
         return s.deadp(self)
 
     def start(self):
@@ -558,7 +583,8 @@ class SokobanProblem(util.SearchProblem):
 
     def expand(self, s):        
         if self.dead_end(s):
-            return []        
+            return []
+        #self.print_state(s) 
         return s.all_adj(self)
 
 class SokobanProblemFaster(SokobanProblem):
@@ -575,6 +601,7 @@ class SokobanProblemFaster(SokobanProblem):
     def expand(self, s):
         if self.dead_end(s):
             return []
+        #self.print_state(s) 
         return s.all_adj_compressed(self)
 	
 
@@ -598,7 +625,7 @@ class Heuristic:
        dist = 0
        for box in s.boxes():
            dist += self.Manhattan[box]
-                   
+          
        return dist
 	
 
