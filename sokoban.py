@@ -667,11 +667,10 @@ def solve_sokoban(map, algorithm='ucs', dead_detection=False):
     if 'f' not in algorithm and search.actions is not None:
         print('length {} soln is {}'.format(len(search.actions), search.actions))
     if 'f' in algorithm:
-         #raise NotImplementedError('Override me')
-        #return search.totalCost, search.actions, search.numStatesExplored
-        actions = convert_actions(search.actions, problem)
         
+        actions = convert_actions(search.actions, problem)        
         print('length {} soln is {}'.format(len(actions), actions))
+        
         return search.totalCost, actions, search.numStatesExplored
     else:
         return search.totalCost, search.actions, search.numStatesExplored
