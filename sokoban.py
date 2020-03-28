@@ -633,7 +633,8 @@ class Heuristic:
     # Problem 4: Better heuristic.                                               #
     # Implement a better and possibly more complicated heuristic that need not   #
     # always be admissible, but improves the search on more complicated Sokoban  #
-    # levels most of the time. Feel free to make any changes anywhere in the     # # code. Our heuristic does some significant work at problem initialization   #
+    # levels most of the time. Feel free to make any changes anywhere in the     #
+    # code. Our heuristic does some significant work at problem initialization   #
     # and caches it.                                                             #
     # Our solution to this problem affects or adds approximately 40 lines of     #
     # code in the file in total. Your can vary substantially from this.          #
