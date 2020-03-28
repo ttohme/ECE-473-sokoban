@@ -65,8 +65,7 @@ class SokobanState:
             if problem.frozenBoxes[tuple(boxes)]:
                 return True
             else:
-                self.dead = False
-        
+                self.dead = False        
 
         else:
             for box in boxes:
@@ -83,21 +82,21 @@ class SokobanState:
 
     
     #this tells the dynamic area that the boxes occupy
-    def tellArea(self, problem):
+    #def tellArea(self, problem):
         
-        boxes = self.boxes()
-        stateArea = {}
+        #boxes = self.boxes()
+        #stateArea = {}
         
-        for box in boxes:
+        #for box in boxes:
             
-            target_of_box = problem.targetsReachable[box]
-            target_of_box = tuple(target_of_box)
-            if target_of_box not in stateArea:
-                stateArea[target_of_box] = 1
-            else:
-                stateArea[target_of_box] += 1
+            #target_of_box = problem.targetsReachable[box]
+            #target_of_box = tuple(target_of_box)
+            #if target_of_box not in stateArea:
+                #stateArea[target_of_box] = 1
+            #else:
+                #stateArea[target_of_box] += 1
         
-        return stateArea
+        #return stateArea
     
     
     def all_adj(self, problem):
@@ -141,24 +140,24 @@ class SokobanState:
                 break
     
     #tells if the new move of the box is valif or not
-    def tellValid(self, oldBox, problem, newBox, area):        
+    #def tellValid(self, oldBox, problem, newBox, area):        
         
-        target = problem.targetsReachable[oldBox]
-        target = tuple(target)
-        if target in area:
-            area[target] -= 1
+        #target = problem.targetsReachable[oldBox]
+        #target = tuple(target)
+        #if target in area:
+            #area[target] -= 1
         
-        target = problem.targetsReachable[newBox]
-        target = tuple(target)
-        if target in area:
-            area[target] += 1
-        else:
-            area[target] = 1
+        #target = problem.targetsReachable[newBox]
+        #target = tuple(target)
+        #if target in area:
+            #area[target] += 1
+        #else:
+            #area[target] = 1
         
-        if area[target] > problem.maxArea[target]:
-            return False
-        else:
-            return True    
+        #if area[target] > problem.maxArea[target]:
+            #return False
+        #else:
+            #return True    
     
     
     # This function takes the map (current state) and the set of all reachable
@@ -311,6 +310,7 @@ class SokobanProblem(util.SearchProblem):
         y1 = p[1] + dy
         x2 = x1 + dx
         y2 = y1 + dy
+        #print(move)
         if self.map[x1][y1].wall:
             return False, False, None
         elif (x1,y1) in s.boxes():
@@ -411,8 +411,8 @@ class SokobanProblem(util.SearchProblem):
         
         #tells if the box is pushable to the goal 
         isPushable = {}
-        self.targetsReachable = {}
-        self.maxArea = {}
+        #self.targetsReachable = {}
+        #self.maxArea = {}
         #Until the status of isPushable does not change
         while(True):
             temp = isPushable.copy()
@@ -428,14 +428,14 @@ class SokobanProblem(util.SearchProblem):
                         self.travel(box, visited, checking, len(self.map), len(self.map[row]))
                         truthVal = False
                         #check if any goal is in the set
-                        myTargets = []
+                        #myTargets = []
                         for target in self.targets:
                             if target in checking:
-                                myTargets.append(target)
+                                #myTargets.append(target)
                                 truthVal = True
-                        if len(myTargets) > 0:
-                            self.targetsReachable[box] = myTargets
-                            self.maxArea[tuple(myTargets)] = len(myTargets)
+                        #if len(myTargets) > 0:
+                            #self.targetsReachable[box] = myTargets
+                            #self.maxArea[tuple(myTargets)] = len(myTargets)
                         #mark the value of the box
                         isPushable[box] = truthVal
                     checking.clear()
@@ -451,8 +451,9 @@ class SokobanProblem(util.SearchProblem):
             if isPushable[points]:
                 self.visitable.add(points)
         
-        self.combs =  ((math.factorial(len(self.visitable)) / (math.factorial(len(self.init_boxes)) * math.factorial(len(self.visitable) - len(self.init_boxes)))) * len(self.init_boxes))  < 20000000
+        val =  ((math.factorial(len(self.visitable)) / (math.factorial(len(self.init_boxes)) * math.factorial(len(self.visitable) - len(self.init_boxes)))) * len(self.init_boxes)) 
         
+        self.combs = val < 2000000
         
         if self.algorithm == 'nf' and self.combs:
             self.frozenBoxes = {}
@@ -585,7 +586,6 @@ class SokobanProblem(util.SearchProblem):
     def expand(self, s):        
         if self.dead_end(s):
             return []
-        #self.print_state(s) 
         return s.all_adj(self)
 
 class SokobanProblemFaster(SokobanProblem):
@@ -602,7 +602,6 @@ class SokobanProblemFaster(SokobanProblem):
     def expand(self, s):
         if self.dead_end(s):
             return []
-        #self.print_state(s) 
         return s.all_adj_compressed(self)
 	
 
@@ -650,85 +649,87 @@ class Heuristic:
 
 ## solve sokoban map using specified algorithm
 def solve_sokoban(map, algorithm='ucs', dead_detection=False):
-    # problem algorithm
+    
     if 'f' in algorithm:
         problem = SokobanProblemFaster(map, dead_detection, algorithm)
     else:
-        #print(dead_detection)
         problem = SokobanProblem(map, dead_detection, 'nf')
 
-    # search algorithm
     h = Heuristic(problem).heuristic2 if ('2' in algorithm) else Heuristic(problem).heuristic
     if 'a' in algorithm:
         search = util.AStarSearch(heuristic=h)
     else:
         search = util.UniformCostSearch()
 
-    # solve problem
-    search.solve(problem)
-    #print(search.actions)
-    if search.actions is not None:
+    search.solve(problem)    
+    
+    
+    if 'f' not in algorithm and search.actions is not None:
         print('length {} soln is {}'.format(len(search.actions), search.actions))
     if 'f' in algorithm:
          #raise NotImplementedError('Override me')
-#        return search.totalCost, search.actions, search.numStatesExplored
-        return search.totalCost, convert_actions(search.actions, problem), search.numStatesExplored
+        #return search.totalCost, search.actions, search.numStatesExplored
+        actions = convert_actions(search.actions, problem)
+        
+        print('length {} soln is {}'.format(len(actions), actions))
+        return search.totalCost, actions, search.numStatesExplored
     else:
         return search.totalCost, search.actions, search.numStatesExplored
 
-
-def bfs(goal, problem, player_pos, cost, moves, possibleActions, state, visited):   
-  
-    #print(possibleActions)
+def bfs(player, problem, sokobanState, goal):  
     
-    #print(goal)
-    #print(player_pos)
+    queue = []
+    visited = set()
+    actionDict = {}
+    costDict = {}
     
-    if player_pos in visited:
-        #print('visited')
-        return
-      
-#    if cost in possibleActions:
-#        #print('cost in possibleActions')
-#        return  
-      
-    if player_pos == goal:
-        possibleActions[cost] = moves
-        #print('goal reached')
-        return
+    queue.append(player)    
+    visited.add(player)    
+    actionDict[player] = []
+    costDict[player] = 0
     
-    for move in 'rdlu':
-        (valid, box_moved, _) = problem.valid_move(state, move, player_pos)
-        if valid and not box_moved:
+    while queue:        
+        
+        minCost = min( costDict.values() )
+        for key in costDict:
+            if(costDict[key] == minCost):
+                state = key
+                actions = actionDict[state]
+                break
+        
+        for move in 'uldr':
+            
             (dx, dy) = parse_move(move)
-            (x, y) = (player_pos[0] + dx, player_pos[1] + dy)
-            #print('moves: {}'.format(moves))
-            visited.add(player_pos)
-            bfs(goal, problem, (x,y), cost+1, moves+[move], possibleActions, state, visited)
-  
+            (x, y) = (state[0] + dx, state[1] + dy)
+            
+            if not problem.map[x][y].wall and (x, y) not in sokobanState.boxes() and (x, y) not in visited:
+                
+                queue.append( (x, y) )
+                costDict[(x, y)] = minCost + 1 + abs(x - goal[0]) + abs(y - goal[1])
+                actionDict[(x, y)] = actions + [move]
+                visited.add((x, y))
+                        
+        if goal in queue:
+            break
+        
+        queue.remove(state)
+        del costDict[state]
+        del actionDict[state]
+
+    return actionDict[goal]
   
 def convert_actions(box_actions, problem):
     
     moves_dict = {'d': (1, 0), 'u': (-1, 0), 'r': (0, 1), 'l': (0, -1)}
     player_actions = []
     
-    # start state
     ss = SokobanState(problem.init_player, problem.init_boxes)
     
     for box_action in box_actions:
-        possibleActions = {}
-        moves = []
-        visited = set()
-        #player actions for each action
-        goal = (box_action[0]-moves_dict[box_action[2]][0], box_action[1]-moves_dict[box_action[2]][1]) 
-        bfs(goal, problem, ss.player(), 0, moves, possibleActions, ss, visited)
-        print(possibleActions)
         
-#        exit()
-        
-        #take path with minimum cost in possibleActions
+        goal = (box_action[0]-moves_dict[box_action[2]][0], box_action[1]-moves_dict[box_action[2]][1])
+        pa = bfs(ss.player(), problem, ss, goal)
         ss = SokobanState((box_action[0], box_action[1]), update_boxes(box_action, ss))
-        pa = possibleActions[min(possibleActions.keys())]
         player_actions = player_actions + pa + [box_action[2]]
         
     return player_actions
