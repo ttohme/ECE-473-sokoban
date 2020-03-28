@@ -648,10 +648,33 @@ class Heuristic:
         #################################################################
         player = s.player()
         dist = 0
-        for box in s.boxes():
-            dist += self.pythoGrean[box]
+        #for box in s.boxes():
+         #   dist += self.pythoGrean[box]
             
+        #return dist
+
+
+        count = 0
+        distlim= 99999
+        for box in s.boxes():
+            endcount= 99999
+            for target in self.targets:
+                temp = abs(box[0]-target[0])+ abs(box[1]-target[1])
+                if temp < endcount:
+                    endcount = temp
+            count =count + endcount
+            if count !=0:
+                newdist=  abs(player[0]-box[0]) + abs(player[1]-box[1])
+                if newdist < distlim:
+                    distlim = newdist
+        if distlim == 99999:
+            dist = count
+        else: dist = distlim + count
+
         return dist
+
+
+
 
 ## solve sokoban map using specified algorithm
 def solve_sokoban(map, algorithm='ucs', dead_detection=False):
