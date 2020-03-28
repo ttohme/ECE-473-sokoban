@@ -120,6 +120,7 @@ class SokobanState:
         
         # initialize frontier with player position
         frontier = {player_pos}
+	self.reachable_space = {player_pos}
         
         # search whole space for reachable positions
         while True:
