@@ -646,28 +646,34 @@ class Heuristic:
         #This is a very trivial 2nd heuristic we need a much better one
         #for passing the grading standards
         #################################################################
+        #
+        # 1.) penalize if there is a wall in the manhattan distance path
+        #     from the box to the goal / same for the player to box path
+        #  
+        # 2.) penalize by multiplying with some factor if there is a lot of 
+        #     clutter around the box
+        #  
+        # 3.) If a box in the path to another box then penalize the destination
+        #     box
+        #  
+        #   
+        #
+        #
+        #
+        ####################################################################
         player = s.player()
         dist = 0
-        #for box in s.boxes():
-         #   dist += self.pythoGrean[box]
-            
-        #return dist
-
-
         count = 0
-        distlim= 99999
-        for box in s.boxes():
-            endcount= 99999
-            for target in self.targets:
-                temp = abs(box[0]-target[0])+ abs(box[1]-target[1])
-                if temp < endcount:
-                    endcount = temp
-            count =count + endcount
-            if count !=0:
-                newdist=  abs(player[0]-box[0]) + abs(player[1]-box[1])
+        distlim = 2**31
+        
+        for box in s.boxes():            
+            count += self.Manhattan[box]                   
+            if count != 0:
+                newdist = abs(player[0] - box[0]) + abs(player[1] - box[1])
                 if newdist < distlim:
-                    distlim = newdist
-        if distlim == 99999:
+                    distlim = newdist   
+                    
+        if distlim == 2**31:
             dist = count
         else: dist = distlim + count
 
