@@ -641,6 +641,10 @@ class Heuristic:
     ##############################################################################
     def heuristic2(self, s):
         
+        #################################################################
+        #This is a very trivial 2nd heuristic we need a much better one
+        #for passing the grading standards
+        #################################################################
         player = s.player()
         dist = 0
         for box in s.boxes():
