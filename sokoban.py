@@ -680,7 +680,7 @@ def solve_sokoban(map, algorithm='ucs', dead_detection=False):
     else:
         return search.totalCost, search.actions, search.numStatesExplored
 
-def bfs(player, problem, sokobanState, goal):  
+def AStar(player, problem, sokobanState, goal):  
     
     queue = []
     visited = set()
@@ -732,7 +732,7 @@ def convert_actions(box_actions, problem):
     for box_action in box_actions:
         
         goal = (box_action[0]-moves_dict[box_action[2]][0], box_action[1]-moves_dict[box_action[2]][1])
-        pa = bfs(ss.player(), problem, ss, goal)
+        pa = AStar(ss.player(), problem, ss, goal)
         ss = SokobanState((box_action[0], box_action[1]), update_boxes(box_action, ss))
         player_actions = player_actions + pa + [box_action[2]]
         
