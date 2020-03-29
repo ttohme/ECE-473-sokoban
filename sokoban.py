@@ -62,7 +62,7 @@ class SokobanState:
             
             boxes = (tuple(sorted(boxes)))
             
-            if problem.frozenBoxes[tuple(boxes)]:
+            if tuple(boxes) in problem.frozenBoxes and problem.frozenBoxes[tuple(boxes)]:
                 return True
             else:
                 self.dead = False        
@@ -315,9 +315,12 @@ class SokobanProblem(util.SearchProblem):
         if self.map[x1][y1].wall:
             return False, False, None
         elif (x1,y1) in s.boxes():
-            if self.map[x2][y2].floor and (x2,y2) not in s.boxes() and (x2, y2) in self.visitable:
+            if self.map[x2][y2].floor and (x2,y2) not in s.boxes() and (x2, y2) in self.visitable and self.dead_detection:
                 return True, True, SokobanState((x1,y1),
                     [b if b != (x1,y1) else (x2,y2) for b in s.boxes()])
+            elif self.map[x2][y2].floor and (x2,y2) not in s.boxes() and not self.dead_detection:
+                return True, True, SokobanState((x1,y1),
+                    [b if b != (x1,y1) else (x2,y2) for b in s.boxes()])            
             else:
                 return False, False, None
         else:
@@ -451,6 +454,8 @@ class SokobanProblem(util.SearchProblem):
             
             if isPushable[points]:
                 self.visitable.add(points)
+        
+        #print(sorted(self.visitable))
         
         val =  ((math.factorial(len(self.visitable)) / (math.factorial(len(self.init_boxes)) * math.factorial(len(self.visitable) - len(self.init_boxes)))) * len(self.init_boxes)) 
         
@@ -655,8 +660,6 @@ class Heuristic:
         #  
         # 3.) If a box in the path to another box then penalize the destination
         #     box
-        #  
-        #   
         #
         #
         #
