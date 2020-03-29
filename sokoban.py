@@ -645,7 +645,7 @@ class Heuristic:
     # Our solution to this problem affects or adds approximately 40 lines of     #
     # code in the file in total. Your can vary substantially from this.          #
     ##############################################################################
-    def heuristic2(self, s):
+    def heuristic2(self, s ):
         
         #################################################################
         #This is a very trivial 2nd heuristic we need a much better one
@@ -665,21 +665,44 @@ class Heuristic:
         #
         ####################################################################
         player = s.player()
+
         dist = 0
         count = 0
         distlim = 2**31
-        
-        for box in s.boxes():            
-            count += self.Manhattan[box]                   
+        scaler=0
+        for box in s.boxes():
+            count += self.Manhattan[box]
+
+            for row in range(min(box[0],player[0]), max(box[0],player[0])): # box to player row
+                for col in range(min(box[1],player[1]), max(box[1],player[1])): #box to play col
+                    try:
+                        if not self.problem.map[row][col].wall:
+                            scaler = 2.5
+                            break
+
+                    except: continue
+
+
+
+
+
+
+
+
+
+
+
             if count != 0:
                 newdist = abs(player[0] - box[0]) + abs(player[1] - box[1])
                 if newdist < distlim:
-                    distlim = newdist   
-                    
+                    distlim = newdist
+
         if distlim == 2**31:
             dist = count
         else: dist = distlim + count
-
+         #if wall between player and box
+        if scaler != 0:
+            dist = scaler *dist +2
         return dist
 
 
