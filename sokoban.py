@@ -676,22 +676,11 @@ class Heuristic:
             for row in range(min(box[0],player[0]), max(box[0],player[0])): # box to player row
                 for col in range(min(box[1],player[1]), max(box[1],player[1])): #box to play col
                     try:
-                        if not self.problem.map[row][col].wall:
+                        if self.problem.map[row][col].wall:
                             scaler = 2.5
                             break
 
                     except: continue
-
-
-
-
-
-
-
-
-
-
-
             if count != 0:
                 newdist = abs(player[0] - box[0]) + abs(player[1] - box[1])
                 if newdist < distlim:
@@ -702,7 +691,7 @@ class Heuristic:
         else: dist = distlim + count
          #if wall between player and box
         if scaler != 0:
-            dist = scaler *dist +2
+            dist = scaler * dist + 2
         return dist
 
 
