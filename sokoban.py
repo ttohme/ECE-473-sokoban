@@ -54,7 +54,7 @@ class SokobanState:
         #check for each box if its in a frozen situation      
         
         #chooses between precomputed and dynamic computing of frozen state
-        #return False
+        return False
         boxes = self.boxes()
         mode = problem.algorithm
         
@@ -548,7 +548,50 @@ class SokobanProblem(util.SearchProblem):
             if not (self.map[box[0]][box[1]].target):
                 return True
         else:
-            return False    
+            return False
+        
+    def AStar(self, player, goal):  
+    
+        queue = []
+        visited = set()
+        actionDict = {}
+        costDict = {}
+        
+        queue.append(player)    
+        visited.add(player)    
+        actionDict[player] = []
+        costDict[player] = 0
+        
+        while queue:        
+            
+            minCost = min( costDict.values() )
+            for key in costDict:
+                if(costDict[key] == minCost):
+                    state = key
+                    actions = actionDict[state]
+                    break
+            
+            for move in 'uldr':
+                
+                (dx, dy) = parse_move(move)
+                (x, y) = (state[0] + dx, state[1] + dy)
+                
+                if not self.map[x][y].wall and (x, y) not in visited:
+                    
+                    queue.append( (x, y) )
+                    costDict[(x, y)] = minCost + 1 + abs(x - goal[0]) + abs(y - goal[1])
+                    actionDict[(x, y)] = actions + [move]
+                    visited.add((x, y))
+                            
+            if goal in queue:
+                break
+            
+            queue.remove(state)
+            del costDict[state]
+            del actionDict[state]
+
+        return actionDict[goal]   
+    
     
     def preHeuristics(self):
         
@@ -567,6 +610,17 @@ class SokobanProblem(util.SearchProblem):
                 
                 self.Manhattan[(row, col)] = minDist
                 self.pythoGrean[(row, col)] = minDist2
+                
+        self.New = {}
+        for box in self.visitable:
+            
+            distances = []
+            for target in self.targets:
+                minSeq = self.AStar(box, target)
+                length = len(minSeq)
+                distances.append(length)
+            self.New[box] = (min(distances)**0.5) + min(distances) * 2 + self.pythoGrean[box]
+            
     
 
     ##############################################################################
@@ -667,31 +721,10 @@ class Heuristic:
         player = s.player()
 
         dist = 0
-        count = 0
-        distlim = 2**31
-        scaler=0
         for box in s.boxes():
-            count += self.Manhattan[box]
-
-            for row in range(min(box[0],player[0]), max(box[0],player[0])): # box to player row
-                for col in range(min(box[1],player[1]), max(box[1],player[1])): #box to play col
-                    try:
-                        if self.problem.map[row][col].wall:
-                            scaler = 2.5
-                            break
-
-                    except: continue
-            if count != 0:
-                newdist = abs(player[0] - box[0]) + abs(player[1] - box[1])
-                if newdist < distlim:
-                    distlim = newdist
-
-        if distlim == 2**31:
-            dist = count
-        else: dist = distlim + count
-         #if wall between player and box
-        if scaler != 0:
-            dist = scaler * dist + 2
+            
+            dist += self.problem.New[box]
+            
         return dist
 
 
