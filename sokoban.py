@@ -1,3 +1,14 @@
+###########################################################################
+# ECE 473 Sokoban Solver                                                  #
+# Institution: Purdue University, West Lafayette                          #                                                                  # Group Members:                                                          #
+#                                                                         #
+#  1.)  Nando Kaslin (group Representative)                               # 
+#  2.)  Tohme Tohme                                                       #
+#  3.)  Vidush Singhal                                                    #
+#                                                                         #
+#                                                                         #
+###########################################################################
+
 
 import util
 import os, sys
