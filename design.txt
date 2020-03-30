@@ -3,16 +3,104 @@
 '  that is targeted makes a big difference on this level
 
 'Level improving from ucs to ucs -d
+'This state has many dead ends that are not detected by the normal ucs
+'The dead ends that are in the the beginning are not detected but the
+'dead end detection algorithm detects those dead ends. Normal ucs wastes
+'time in going throught those extremely large states
 Level p5-level-1
+###########
+#         #
+#         #
+#         #
+#         #
+#         #
+#         #
+#    #  # #
+#    #  # #
+#    #  # #
+##   #  # #
+##   #  # #
+##   #  # #
+#     # # #
+#    ## # #
+# ###   # #
+# #     # #
+# ## #### #
+# #  #  # #
+#         #
+#  $  $   #
+###    .# #
+# # ###.# #
+#   # #.# #
+# $ #  ## #
+#@      # #
+###########
 
 'Level improving from ucs -d to f -d
 Level p5-level-2
+#########################
+#.$                    .#
+#                      $#
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#           @           #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#$                      #
+#.                    $.#
+#########################
 
 'Level improving from f -d to fa -d
 Level p5-level-3
+#################
+#.             .#
+#               #
+#               #
+#               #
+#               #
+#               #
+#               #
+#               #
+#    $     $    #
+#               #
+#               #
+#               #
+#               #
+#               #
+#               #
+#               #
+#       @       #
+#               #
+#################
 
 'Level improving from fa -d to fa2 -d
 Level p5-level-4
+########################
+#   #######            #
+# $                 $$ #
+#    #####             #
+#     $ ##..    ########
+#         #..     ######
+###############  #######
+#                      #
+#    ###################
+#                     @#
+########################
+
 
 'Optional: level for the Sokoban contest
 Level p5-contest

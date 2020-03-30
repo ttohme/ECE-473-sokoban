@@ -6,7 +6,6 @@
 #  2.)  Tohme Tohme                                                       #
 #  3.)  Vidush Singhal                                                    #
 #                                                                         #
-#                                                                         #
 ###########################################################################
 
 
@@ -57,58 +56,38 @@ class SokobanState:
             self.adj[act] = val
             return val
         
-    def deadp(self, problem):        
-        
+    def deadp(self, problem):       
         
         #if box is not found in the simple dead end list then we need to check for frozen states
-        #where boxes cannot be moved bue to their orientation        
-        #check for each box if its in a frozen situation      
-        
+        #where boxes cannot be moved due to their orientation        
+        #check for each box if its in a frozen situation       
         #chooses between precomputed and dynamic computing of frozen state
-        return False
+        
         boxes = self.boxes()
-        mode = problem.algorithm
         
-        if mode == 'nf' and problem.combs:
+        if problem.combs:
             
-            boxes = (tuple(sorted(boxes)))
-            
-            if tuple(boxes) in problem.frozenBoxes and problem.frozenBoxes[tuple(boxes)]:
-                return True
-            else:
-                self.dead = False        
-
-        else:
-            for box in boxes:
-                #this is a set to keep track of the visited boxes in each state
-                marked = set()
-                #if the box is a target we must not check for the frozed condition
-                if not problem.map[box[0]][box[1]].target and problem.checkFrozen(box, marked, boxes):
-                        #problem.print_state(self)
-                        return True 
+            if 'f' not in problem.algorithm:
+                
+                boxes = (tuple(sorted(boxes)))
+                
+                if tuple(boxes) in problem.frozenBoxes and problem.frozenBoxes[tuple(boxes)]:
+                    return True
                 else:
-                    self.dead = False
-        
-        return self.dead
+                    self.dead = False        
 
-    
-    #this tells the dynamic area that the boxes occupy
-    #def tellArea(self, problem):
-        
-        #boxes = self.boxes()
-        #stateArea = {}
-        
-        #for box in boxes:
+            else:
+                
+                for box in boxes:
+                    #this is a set to keep track of the visited boxes in each state
+                    marked = set()
+                    #if the box is a target we must not check for the frozed condition
+                    if not problem.map[box[0]][box[1]].target and problem.checkFrozen(box, marked, boxes):
+                            return True 
+                    else:
+                        self.dead = False
             
-            #target_of_box = problem.targetsReachable[box]
-            #target_of_box = tuple(target_of_box)
-            #if target_of_box not in stateArea:
-                #stateArea[target_of_box] = 1
-            #else:
-                #stateArea[target_of_box] += 1
-        
-        #return stateArea
-    
+            return self.dead
     
     def all_adj(self, problem):
         if self.all_adj_cache is None:
@@ -150,27 +129,7 @@ class SokobanState:
             # break as soon as frontier is empty (no new position are found)
             if len(frontier) == 0:
                 break
-    
-    #tells if the new move of the box is valif or not
-    #def tellValid(self, oldBox, problem, newBox, area):        
-        
-        #target = problem.targetsReachable[oldBox]
-        #target = tuple(target)
-        #if target in area:
-            #area[target] -= 1
-        
-        #target = problem.targetsReachable[newBox]
-        #target = tuple(target)
-        #if target in area:
-            #area[target] += 1
-        #else:
-            #area[target] = 1
-        
-        #if area[target] > problem.maxArea[target]:
-            #return False
-        #else:
-            #return True    
-    
+            
     
     # This function takes the map (current state) and the set of all reachable
     # positions and returns the available box moves as a list of tuples with
@@ -191,7 +150,6 @@ class SokobanState:
                  ((pos[0]+2*move[0], pos[1]+2*move[1])) in problem.visitable):
                      # stores box location and available move for the box
                      
-                     #if self.tellValid((pos[0]+move[0], pos[1]+move[1]), problem, (pos[0]+2*move[0], pos[1]+2*move[1]), area):
                      self.box_moves.append((pos[0]+move[0], pos[1]+move[1], move[2]))
     
     
@@ -258,7 +216,8 @@ class SokobanProblem(util.SearchProblem):
         self.getLocks()
         self.pythoGrean = {}
         self.Manhattan = {}
-        self.preHeuristics()
+        if 'a' in algorithm:
+            self.preHeuristics()
         
     # parse the input string into game map
     # Wall              #
@@ -426,8 +385,6 @@ class SokobanProblem(util.SearchProblem):
         
         #tells if the box is pushable to the goal 
         isPushable = {}
-        #self.targetsReachable = {}
-        #self.maxArea = {}
         #Until the status of isPushable does not change
         while(True):
             temp = isPushable.copy()
@@ -443,14 +400,9 @@ class SokobanProblem(util.SearchProblem):
                         self.travel(box, visited, checking, len(self.map), len(self.map[row]))
                         truthVal = False
                         #check if any goal is in the set
-                        #myTargets = []
                         for target in self.targets:
                             if target in checking:
-                                #myTargets.append(target)
                                 truthVal = True
-                        #if len(myTargets) > 0:
-                            #self.targetsReachable[box] = myTargets
-                            #self.maxArea[tuple(myTargets)] = len(myTargets)
                         #mark the value of the box
                         isPushable[box] = truthVal
                     checking.clear()
@@ -466,13 +418,11 @@ class SokobanProblem(util.SearchProblem):
             if isPushable[points]:
                 self.visitable.add(points)
         
-        #print(sorted(self.visitable))
-        
         val =  ((math.factorial(len(self.visitable)) / (math.factorial(len(self.init_boxes)) * math.factorial(len(self.visitable) - len(self.init_boxes)))) * len(self.init_boxes)) 
         
-        self.combs = val < 2000000
+        self.combs = val < 2000000 and val > 50000
         
-        if self.algorithm == 'nf' and self.combs:
+        if 'f' not in self.algorithm and self.combs:
             self.frozenBoxes = {}
             comb = combinations(self.visitable, len(self.init_boxes))
             for boxes in comb:
@@ -606,21 +556,20 @@ class SokobanProblem(util.SearchProblem):
     
     def preHeuristics(self):
         
-        for row in range(len(self.map)):
-            for col in range(len(self.map[row])):
-                
-                minDist = 2**31
-                minDist2 = 2**31
-                for target in self.targets:
-                    newDist = (abs(row - target[0])) + (abs(col - target[1]))
-                    newDist2 = math.sqrt((row - target[0])**2 + (col - target[1])**2)
-                    if newDist < minDist:
-                        minDist = newDist
-                    if newDist2 < minDist2:
-                        minDist2 = newDist2
-                
-                self.Manhattan[(row, col)] = minDist
-                self.pythoGrean[(row, col)] = minDist2
+        for box in self.visitable:
+        
+            minDist = 2**31
+            minDist2 = 2**31
+            for target in self.targets:
+                newDist = (abs(box[0] - target[0])) + (abs(box[1] - target[1]))
+                newDist2 = math.sqrt((box[0] - target[0])**2 + (box[1] - target[1])**2)
+                if newDist < minDist:
+                    minDist = newDist
+                if newDist2 < minDist2:
+                    minDist2 = newDist2
+            
+            self.Manhattan[box] = minDist
+            self.pythoGrean[box] = minDist2
                 
         self.New = {}
         for box in self.visitable:
@@ -695,8 +644,7 @@ class Heuristic:
         
        dist = 0
        for box in s.boxes():
-           dist += self.Manhattan[box]
-          
+           dist += self.Manhattan[box]          
        return dist
 	
 
@@ -710,26 +658,33 @@ class Heuristic:
     # Our solution to this problem affects or adds approximately 40 lines of     #
     # code in the file in total. Your can vary substantially from this.          #
     ##############################################################################
-    def heuristic2(self, s ):
+    def heuristic2(self, s):
         
-        #################################################################
-        #This is a very trivial 2nd heuristic we need a much better one
-        #for passing the grading standards
-        #################################################################
+        ############################################################################
         #
-        # 1.) penalize if there is a wall in the manhattan distance path
-        #     from the box to the goal / same for the player to box path
+        #  This function introduces a non linerlity in the calculation of 
+        #  The distance from the box to the goal by taking into account the 
+        #  root and pythogrean diatance of the box to the goeal.  
+        #  Is is certainly logical to believe that if a box in closer to the  
+        #  goal then it much have a higher propity. If a box is farther then
+        #  there are chances that it will likely get stuck in the wall or other
+        #  deadlocks.
+        #   
+        #  So it is better to expand states that are much nearer, so intoducing
+        #  non-linearity is a better way to do so. Adding the pythogrean distance
+        #  breaks ties between states that have the same manhattan distance. Which
+        #  Lesser pythgrean distance it better because boxes in that state can 
+        #  cover more aread faster. We are giving more weight to manhattan distance
+        #  We are not taking the average because it will weaken the heuristic, we 
+        #  want to stronger heuristic.
         #  
-        # 2.) penalize by multiplying with some factor if there is a lot of 
-        #     clutter around the box
+        #  The non-linearity function is :
         #  
-        # 3.) If a box in the path to another box then penalize the destination
-        #     box
-        #
-        #
-        #
-        ####################################################################
-        player = s.player()
+        #  f(distance) = Manhattan(distance) * 2 + sqrt(distance) + euclidean(distance)
+        #  
+        #  It is precomputed for faster computation
+        #   
+        #################################################################################
 
         dist = 0
         for box in s.boxes():
@@ -738,16 +693,13 @@ class Heuristic:
             
         return dist
 
-
-
-
 ## solve sokoban map using specified algorithm
 def solve_sokoban(map, algorithm='ucs', dead_detection=False):
     
     if 'f' in algorithm:
         problem = SokobanProblemFaster(map, dead_detection, algorithm)
     else:
-        problem = SokobanProblem(map, dead_detection, 'nf')
+        problem = SokobanProblem(map, dead_detection, algorithm)
 
     h = Heuristic(problem).heuristic2 if ('2' in algorithm) else Heuristic(problem).heuristic
     if 'a' in algorithm:
