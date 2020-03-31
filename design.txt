@@ -88,6 +88,9 @@ Level p5-level-3
 #################
 
 'Level improving from fa -d to fa2 -d
+'Level is doing better on fa2 due  to fa not able to distingus the a good way using manhattan distance only 
+'that might cause it to become unsolvble state so with euclidean and pythgrean we willbe able to disithugsh btewwn states that have the 'same manhattan. where in this case there are two boxes with nthe same manhattan.
+'where fa2 uses manhattan and uses 
 Level p5-level-4
 ########################
 #   #######            #
