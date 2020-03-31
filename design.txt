@@ -4,9 +4,9 @@
 
 'Level improving from ucs to ucs -d
 'This state has many dead ends that are not detected by the normal ucs
-'The dead ends that are in the the beginning are not detected but the
+'The dead ends that are in the upper part of the maze are not detected but the
 'dead end detection algorithm detects those dead ends. Normal ucs wastes
-'time in going throught those extremely large states
+'time in going throught those extremely large number of states
 Level p5-level-1
 ###########
 #         #
@@ -115,4 +115,24 @@ Level p5-level-4
 
 
 'Optional: level for the Sokoban contest
+'The reason why we think that this level is solved quickly by our heuristic because it starts putting boxes nearer 
+'to the goal more quickly than boxes farther from the goal.
+'So as boxes nearer to the goals are put to the goal, it opens space for for movement of the boxes that can be seen
+'In the vertical line to find faster positions to the goal, so the algorithm forces to discover these states and 
+'does not go around looking for more complicated paths to the goal and comsume more time.
+'The non linarity in our heuristic is enabling a much lower cost of nearby boxes and hence it is a good approach.
+'In addition we do not directly use the manhattan distance to estimate the distance we use the actual shortest 
+'distance from the box to goal that is reachable so it is better in estimating the true cost. 
 Level p5-contest
+#############
+######  #####
+###### $$ ###
+#+..... # ###
+# #####   $ #
+#    #  # $ #
+##      # $ #
+##   #  # $ #
+#### ####   #
+####     ## #
+########    #
+#############

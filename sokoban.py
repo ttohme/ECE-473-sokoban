@@ -8,7 +8,6 @@
 #                                                                         #
 ###########################################################################
 
-
 import util
 import os, sys
 import datetime, time
@@ -63,9 +62,9 @@ class SokobanState:
         #check for each box if its in a frozen situation       
         #chooses between precomputed and dynamic computing of frozen state
         
-        boxes = self.boxes()
-        
         if problem.combs:
+            
+            boxes = self.boxes()
             
             if 'f' not in problem.algorithm:
                 
@@ -579,7 +578,7 @@ class SokobanProblem(util.SearchProblem):
                 minSeq = self.AStar(box, target)
                 length = len(minSeq)
                 distances.append(length)
-            self.New[box] = (min(distances)**0.5) + min(distances) * 2 + self.pythoGrean[box]
+            self.New[box] = math.sqrt(min(distances)) + min(distances) * 2 + self.pythoGrean[box]
             
     
 
@@ -683,6 +682,14 @@ class Heuristic:
         #  f(distance) = Manhattan(distance) * 2 + sqrt(distance) + euclidean(distance)
         #  
         #  It is precomputed for faster computation
+        #  
+        #  Another factor that helps in reduction of the time by a huga amount if that 
+        #  We dont directly take the manhattan distance but we calculate the actual shortest
+        #  distance reachable from the box to the goal and hence it is faster. This is also
+        #  precomputed.
+        #
+        #  NOTE: We use our fa2 -d flag as the competition flag as well 
+        #
         #   
         #################################################################################
 
@@ -695,6 +702,10 @@ class Heuristic:
 
 ## solve sokoban map using specified algorithm
 def solve_sokoban(map, algorithm='ucs', dead_detection=False):
+    
+    if algorithm == 'c':        
+        algorithm = 'fa2'
+        dead_detection = True    
     
     if 'f' in algorithm:
         problem = SokobanProblemFaster(map, dead_detection, algorithm)
@@ -862,7 +873,7 @@ def main():
     parser.add_argument("-d", "--dead", help="Turn on dead state detection (default off)", action="store_true")
     parser.add_argument("-s", "--simulate", help="Simulate the solution (default off)", action="store_true")
     parser.add_argument("-f", "--file", help="File name storing the levels (levels.txt default)", default='levels.txt')
-    parser.add_argument("-t", "--timeout", help="Seconds to allow (default 300)", type=int, default=1000)
+    parser.add_argument("-t", "--timeout", help="Seconds to allow (default 300)", type=int, default=300)
 
     args = parser.parse_args()
     level = args.level
