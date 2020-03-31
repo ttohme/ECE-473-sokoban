@@ -37,6 +37,10 @@ Level p5-level-1
 ###########
 
 'Level improving from ucs -d to f -d
+'The algorithm with action compression (f) can solve this level much faster, 
+'since there are only 4 box moves (compressed actions) available. Without
+'action compression (ucs) there are a high amount of states to consider for 
+'the algorithm which explains the much higher runtime.
 Level p5-level-2
 #########################
 #.$                    .#
@@ -65,6 +69,11 @@ Level p5-level-2
 #########################
 
 'Level improving from f -d to fa -d
+'The number of different possible box moves is very high, which is why the
+'action compression algorithm (f) alone performs poorly on this level.
+'Since the manhattan distance is a perfect heuristic for this specific
+'level, the A* algorithm (fa) can reduce the number of states considerably
+'and achieves a much better performance.
 Level p5-level-3
 #################
 #.             .#
